@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-08-24</td>
+            <td class="headerValue">2012-08-28</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">62</td>
@@ -449,7 +449,7 @@
 <span class="lineNum">     378 </span>                :            :       {
 <span class="lineNum">     379 </span>                :<span class="lineCov">      14767 :         _Link_type __tmp = _M_get_node();</span>
 <span class="lineNum">     380 </span>                :            :         __try
-<span class="lineNum">     381 </span>        [<span class="branchNoExec" title="Branch 5 was not executed"> # </span><span class="branchNoExec" title="Branch 6 was not executed"> # </span>]:<span class="lineCov">      14767 :           { get_allocator().construct</span>
+<span class="lineNum">     381 </span>        [<span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span>]:<span class="lineCov">      14767 :           { get_allocator().construct</span>
 <span class="lineNum">     382 </span>                :            :               (std::__addressof(__tmp-&gt;_M_value_field), __x); }
 <span class="lineNum">     383 </span>                :<span class="lineNoCov">          0 :         __catch(...)</span>
 <span class="lineNum">     384 </span>                :            :           {
@@ -707,7 +707,7 @@
 <a name="636"><span class="lineNum">     636 </span>                :            : #endif</a>
 <span class="lineNum">     637 </span>                :            : 
 <span class="lineNum">     638 </span>                :<span class="lineCov">       1863 :       ~_Rb_tree()</span>
-<span class="lineNum">     639 </span>[<span class="branchCov" title="Branch 1 was taken 1863 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>][<span class="branchNoExec" title="Branch 8 was not executed"> # </span><span class="branchNoExec" title="Branch 9 was not executed"> # </span>]:<span class="lineCov">       1863 :       { _M_erase(_M_begin()); }</span>
+<span class="lineNum">     639 </span>[<span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span>][<span class="branchCov" title="Branch 8 was taken 1863 times"> + </span><span class="branchNoCov" title="Branch 9 was not taken"> - </span>]:<span class="lineCov">       1863 :       { _M_erase(_M_begin()); }</span>
 <span class="lineNum">     640 </span>                :            : 
 <span class="lineNum">     641 </span>                :            :       _Rb_tree&amp;
 <span class="lineNum">     642 </span>                :            :       operator=(const _Rb_tree&amp; __x);
@@ -1037,9 +1037,9 @@
 <span class="lineNum">     966 </span>                :            :     {
 <span class="lineNum">     967 </span>                :            :       bool __insert_left = (__x != 0 || __p == _M_end()
 <span class="lineNum">     968 </span>                :            :                             || _M_impl._M_key_compare(_KeyOfValue()(__v), 
-<span class="lineNum">     969 </span>[<span class="branchCov" title="Branch 0 was taken 4543 times"> + </span><span class="branchCov" title="Branch 1 was taken 676 times"> + </span>][<span class="branchCov" title="Branch 3 was taken 3903 times"> + </span><span class="branchCov" title="Branch 4 was taken 640 times"> + </span>]:<span class="lineCov">       5219 :                                                       _S_key(__p)));</span>
-<span class="lineNum">         </span>[<span class="branchNoCov" title="Branch 8 was not taken"> - </span><span class="branchCov" title="Branch 9 was taken 3903 times"> + </span>][<span class="branchNoExec" title="Branch 10 was not executed"> # </span><span class="branchNoExec" title="Branch 11 was not executed"> # </span>]
-<span class="lineNum">         </span>[<span class="branchNoExec" title="Branch 13 was not executed"> # </span><span class="branchNoExec" title="Branch 14 was not executed"> # </span>][<span class="branchNoExec" title="Branch 18 was not executed"> # </span><span class="branchNoExec" title="Branch 19 was not executed"> # </span>]
+<span class="lineNum">     969 </span>[<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>][<span class="branchNoExec" title="Branch 3 was not executed"> # </span><span class="branchNoExec" title="Branch 4 was not executed"> # </span>]:<span class="lineCov">       5219 :                                                       _S_key(__p)));</span>
+<span class="lineNum">         </span>[<span class="branchNoExec" title="Branch 8 was not executed"> # </span><span class="branchNoExec" title="Branch 9 was not executed"> # </span>][<span class="branchCov" title="Branch 10 was taken 4543 times"> + </span><span class="branchCov" title="Branch 11 was taken 676 times"> + </span>]
+<span class="lineNum">         </span>[<span class="branchCov" title="Branch 13 was taken 3903 times"> + </span><span class="branchCov" title="Branch 14 was taken 640 times"> + </span>][<span class="branchNoCov" title="Branch 18 was not taken"> - </span><span class="branchCov" title="Branch 19 was taken 3903 times"> + </span>]
 <span class="lineNum">     970 </span>                :            : 
 <span class="lineNum">     971 </span>                :<span class="lineCov">       5219 :       _Link_type __z = _M_create_node(_GLIBCXX_FORWARD(_Arg, __v));</span>
 <span class="lineNum">     972 </span>                :            : 
@@ -1143,7 +1143,7 @@
 <span class="lineNum">    1069 </span>                :            :     _M_erase(_Link_type __x)
 <span class="lineNum">    1070 </span>                :            :     {
 <span class="lineNum">    1071 </span>                :            :       // Erase without rebalancing.
-<span class="lineNum">    1072 </span>[<span class="branchCov" title="Branch 0 was taken 14767 times"> + </span><span class="branchCov" title="Branch 1 was taken 17263 times"> + </span>][<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineCov">      32030 :       while (__x != 0)</span>
+<span class="lineNum">    1072 </span>[<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>][<span class="branchCov" title="Branch 2 was taken 14767 times"> + </span><span class="branchCov" title="Branch 3 was taken 17263 times"> + </span>]:<span class="lineCov">      32030 :       while (__x != 0)</span>
 <span class="lineNum">    1073 </span>                :            :         {
 <span class="lineNum">    1074 </span>                :<span class="lineCov">      14767 :           _M_erase(_S_right(__x));</span>
 <span class="lineNum">    1075 </span>                :<span class="lineCov">      14767 :           _Link_type __y = _S_left(__x);</span>

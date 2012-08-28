@@ -32,17 +32,17 @@
             <td></td>
             <td class="headerItem">Lines:</td>
             <td class="headerCovTableEntry">48</td>
-            <td class="headerCovTableEntry">57</td>
-            <td class="headerCovTableEntryMed">84.2 %</td>
+            <td class="headerCovTableEntry">56</td>
+            <td class="headerCovTableEntryMed">85.7 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-08-24</td>
+            <td class="headerValue">2012-08-28</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">45</td>
-            <td class="headerCovTableEntry">51</td>
-            <td class="headerCovTableEntryMed">88.2 %</td>
+            <td class="headerCovTableEntry">49</td>
+            <td class="headerCovTableEntryHi">91.8 %</td>
           </tr>
           <tr>
             <td></td>
@@ -890,9 +890,9 @@
 <span class="lineNum">     819 </span>                :            :   { return mpf_cmp_d(f, d) == 0; }
 <span class="lineNum">     820 </span>                :            : };
 <span class="lineNum">     821 </span>                :            : 
-<a name="822"><span class="lineNum">     822 </span>                :            : struct __gmp_binary_not_equal</a>
+<span class="lineNum">     822 </span>                :            : struct __gmp_binary_not_equal
 <span class="lineNum">     823 </span>                :            : {
-<span class="lineNum">     824 </span>                :<span class="lineNoCov">          0 :   static bool eval(mpz_srcptr z, mpz_srcptr w) { return mpz_cmp(z, w) != 0; }</span>
+<span class="lineNum">     824 </span>                :            :   static bool eval(mpz_srcptr z, mpz_srcptr w) { return mpz_cmp(z, w) != 0; }
 <span class="lineNum">     825 </span>                :            : 
 <span class="lineNum">     826 </span>                :            :   static bool eval(mpz_srcptr z, unsigned long int l)
 <span class="lineNum">     827 </span>                :            :   { return mpz_cmp_ui(z, l) != 0; }
