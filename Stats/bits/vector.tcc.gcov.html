@@ -32,17 +32,17 @@
             <td></td>
             <td class="headerItem">Lines:</td>
             <td class="headerCovTableEntry">30</td>
-            <td class="headerCovTableEntry">56</td>
-            <td class="headerCovTableEntryLo">53.6 %</td>
+            <td class="headerCovTableEntry">49</td>
+            <td class="headerCovTableEntryLo">61.2 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-08-24</td>
+            <td class="headerValue">2012-08-28</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">9</td>
-            <td class="headerCovTableEntry">12</td>
-            <td class="headerCovTableEntryMed">75.0 %</td>
+            <td class="headerCovTableEntry">11</td>
+            <td class="headerCovTableEntryMed">81.8 %</td>
           </tr>
           <tr>
             <td></td>
@@ -50,8 +50,8 @@
             <td></td>
             <td class="headerItem">Branches:</td>
             <td class="headerCovTableEntry">30</td>
-            <td class="headerCovTableEntry">130</td>
-            <td class="headerCovTableEntryLo">23.1 %</td>
+            <td class="headerCovTableEntry">124</td>
+            <td class="headerCovTableEntryLo">24.2 %</td>
           </tr>
           <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -174,18 +174,17 @@
 <span class="lineNum">     103 </span>                :            :       }
 <span class="lineNum">     104 </span>                :            : #endif
 <span class="lineNum">     105 </span>                :            : 
-<a name="106"><span class="lineNum">     106 </span>                :            :   template&lt;typename _Tp, typename _Alloc&gt;</a>
+<span class="lineNum">     106 </span>                :            :   template&lt;typename _Tp, typename _Alloc&gt;
 <span class="lineNum">     107 </span>                :            :     typename vector&lt;_Tp, _Alloc&gt;::iterator
-<span class="lineNum">     108 </span>                :<span class="lineNoCov">          0 :     vector&lt;_Tp, _Alloc&gt;::</span>
+<span class="lineNum">     108 </span>                :            :     vector&lt;_Tp, _Alloc&gt;::
 <span class="lineNum">     109 </span>                :            :     insert(iterator __position, const value_type&amp; __x)
 <span class="lineNum">     110 </span>                :            :     {
-<span class="lineNum">     111 </span>                :<span class="lineNoCov">          0 :       const size_type __n = __position - begin();</span>
-<span class="lineNum">     112 </span>[<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>][<span class="branchNoExec" title="Branch 4 was not executed"> # </span><span class="branchNoExec" title="Branch 5 was not executed"> # </span>]:<span class="lineNoCov">          0 :       if (this-&gt;_M_impl._M_finish != this-&gt;_M_impl._M_end_of_storage</span>
-<span class="lineNum">         </span>        [<span class="branchNoExec" title="Branch 6 was not executed"> # </span><span class="branchNoExec" title="Branch 7 was not executed"> # </span>]
+<span class="lineNum">     111 </span>                :            :       const size_type __n = __position - begin();
+<span class="lineNum">     112 </span>                :            :       if (this-&gt;_M_impl._M_finish != this-&gt;_M_impl._M_end_of_storage
 <span class="lineNum">     113 </span>                :            :           &amp;&amp; __position == end())
 <span class="lineNum">     114 </span>                :            :         {
-<span class="lineNum">     115 </span>                :<span class="lineNoCov">          0 :           this-&gt;_M_impl.construct(this-&gt;_M_impl._M_finish, __x);</span>
-<span class="lineNum">     116 </span>                :<span class="lineNoCov">          0 :           ++this-&gt;_M_impl._M_finish;</span>
+<span class="lineNum">     115 </span>                :            :           this-&gt;_M_impl.construct(this-&gt;_M_impl._M_finish, __x);
+<span class="lineNum">     116 </span>                :            :           ++this-&gt;_M_impl._M_finish;
 <span class="lineNum">     117 </span>                :            :         }
 <span class="lineNum">     118 </span>                :            :       else
 <span class="lineNum">     119 </span>                :            :         {
@@ -197,9 +196,9 @@
 <span class="lineNum">     125 </span>                :            :             }
 <span class="lineNum">     126 </span>                :            :           else
 <span class="lineNum">     127 </span>                :            : #endif
-<span class="lineNum">     128 </span>                :<span class="lineNoCov">          0 :             _M_insert_aux(__position, __x);</span>
+<span class="lineNum">     128 </span>                :            :             _M_insert_aux(__position, __x);
 <span class="lineNum">     129 </span>                :            :         }
-<span class="lineNum">     130 </span>                :<span class="lineNoCov">          0 :       return iterator(this-&gt;_M_impl._M_start + __n);</span>
+<span class="lineNum">     130 </span>                :            :       return iterator(this-&gt;_M_impl._M_start + __n);
 <span class="lineNum">     131 </span>                :            :     }
 <span class="lineNum">     132 </span>                :            : 
 <a name="133"><span class="lineNum">     133 </span>                :            :   template&lt;typename _Tp, typename _Alloc&gt;</a>
