@@ -1,18 +1,24 @@
 CC=gcc
 CXX=g++
-RM=rm -f
+RM=rm -fr
 CPPFLAGS=-g 
-LDFLAGS=-g 
+LDFLAGS=-g -fprofile-arcs -ftest-coverage
 LDLIBS=-lgmpxx -lgmp
 
-SRCS=Energy.cc
-OBJS=$(subst .cc,.o,$(SRCS))
+SRC_DIR=lib
+FILES=Energy.cc
 
-all: Energy
-	
-Energy: $(OBJS)
-	g++ $(LDFLAGS) -o Energy $(OBJS) $(LDLIBS) 
+OBJ_FILES=$(subst .cc,.o,$(FILES))
 
+OUTFILE=main.out
+
+
+
+all: $(OBJ_FILES)
+	$(CXX) $(LDFLAGS) $(OBJ_FILES) -o $(OUTFILE) $(LDLIBS) 
+
+$(OBJ_FILES) : 
+	$(CXX) $(LDFLAGS) -c $(FILES) -o $@
 
 clean:
-	$(RM) $(OBJS)
+	$(RM) $(OBJ_FILES) $(OUTFILE)
