@@ -1,0 +1,184 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - stat.info - /home/yogi/git/Partition-functions/src/Energy.cc</title>
+  <link rel="stylesheet" type="text/css" href="../../../../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../../../../index.html">top level</a> - <a href="index.html">home/yogi/git/Partition-functions/src</a> - Energy.cc<span style="font-size: 80%;"> (source / <a href="Energy.cc.func.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">stat.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">28</td>
+            <td class="headerCovTableEntry">28</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2012-08-24</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">3</td>
+            <td class="headerCovTableEntry">3</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="headerItem">Branches:</td>
+            <td class="headerCovTableEntry">45</td>
+            <td class="headerCovTableEntry">88</td>
+            <td class="headerCovTableEntryLo">51.1 %</td>
+          </tr>
+          <tr><td><img src="../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">           Branch data     Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>                :            : //============================================================================</a>
+<span class="lineNum">       2 </span>                :            : // Name        : 1.cpp
+<span class="lineNum">       3 </span>                :            : // Author      : Yogendra Valani
+<span class="lineNum">       4 </span>                :            : // Version     :
+<span class="lineNum">       5 </span>                :            : // Copyright   : Your copyright notice
+<span class="lineNum">       6 </span>                :            : // Description : Hello World in C++, Ansi-style
+<span class="lineNum">       7 </span>                :            : //============================================================================
+<span class="lineNum">       8 </span>                :            : 
+<span class="lineNum">       9 </span>                :            : #include &lt;vector&gt;
+<span class="lineNum">      10 </span>                :            : #include &lt;time.h&gt;
+<span class="lineNum">      11 </span>                :            : #include &lt;cstdlib&gt;
+<span class="lineNum">      12 </span>                :            : #include &quot;latticeSize.cc&quot;
+<span class="lineNum">      13 </span>                :            : #include &quot;Globals.cc&quot;
+<span class="lineNum">      14 </span>                :            : #include &quot;myTimer.cc&quot;
+<span class="lineNum">      15 </span>                :            : 
+<span class="lineNum">      16 </span>                :            : template &lt;class T, class S&gt;
+<span class="lineNum">      17 </span>                :            : int search_list(T &amp;elist, S &amp;s);
+<span class="lineNum">      18 </span>                :            : 
+<span class="lineNum">      19 </span>                :            : // }}}
+<span class="lineNum">      20 </span>                :            : #include &quot;Grid.cc&quot;
+<span class="lineNum">      21 </span>                :            : #include &quot;Polynomial.cc&quot;
+<span class="lineNum">      22 </span>                :            : #include &quot;refPolynomial.cc&quot;
+<span class="lineNum">      23 </span>                :            : #include &quot;Storage.cc&quot;
+<span class="lineNum">      24 </span>                :            : #include &quot;Storage_y.cc&quot;
+<span class="lineNum">      25 </span>                :            : 
+<span class="lineNum">      26 </span>                :            : 
+<span class="lineNum">      27 </span>                :            : #include &quot;searchMethods.cc&quot;
+<span class="lineNum">      28 </span>                :            : #include &quot;fileMethods.cc&quot;
+<span class="lineNum">      29 </span>                :            : #include &quot;commonMethods.cc&quot;
+<span class="lineNum">      30 </span>                :            : #include &quot;buildGroups.cc&quot;
+<span class="lineNum">      31 </span>                :            : #include &quot;build2d_9.cc&quot;
+<span class="lineNum">      32 </span>                :            : #include &quot;build2d_10.cc&quot;
+<span class="lineNum">      33 </span>                :            : #include &quot;AddLayers2.cc&quot;
+<span class="lineNum">      34 </span>                :            : #include &quot;AddLayers.cc&quot;
+<span class="lineNum">      35 </span>                :            : 
+<span class="lineNum">      36 </span>                :            : // }}}
+<span class="lineNum">      37 </span>                :            : 
+<a name="38"><span class="lineNum">      38 </span>                :            : // {{{ Main method</a>
+<span class="lineNum">      39 </span>                :            : 
+<span class="lineNum">      40 </span>                :<span class="lineCov">          1 : int main(int argc, char** argv) {</span>
+<span class="lineNum">      41 </span>                :<span class="lineCov">          1 :     time(&amp;startTime);</span>
+<span class="lineNum">      42 </span>        [<span class="branchCov" title="Branch 1 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>]:<span class="lineCov">          1 :     VPOL_FILENAME = create_filename(zSize);</span>
+<span class="lineNum">      43 </span>        [<span class="branchCov" title="Branch 1 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>]:<span class="lineCov">          1 :     string vpol_filename = &quot;/tmp&quot;;</span>
+<span class="lineNum">      44 </span>[<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>][<span class="branchCov" title="Branch 3 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 4 was not taken"> - </span>]:<span class="lineCov">          1 :     VPOL_FILENAME = concat(vpol_filename, VPOL_FILENAME);</span>
+<span class="lineNum">         </span>[<span class="branchCov" title="Branch 6 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 7 was not taken"> - </span>][<span class="branchCov" title="Branch 9 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 10 was not taken"> - </span>]
+<span class="lineNum">         </span>[<span class="branchCov" title="Branch 12 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 13 was not taken"> - </span>][<span class="branchCov" title="Branch 15 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 16 was not taken"> - </span>]
+<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 18 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 19 was not taken"> - </span>]
+<span class="lineNum">      45 </span>[<span class="branchCov" title="Branch 1 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>][<span class="branchCov" title="Branch 4 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 5 was not taken"> - </span>]:<span class="lineCov">          1 :     vector&lt;vector&lt;Storage&gt; &gt;  vlist1(ySize + 1);</span>
+<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 7 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 8 was not taken"> - </span>]
+<span class="lineNum">      46 </span>[<span class="branchCov" title="Branch 1 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>][<span class="branchCov" title="Branch 4 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 5 was not taken"> - </span>]:<span class="lineCov">          1 :     vector&lt;vector&lt;Storage&gt; &gt;  vpol_vlist(ySize + 1);</span>
+<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 7 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 8 was not taken"> - </span>]
+<span class="lineNum">      47 </span>                :            : 
+<span class="lineNum">      48 </span>                :            : 
+<span class="lineNum">      49 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          1 :     makeGroups();</span>
+<span class="lineNum">      50 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          1 :     G_TABLE1 transformGroups;</span>
+<span class="lineNum">      51 </span>        [<span class="branchCov" title="Branch 1 was taken 4 times"> + </span><span class="branchCov" title="Branch 2 was taken 1 time"> + </span>]:<span class="lineCov">          5 :     for (int i = 0; i &lt; TRANSFORMGROUP.size(); i++) {</span>
+<span class="lineNum">      52 </span>        [<span class="branchCov" title="Branch 0 was taken 4 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          4 :         transformGroups.push_back(i);</span>
+<span class="lineNum">      53 </span>                :            :     }
+<span class="lineNum">      54 </span>                :            : 
+<span class="lineNum">      55 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          1 :     G_TABLE2 ylistTable;</span>
+<span class="lineNum">      56 </span>[<span class="branchCov" title="Branch 1 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>][<span class="branchCov" title="Branch 4 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 5 was not taken"> - </span>]:<span class="lineCov">          1 :     vector&lt;vector&lt;Polynomial&gt; &gt; vpol(ySize + 1);</span>
+<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 7 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 8 was not taken"> - </span>]
+<span class="lineNum">      57 </span>[<span class="branchCov" title="Branch 2 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>][<span class="branchCov" title="Branch 5 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 6 was not taken"> - </span>]:<span class="lineCov">          1 :     build_2dLattice(vlist1, transformGroups, ylistTable, vpol[1], vpol_vlist[0]); //Make the 2d lattice. (8)</span>
+<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 8 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 9 was not taken"> - </span>]
+<span class="lineNum">      58 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          1 :     cout &lt;&lt; &quot;built 2d lattice\n&quot;;</span>
+<span class="lineNum">      59 </span>                :            : 
+<span class="lineNum">      60 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          1 :     cout &lt;&lt; &quot;create total ref pol\n&quot;;</span>
+<span class="lineNum">      61 </span>                :<span class="lineCov">          1 :     time(&amp;startTime);</span>
+<span class="lineNum">      62 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          1 :     refPolynomial total;</span>
+<span class="lineNum">      63 </span>                :            :     if (true) {
+<span class="lineNum">      64 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          1 :         vector&lt;refPolynomial&gt; vrefpol;</span>
+<span class="lineNum">      65 </span>                :<span class="lineCov">          1 :         int vlist_index = vlist1[0].size() - 1;</span>
+<span class="lineNum">      66 </span>                :            :         if (ySize == 1)
+<span class="lineNum">      67 </span>                :            :             vlist_index = 0; //vpol_vlist[0].size()-1;
+<span class="lineNum">      68 </span>                :            :         make_refpol(0,
+<span class="lineNum">      69 </span>                :            :                 transformGroups,
+<span class="lineNum">      70 </span>                :            :                 vrefpol,
+<span class="lineNum">      71 </span>                :<span class="lineCov">          1 :                 vlist1[0],</span>
+<span class="lineNum">      72 </span>                :<span class="lineCov">          1 :                 vpol_vlist[0],</span>
+<span class="lineNum">      73 </span>                :            :                 vlist_index
+<span class="lineNum">      74 </span>[<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>][<span class="branchCov" title="Branch 3 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 4 was not taken"> - </span>]:<span class="lineCov">          1 :                 );</span>
+<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 6 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 7 was not taken"> - </span>]
+<span class="lineNum">      75 </span>[<span class="branchCov" title="Branch 1 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>][<span class="branchCov" title="Branch 4 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 5 was not taken"> - </span>]:<span class="lineCov">          1 :         total = vrefpol[0];</span>
+<span class="lineNum">      76 </span>                :            :     }
+<span class="lineNum">      77 </span>                :            : 
+<span class="lineNum">      78 </span>                :<span class="lineCov">          1 :     time(&amp;startTime);</span>
+<span class="lineNum">      79 </span>                :            :     if(BConds3){
+<span class="lineNum">      80 </span>                :            :         total.ylist_multiplicity(ylistTable);
+<span class="lineNum">      81 </span>                :            :         buildAdd(ylistTable, transformGroups, vlist1, vpol, vpol_vlist);
+<span class="lineNum">      82 </span>                :            :     }
+<span class="lineNum">      83 </span>                :            :     else{
+<span class="lineNum">      84 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          1 :         buildAdd(ylistTable, transformGroups, vlist1, vpol, vpol_vlist, total);</span>
+<a name="85"><span class="lineNum">      85 </span>                :            :     }</a>
+<span class="lineNum">      86 </span>[<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>][<span class="branchCov" title="Branch 3 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 4 was not taken"> - </span>]:<span class="lineCov">          1 :     return 0;</span>
+<span class="lineNum">         </span>[<span class="branchCov" title="Branch 6 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 7 was not taken"> - </span>][<span class="branchCov" title="Branch 9 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 10 was not taken"> - </span>]
+<span class="lineNum">         </span>[<span class="branchCov" title="Branch 12 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 13 was not taken"> - </span>][<span class="branchCov" title="Branch 15 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 16 was not taken"> - </span>]
+<span class="lineNum">      87 </span>[<span class="branchCov" title="Branch 1 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>][<span class="branchCov" title="Branch 3 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 4 was not taken"> - </span>]:<span class="lineCov">          3 : }</span>
+<span class="lineNum">      88 </span>                :            : 
+<span class="lineNum">      89 </span>                :            : // }}}
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.9</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

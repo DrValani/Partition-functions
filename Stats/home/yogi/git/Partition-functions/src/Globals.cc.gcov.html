@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - stat.info - /home/yogi/git/Partition-functions/src/Globals.cc</title>
+  <link rel="stylesheet" type="text/css" href="../../../../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../../../../index.html">top level</a> - <a href="index.html">home/yogi/git/Partition-functions/src</a> - Globals.cc<span style="font-size: 80%;"> (source / <a href="Globals.cc.func.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">stat.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">8</td>
+            <td class="headerCovTableEntry">12</td>
+            <td class="headerCovTableEntryLo">66.7 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2012-08-24</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">1</td>
+            <td class="headerCovTableEntry">2</td>
+            <td class="headerCovTableEntryLo">50.0 %</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="headerItem">Branches:</td>
+            <td class="headerCovTableEntry">2</td>
+            <td class="headerCovTableEntry">4</td>
+            <td class="headerCovTableEntryLo">50.0 %</td>
+          </tr>
+          <tr><td><img src="../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">           Branch data     Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>                :            : #ifndef Globals_CC</a>
+<span class="lineNum">       2 </span>                :            : #define Globals_CC
+<span class="lineNum">       3 </span>                :            : 
+<span class="lineNum">       4 </span>                :            : /*
+<span class="lineNum">       5 </span>                :            :  * Globals.cc
+<span class="lineNum">       6 </span>                :            :  *
+<span class="lineNum">       7 </span>                :            :  *  Created on: 19 Aug 2012
+<span class="lineNum">       8 </span>                :            :  *      Author: yogi
+<span class="lineNum">       9 </span>                :            :  */
+<span class="lineNum">      10 </span>                :            : 
+<span class="lineNum">      11 </span>                :            : #include &quot;latticeSize.cc&quot;
+<span class="lineNum">      12 </span>                :            : #include &quot;Globals.h&quot;
+<span class="lineNum">      13 </span>                :            : 
+<span class="lineNum">      14 </span>                :            : time_t startTime;
+<span class="lineNum">      15 </span>                :            : const int MAXPOWER = xSize + 1;
+<span class="lineNum">      16 </span>                :            : int shiftxARR[ARRSIZE];
+<span class="lineNum">      17 </span>                :            : int reflectxARR[ARRSIZE];
+<span class="lineNum">      18 </span>                :            : int transposeARR[ARRSIZE][xSize];
+<span class="lineNum">      19 </span>                :            : int subARR[xSize][ySize]; // For the subclasses
+<span class="lineNum">      20 </span>                :<span class="lineCov">          1 : std::vector&lt;std::vector&lt;int&gt; &gt; transformARR;</span>
+<span class="lineNum">      21 </span>                :            : 
+<span class="lineNum">      22 </span>                :            : 
+<span class="lineNum">      23 </span>                :            : typedef vector&lt;int&gt; G_TABLE1;
+<span class="lineNum">      24 </span>                :            : typedef vector&lt;G_TABLE1&gt; G_TABLE2;
+<span class="lineNum">      25 </span>                :            : typedef vector&lt;G_TABLE2&gt; G_TABLE3;
+<span class="lineNum">      26 </span>                :<span class="lineCov">          1 : G_TABLE2 GROUPTABLE;</span>
+<span class="lineNum">      27 </span>                :            : 
+<span class="lineNum">      28 </span>                :            : #ifndef MAXPOLYSIZE
+<span class="lineNum">      29 </span>                :            : #define MAXPOLYSIZE (3 * xSize * ySize * zSize) + 1// Max power of lattice
+<span class="lineNum">      30 </span>                :            : #endif
+<a name="31"><span class="lineNum">      31 </span>                :<span class="lineCov">          1 : string VPOL_FILENAME;</span></a>
+<span class="lineNum">      32 </span>                :            : 
+<span class="lineNum">      33 </span>                :<span class="lineNoCov">          0 : ostream &amp; operator&lt;&lt;(ostream &amp; out, const vector&lt;pair&lt;int, int&gt; &gt; &amp;s) {</span>
+<span class="lineNum">      34 </span>        [<span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span>]:<span class="lineNoCov">          0 :     for (vector&lt;pair&lt;int, int&gt; &gt;::size_type i = 0; i &lt; s.size(); i++)</span>
+<span class="lineNum">      35 </span>                :<span class="lineNoCov">          0 :         out &lt;&lt; &quot;(&quot; &lt;&lt; s[i].first &lt;&lt; &quot;, &quot; &lt;&lt; s[i].second &lt;&lt; &quot;)\t&quot;;</span>
+<span class="lineNum">      36 </span>                :<span class="lineNoCov">          0 :     return out;</span>
+<a name="37"><span class="lineNum">      37 </span>                :            : }</a>
+<span class="lineNum">      38 </span>                :            : 
+<span class="lineNum">      39 </span>                :<span class="lineCov">         38 : ostream &amp; operator&lt;&lt;(ostream &amp; out, const vector&lt;int&gt; &amp;allCombos) {</span>
+<span class="lineNum">      40 </span>        [<span class="branchCov" title="Branch 1 was taken 152 times"> + </span><span class="branchCov" title="Branch 2 was taken 38 times"> + </span>]:<span class="lineCov">        190 :     for (unsigned int i = 0; i &lt; allCombos.size(); i++) {</span>
+<span class="lineNum">      41 </span>                :<span class="lineCov">        152 :         out &lt;&lt; allCombos[i] &lt;&lt; endl;</span>
+<span class="lineNum">      42 </span>                :            :     }
+<span class="lineNum">      43 </span>                :<span class="lineCov">         38 :     out &lt;&lt; endl;</span>
+<span class="lineNum">      44 </span>                :<span class="lineCov">         38 :     return out;</span>
+<span class="lineNum">      45 </span>                :            : }
+<span class="lineNum">      46 </span>                :            : 
+<span class="lineNum">      47 </span>                :            : #endif
+<span class="lineNum">      48 </span>                :            : 
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.9</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - stat.info - /home/yogi/git/Partition-functions/src/Grid.h</title>
+  <link rel="stylesheet" type="text/css" href="../../../../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../../../../index.html">top level</a> - <a href="index.html">home/yogi/git/Partition-functions/src</a> - Grid.h<span style="font-size: 80%;"> (source / <a href="Grid.h.func.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">stat.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">3</td>
+            <td class="headerCovTableEntry">5</td>
+            <td class="headerCovTableEntryLo">60.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2012-08-24</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">5</td>
+            <td class="headerCovTableEntry">7</td>
+            <td class="headerCovTableEntryLo">71.4 %</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="headerItem">Branches:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntryHi">-</td>
+          </tr>
+          <tr><td><img src="../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">           Branch data     Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>                :            : /* </a>
+<span class="lineNum">       2 </span>                :            :  * File:   Grid.h
+<span class="lineNum">       3 </span>                :            :  * Author: yogi
+<span class="lineNum">       4 </span>                :            :  *
+<span class="lineNum">       5 </span>                :            :  * Created on 17 August 2012, 07:11
+<span class="lineNum">       6 </span>                :            :  */
+<span class="lineNum">       7 </span>                :            : #ifndef GRID_H
+<span class="lineNum">       8 </span>                :            : #define GRID_H
+<span class="lineNum">       9 </span>                :            : 
+<span class="lineNum">      10 </span>                :            : #include &lt;vector&gt;
+<span class="lineNum">      11 </span>                :            : #include &lt;algorithm&gt;
+<span class="lineNum">      12 </span>                :            : #include &lt;iostream&gt;
+<span class="lineNum">      13 </span>                :            : #include &lt;sstream&gt;
+<span class="lineNum">      14 </span>                :            : #include &lt;fstream&gt;
+<span class="lineNum">      15 </span>                :            : #include &quot;latticeSize.cc&quot;
+<span class="lineNum">      16 </span>                :            : #include &quot;Globals.cc&quot;
+<span class="lineNum">      17 </span>                :            : using namespace std;
+<span class="lineNum">      18 </span>                :            : /**
+<span class="lineNum">      19 </span>                :            :  * The binary class makes a Grid with n rows and m cols.  
+<span class="lineNum">      20 </span>                :            :  * It has a method add, which will go through             
+<span class="lineNum">      21 </span>                :            :  * every combination and return false once all possible   
+<a name="22"><span class="lineNum">      22 </span>                :            :  * combinations have been called.                         </a>
+<span class="lineNum">      23 </span>                :            :  **/
+<span class="lineNum">      24 </span>                :<span class="lineCov">         49 : class Grid{</span>
+<span class="lineNum">      25 </span>                :            : public:  
+<span class="lineNum">      26 </span>                :            :   Grid():row_size(1),col_size(1){}
+<span class="lineNum">      27 </span>                :            :   Grid(const int &amp;_row_size, const int &amp;_col_size);
+<span class="lineNum">      28 </span>                :            :   bool equals(const Grid &amp;g)const;
+<span class="lineNum">      29 </span>                :            :   void transform(const vector&lt;int&gt; &amp;perm);
+<span class="lineNum">      30 </span>                :            :   void reflect();
+<span class="lineNum">      31 </span>                :            :   void shift();
+<span class="lineNum">      32 </span>                :            :   void rotate();
+<span class="lineNum">      33 </span>                :            :   bool combinationsRemaining() const;
+<span class="lineNum">      34 </span>                :            :   void print() const;
+<span class="lineNum">      35 </span>                :            :   // New methods
+<span class="lineNum">      36 </span>                :            :   int calcEnergy_step1()const;
+<span class="lineNum">      37 </span>                :            :   int calcEnergy_step2()const;
+<span class="lineNum">      38 </span>                :            :   int calcEnergy_step3()const;
+<span class="lineNum">      39 </span>                :            :   int calcEnergy_step3_1()const;
+<span class="lineNum">      40 </span>                :            :   int calcEnergy_step4()const;
+<span class="lineNum">      41 </span>                :            :   int calcEnergy_brute2d_1()const;
+<span class="lineNum">      42 </span>                :            :   int calcEnergy_brute2()const;
+<span class="lineNum">      43 </span>                :            :   int calcEnergy_brute3()const;
+<span class="lineNum">      44 </span>                :            :   int calcEnergy_brute4()const;
+<span class="lineNum">      45 </span>                :            :   int calcEnergy_brute5()const;
+<span class="lineNum">      46 </span>                :            :   int calcEnergy_brute6()const;
+<span class="lineNum">      47 </span>                :            :   int calcEnergy_brute7()const;
+<span class="lineNum">      48 </span>                :            :   int calcEnergy_brute8()const;
+<span class="lineNum">      49 </span>                :            :   int calcEnergy_brute9()const;
+<a name="50"><span class="lineNum">      50 </span>                :            :   void reset();</a>
+<a name="51"><span class="lineNum">      51 </span>                :            :   void nextCombination();</a>
+<a name="52"><span class="lineNum">      52 </span>                :<span class="lineCov">        160 :   int getPoint(int x, int y)const{return (bv[x][y]);}</span></a>
+<a name="53"><span class="lineNum">      53 </span>                :<span class="lineNoCov">          0 :   int get_row_size()const{return row_size;}</span></a>
+<span class="lineNum">      54 </span>                :<span class="lineNoCov">          0 :   int get_col_size()const{return col_size;}</span>
+<span class="lineNum">      55 </span>                :<span class="lineCov">       1755 :   void setGrid(const int &amp;x,const int &amp;y, const int &amp;i){bv[x][y] = i;}</span>
+<span class="lineNum">      56 </span>                :            :   //set point (x, y) to i
+<span class="lineNum">      57 </span>                :            :   void calculate_edge_subgraphs(vector&lt;pair&lt;int, int&gt; &gt; &amp;vpr, bool inverse)const;
+<span class="lineNum">      58 </span>                :            : private:
+<span class="lineNum">      59 </span>                :            :   vector&lt;vector&lt;int&gt; &gt; bv; //This is the Grid
+<span class="lineNum">      60 </span>                :            :   int row_size;
+<span class="lineNum">      61 </span>                :            :   int col_size;
+<span class="lineNum">      62 </span>                :            :   bool moreCombos;  //Are there any more combinations?
+<span class="lineNum">      63 </span>                :            :   void changeAll(const int change, const int to)const;
+<span class="lineNum">      64 </span>                :            :   void check_neighbour(const int &amp;i,const int &amp;j, const int &amp;ngh_i,
+<span class="lineNum">      65 </span>                :            :                        const int &amp;ngh_j, int &amp;subG_counter, int &amp;subG_no,
+<span class="lineNum">      66 </span>                :            :                        vector&lt;pair&lt;int, int&gt; &gt; &amp;vpr, bool inverse)const;
+<span class="lineNum">      67 </span>                :            : }; //End of Class Grid 
+<span class="lineNum">      68 </span>                :            : #endif  /* GRID_H */
+<span class="lineNum">      69 </span>                :            : 
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.9</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

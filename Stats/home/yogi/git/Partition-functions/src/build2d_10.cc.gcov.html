@@ -1,0 +1,223 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - stat.info - /home/yogi/git/Partition-functions/src/build2d_10.cc</title>
+  <link rel="stylesheet" type="text/css" href="../../../../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../../../../index.html">top level</a> - <a href="index.html">home/yogi/git/Partition-functions/src</a> - build2d_10.cc<span style="font-size: 80%;"> (source / <a href="build2d_10.cc.func.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">stat.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">62</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2012-08-24</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">5</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="headerItem">Branches:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">82</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr><td><img src="../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">           Branch data     Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>                :            : #ifndef build2d_10_CC</a>
+<span class="lineNum">       2 </span>                :            : #define build2d_10_CC
+<span class="lineNum">       3 </span>                :            : 
+<span class="lineNum">       4 </span>                :            : #include &quot;latticeSize.cc&quot;
+<span class="lineNum">       5 </span>                :            : #include &quot;Storage.cc&quot;
+<span class="lineNum">       6 </span>                :            : #include &quot;Storage_y.cc&quot;
+<span class="lineNum">       7 </span>                :            : #include &quot;commonMethods.cc&quot;
+<a name="8"><span class="lineNum">       8 </span>                :            : #include &quot;searchMethods.cc&quot;</a>
+<span class="lineNum">       9 </span>                :            : 
+<span class="lineNum">      10 </span>                :<span class="lineNoCov">          0 : int forward_traverse_tree(int tree_index, int current_column, Storage_y svy,</span>
+<span class="lineNum">      11 </span>                :            :     vector&lt;Storage&gt; &amp;config_tree, std::vector&lt;int&gt; &amp;deltaCounter,
+<span class="lineNum">      12 </span>                :            :     const G_TABLE1 &amp;ylist_bc3, const vector&lt;Storage&gt; &amp; GrowthMatrix) {
+<span class="lineNum">      13 </span>                :<span class="lineNoCov">          0 :         int configuration = config_tree[tree_index][svy[ySize - 1 - current_column]];</span>
+<span class="lineNum">      14 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (current_column &lt; ySize - 1) {</span>
+<span class="lineNum">      15 </span>                :            :                 return forward_traverse_tree(configuration, current_column + 1, svy,
+<span class="lineNum">      16 </span>        [<span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span>]:<span class="lineNoCov">          0 :                     config_tree, deltaCounter, ylist_bc3, GrowthMatrix);</span>
+<span class="lineNum">      17 </span>                :            :         }
+<span class="lineNum">      18 </span>                :            : 
+<span class="lineNum">      19 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (configuration == -1) {</span>
+<span class="lineNum">      20 </span>                :<span class="lineNoCov">          0 :                 svy.calc_subgraphs();</span>
+<span class="lineNum">      21 </span>                :<span class="lineNoCov">          0 :                 deltaCounter.push_back(svy.getDelta(ylist_bc3, GrowthMatrix));</span>
+<span class="lineNum">      22 </span>                :<span class="lineNoCov">          0 :                 config_tree[tree_index].push_back(svy[ySize - 1 - current_column],</span>
+<span class="lineNum">      23 </span>                :<span class="lineNoCov">          0 :                     deltaCounter.size() - 1);</span>
+<span class="lineNum">      24 </span>                :            :         }
+<span class="lineNum">      25 </span>                :<span class="lineNoCov">          0 :         return config_tree[tree_index][svy[ySize - 1 - current_column]];</span>
+<a name="26"><span class="lineNum">      26 </span>                :            : }</a>
+<span class="lineNum">      27 </span>                :            : 
+<span class="lineNum">      28 </span>                :<span class="lineNoCov">          0 : void create_ylist_table2(int tree_index, const int current_column,</span>
+<span class="lineNum">      29 </span>                :            :     G_TABLE2 &amp;ylistTable, vector&lt;int&gt; yogi, vector&lt;Storage&gt; &amp;config_tree) {
+<span class="lineNum">      30 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (current_column &lt; ySize - 1) {</span>
+<span class="lineNum">      31 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :                 for (int config = 0; config &lt; ARRSIZE; config++) {</span>
+<span class="lineNum">      32 </span>        [<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :                         if (config_tree[tree_index][config] != -1) {</span>
+<span class="lineNum">      33 </span>                :<span class="lineNoCov">          0 :                                 yogi[ySize - 1 - current_column] = config;</span>
+<span class="lineNum">      34 </span>                :<span class="lineNoCov">          0 :                                 create_ylist_table2(config_tree[tree_index][config], current_column + 1,</span>
+<span class="lineNum">      35 </span>        [<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :                                     ylistTable, yogi, config_tree);</span>
+<span class="lineNum">      36 </span>                :            :                         }
+<span class="lineNum">      37 </span>                :            :                 }
+<span class="lineNum">      38 </span>                :            :         } else {
+<span class="lineNum">      39 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :                 for (int config = 0; config &lt; ARRSIZE; config++) {</span>
+<span class="lineNum">      40 </span>        [<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :                         if (config_tree[tree_index][config] != -1) {</span>
+<span class="lineNum">      41 </span>                :<span class="lineNoCov">          0 :                                 yogi[ySize - 1 - current_column] = config;</span>
+<span class="lineNum">      42 </span>                :<span class="lineNoCov">          0 :                                 yogi[ySize] = config_tree[tree_index][config];</span>
+<span class="lineNum">      43 </span>                :<span class="lineNoCov">          0 :                                 ylistTable.push_back(yogi);</span>
+<span class="lineNum">      44 </span>                :            :                         }
+<span class="lineNum">      45 </span>                :            :                 }
+<span class="lineNum">      46 </span>                :            :         }
+<span class="lineNum">      47 </span>                :<span class="lineNoCov">          0 : }</span>
+<span class="lineNum">      48 </span>                :            : 
+<span class="lineNum">      49 </span>                :            : /**
+<a name="50"><span class="lineNum">      50 </span>                :            :  *Difference is find_symmetrical_equivalent is used instead</a>
+<span class="lineNum">      51 </span>                :            :  */
+<span class="lineNum">      52 </span>                :<span class="lineNoCov">          0 : Storage lastColumn(G_TABLE1 &amp;transformGroups, Storage_y svy,</span>
+<span class="lineNum">      53 </span>                :            :     vector&lt;Storage&gt; &amp;config_tree, std::vector&lt;int&gt; &amp;deltaCounter,
+<span class="lineNum">      54 </span>                :            :     const G_TABLE1 &amp;ylist_bc3, const vector&lt;Storage&gt; &amp; GrowthMatrix) {
+<span class="lineNum">      55 </span>                :<span class="lineNoCov">          0 :         Storage outer(true);</span>
+<span class="lineNum">      56 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         for (int a = 0; a &lt; ARRSIZE; a++) {</span>
+<span class="lineNum">      57 </span>                :<span class="lineNoCov">          0 :                 int new_a = find_symmetrical_equivalent(a, transformGroups, outer);</span>
+<span class="lineNum">      58 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :                 if (new_a == -1) {</span>
+<span class="lineNum">      59 </span>                :<span class="lineNoCov">          0 :                         svy.push_back(0, a);</span>
+<span class="lineNum">      60 </span>                :<span class="lineNoCov">          0 :                         Storage_y tempsvy = svy;</span>
+<span class="lineNum">      61 </span>                :<span class="lineNoCov">          0 :                         int alternate = forward_traverse_tree(config_tree.size() - 1, 0, tempsvy,</span>
+<span class="lineNum">      62 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span><span class="branchNoExec" title="Branch 4 was not executed"> # </span>]:<span class="lineNoCov">          0 :                             config_tree, deltaCounter, ylist_bc3, GrowthMatrix);</span>
+<span class="lineNum">         </span>        [<span class="branchNoExec" title="Branch 6 was not executed"> # </span><span class="branchNoExec" title="Branch 7 was not executed"> # </span>]
+<span class="lineNum">      63 </span>                :<span class="lineNoCov">          0 :                         outer.push_back(a, alternate);</span>
+<span class="lineNum">      64 </span>                :<span class="lineNoCov">          0 :                 } else outer.push_back(a, outer[new_a]);</span>
+<span class="lineNum">      65 </span>                :            :         }
+<span class="lineNum">      66 </span>                :<span class="lineNoCov">          0 :         return outer;</span>
+<a name="67"><span class="lineNum">      67 </span>                :            : }</a>
+<span class="lineNum">      68 </span>                :            : 
+<span class="lineNum">      69 </span>                :<span class="lineNoCov">          0 : int buildBase(const int current_column, vector&lt;Storage&gt; &amp;config_tree,</span>
+<span class="lineNum">      70 </span>                :            :     G_TABLE1 transformGroups, vector&lt;vector&lt;Storage&gt; &gt; &amp;vlist, Storage_y &amp;svy,
+<span class="lineNum">      71 </span>                :            :     std::vector&lt;int&gt; &amp;deltaCounter, vector&lt;Storage&gt; &amp;vpol_vlist,
+<span class="lineNum">      72 </span>                :            :     const G_TABLE1 &amp;ylist_bc3, const vector&lt;Storage&gt; &amp; GrowthMatrix) {
+<span class="lineNum">      73 </span>                :            : 
+<span class="lineNum">      74 </span>                :            :         //if (current_column &lt; ySize-1) {
+<span class="lineNum">      75 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (current_column &lt; ySize - 1) {</span>
+<span class="lineNum">      76 </span>                :<span class="lineNoCov">          0 :                 Storage souter(true);</span>
+<span class="lineNum">      77 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :                 for (int config = 0; config &lt; ARRSIZE; config++) {</span>
+<span class="lineNum">      78 </span>                :            :                         int sym_equivalent_config = find_symmetrical_equivalent(config,
+<span class="lineNum">      79 </span>                :<span class="lineNoCov">          0 :                             transformGroups, souter);</span>
+<span class="lineNum">      80 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :                         if (sym_equivalent_config == -1) {</span>
+<span class="lineNum">      81 </span>                :<span class="lineNoCov">          0 :                                 G_TABLE1 sub_transformGroups;</span>
+<span class="lineNum">      82 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :                                 Calculate_subgroup(sub_transformGroups, config, transformGroups);</span>
+<span class="lineNum">      83 </span>                :<span class="lineNoCov">          0 :                                 svy.push_back(ySize - 1 - current_column, config);</span>
+<span class="lineNum">      84 </span>                :            :                                 int vector_index = buildBase(current_column + 1, config_tree,
+<span class="lineNum">      85 </span>                :            :                                     sub_transformGroups, vlist, svy, deltaCounter, vpol_vlist,
+<span class="lineNum">      86 </span>[<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>][<span class="branchNoExec" title="Branch 3 was not executed"> # </span><span class="branchNoExec" title="Branch 4 was not executed"> # </span>]:<span class="lineNoCov">          0 :                                     ylist_bc3, GrowthMatrix);</span>
+<span class="lineNum">         </span>        [<span class="branchNoExec" title="Branch 6 was not executed"> # </span><span class="branchNoExec" title="Branch 7 was not executed"> # </span>]
+<span class="lineNum">      87 </span>                :<span class="lineNoCov">          0 :                                 souter.push_back(config, vector_index);</span>
+<span class="lineNum">      88 </span>                :            :                         } else {
+<span class="lineNum">      89 </span>                :<span class="lineNoCov">          0 :                                 souter.push_back(config, -1);</span>
+<span class="lineNum">      90 </span>                :            :                         }
+<span class="lineNum">      91 </span>                :            :                 }
+<span class="lineNum">      92 </span>                :<span class="lineNoCov">          0 :                 vlist[0].push_back(souter);</span>
+<span class="lineNum">      93 </span>                :<span class="lineNoCov">          0 :                 return vlist[0].size() - 1;</span>
+<span class="lineNum">      94 </span>                :            :         } else {
+<span class="lineNum">      95 </span>                :            :                 Storage s = lastColumn(transformGroups, svy, config_tree, deltaCounter,
+<span class="lineNum">      96 </span>        [<span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span>]:<span class="lineNoCov">          0 :                     ylist_bc3, GrowthMatrix);</span>
+<span class="lineNum">      97 </span>                :<span class="lineNoCov">          0 :                 return search_add_list_exact(vpol_vlist, s);</span>
+<span class="lineNum">      98 </span>                :            :         }
+<span class="lineNum">      99 </span>                :            : }
+<span class="lineNum">     100 </span>                :            : 
+<span class="lineNum">     101 </span>                :            : // {{{ build 2d lattice
+<span class="lineNum">     102 </span>                :            : 
+<span class="lineNum">     103 </span>                :            : /**
+<span class="lineNum">     104 </span>                :            :  * This is where the build starts.
+<span class="lineNum">     105 </span>                :            :  * Might have to send the vlist, grouplist objects back to main
+<a name="106"><span class="lineNum">     106 </span>                :            :  * I know it works for all xSizes &gt;= 2.</a>
+<span class="lineNum">     107 </span>                :            :  */
+<span class="lineNum">     108 </span>                :<span class="lineNoCov">          0 : void build_2dLattice(vector&lt;vector&lt;Storage&gt; &gt; &amp;vlist1, G_TABLE1 transformGroups,</span>
+<span class="lineNum">     109 </span>                :            :     G_TABLE2 &amp;ylistTable, vector&lt;Polynomial&gt; &amp;vpol, vector&lt;Storage&gt; &amp;vpol_vlist,
+<span class="lineNum">     110 </span>                :            :     const G_TABLE1 &amp;ylist_bc3, const vector&lt;Storage&gt; &amp;GrowthMatrix) {
+<span class="lineNum">     111 </span>                :            : 
+<span class="lineNum">     112 </span>                :<span class="lineNoCov">          0 :         std::vector&lt;int&gt; deltaCounter;</span>
+<span class="lineNum">     113 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         vector &lt; Storage &gt; config_tree;</span>
+<span class="lineNum">     114 </span>                :            : 
+<span class="lineNum">     115 </span>[<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>][<span class="branchNoExec" title="Branch 3 was not executed"> # </span><span class="branchNoExec" title="Branch 4 was not executed"> # </span>]:<span class="lineNoCov">          0 :         create_horizontal_configuration_tree(0, config_tree, transformGroups);</span>
+<span class="lineNum">         </span>        [<span class="branchNoExec" title="Branch 6 was not executed"> # </span><span class="branchNoExec" title="Branch 7 was not executed"> # </span>]
+<span class="lineNum">     116 </span>                :            : 
+<span class="lineNum">     117 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         Storage_y svy;</span>
+<span class="lineNum">     118 </span>                :            :         buildBase(0, config_tree, transformGroups, vlist1, svy, deltaCounter,
+<span class="lineNum">     119 </span>[<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>][<span class="branchNoExec" title="Branch 3 was not executed"> # </span><span class="branchNoExec" title="Branch 4 was not executed"> # </span>]:<span class="lineNoCov">          0 :             vpol_vlist, ylist_bc3, GrowthMatrix);</span>
+<span class="lineNum">         </span>        [<span class="branchNoExec" title="Branch 6 was not executed"> # </span><span class="branchNoExec" title="Branch 7 was not executed"> # </span>]
+<span class="lineNum">     120 </span>        [<span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span>]:<span class="lineNoCov">          0 :         std::vector&lt;int&gt; yogi(ySize + 1, -1);</span>
+<span class="lineNum">     121 </span>                :            : 
+<span class="lineNum">     122 </span>[<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>][<span class="branchNoExec" title="Branch 4 was not executed"> # </span><span class="branchNoExec" title="Branch 5 was not executed"> # </span>]:<span class="lineNoCov">          0 :         create_ylist_table2(config_tree.size() - 1, 0, ylistTable, yogi, config_tree);</span>
+<span class="lineNum">         </span>        [<span class="branchNoExec" title="Branch 7 was not executed"> # </span><span class="branchNoExec" title="Branch 8 was not executed"> # </span>]
+<span class="lineNum">     123 </span>                :            : 
+<span class="lineNum">     124 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         make_vpol(vpol, deltaCounter);</span>
+<span class="lineNum">     125 </span>[<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>][<span class="branchNoExec" title="Branch 3 was not executed"> # </span><span class="branchNoExec" title="Branch 4 was not executed"> # </span>]:<span class="lineNoCov">          0 :         std::sort(ylistTable.begin(), ylistTable.end());</span>
+<span class="lineNum">         </span>[<span class="branchNoExec" title="Branch 6 was not executed"> # </span><span class="branchNoExec" title="Branch 7 was not executed"> # </span>][<span class="branchNoExec" title="Branch 9 was not executed"> # </span><span class="branchNoExec" title="Branch 10 was not executed"> # </span>]
+<span class="lineNum">         </span>[<span class="branchNoExec" title="Branch 12 was not executed"> # </span><span class="branchNoExec" title="Branch 13 was not executed"> # </span>][<span class="branchNoExec" title="Branch 15 was not executed"> # </span><span class="branchNoExec" title="Branch 16 was not executed"> # </span>]
+<span class="lineNum">     126 </span>                :<span class="lineNoCov">          0 : }</span>
+<span class="lineNum">     127 </span>                :            : // }}}
+<span class="lineNum">     128 </span>                :            : 
+<span class="lineNum">     129 </span>                :            : #endif
+<span class="lineNum">     130 </span>                :            : 
+<span class="lineNum">     131 </span>                :            : 
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.9</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

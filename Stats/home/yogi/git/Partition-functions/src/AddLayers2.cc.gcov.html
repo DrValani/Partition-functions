@@ -1,0 +1,202 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - stat.info - /home/yogi/git/Partition-functions/src/AddLayers2.cc</title>
+  <link rel="stylesheet" type="text/css" href="../../../../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../../../../index.html">top level</a> - <a href="index.html">home/yogi/git/Partition-functions/src</a> - AddLayers2.cc<span style="font-size: 80%;"> (source / <a href="AddLayers2.cc.func.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">stat.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">62</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2012-08-24</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">4</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="headerItem">Branches:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">40</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr><td><img src="../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">           Branch data     Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>                :            : #ifndef AddLayers2_CC</a>
+<span class="lineNum">       2 </span>                :            : #define AddLayers2_CC
+<span class="lineNum">       3 </span>                :            : 
+<span class="lineNum">       4 </span>                :            : #include &lt;vector&gt;
+<span class="lineNum">       5 </span>                :            : #include &quot;Globals.cc&quot;
+<span class="lineNum">       6 </span>                :            : #include &quot;Storage.cc&quot;
+<span class="lineNum">       7 </span>                :            : #include &quot;refPolynomial.cc&quot;
+<a name="8"><span class="lineNum">       8 </span>                :            : #include &quot;commonMethods.cc&quot;</a>
+<span class="lineNum">       9 </span>                :            : 
+<span class="lineNum">      10 </span>                :<span class="lineNoCov">          0 : int join_spins_to_base(const Storage &amp;vlist, const Storage &amp;GrowthVector,</span>
+<span class="lineNum">      11 </span>                :            :     vector&lt;refPolynomial&gt; &amp;vrefpol) {
+<span class="lineNum">      12 </span>                :<span class="lineNoCov">          0 :         refPolynomial refpol2;</span>
+<span class="lineNum">      13 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         addEnergy4pol(vlist, GrowthVector, refpol2, MAXPOWER);</span>
+<span class="lineNum">      14 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         vrefpol.push_back(refpol2);</span>
+<span class="lineNum">      15 </span>                :<span class="lineNoCov">          0 :         return vrefpol.size() - 1;</span>
+<a name="16"><span class="lineNum">      16 </span>                :            : }</a>
+<span class="lineNum">      17 </span>                :            : 
+<span class="lineNum">      18 </span>                :<span class="lineNoCov">          0 : int create_new_vlist(int current_column, const Storage &amp;GrowthVector,</span>
+<span class="lineNum">      19 </span>                :            :     const int &amp;columnsAdded, vector&lt;vector&lt;Storage&gt; &gt;  &amp;vlist, const int vlistIndex,
+<span class="lineNum">      20 </span>                :            :     vector&lt;refPolynomial&gt; &amp;vrefpol, vector&lt;vector&lt;Storage&gt; &gt;  &amp;vpol_vlist) {
+<span class="lineNum">      21 </span>                :            : 
+<span class="lineNum">      22 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (current_column &lt; ySize - 1) {</span>
+<span class="lineNum">      23 </span>                :<span class="lineNoCov">          0 :                 Storage souter(true);</span>
+<span class="lineNum">      24 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :                 for (int config = 0; config &lt; ARRSIZE; config++) {</span>
+<span class="lineNum">      25 </span>                :            :                         int vector_index = create_new_vlist(current_column + 1, GrowthVector,
+<span class="lineNum">      26 </span>                :<span class="lineNoCov">          0 :                             columnsAdded, vlist, vlist[columnsAdded][vlistIndex][config], vrefpol,</span>
+<span class="lineNum">      27 </span>                :<span class="lineNoCov">          0 :                             vpol_vlist);</span>
+<span class="lineNum">      28 </span>                :<span class="lineNoCov">          0 :                         souter.push_back(config, vector_index);</span>
+<span class="lineNum">      29 </span>                :            : 
+<span class="lineNum">      30 </span>                :            :                 }
+<span class="lineNum">      31 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :                 if (current_column + 1 == ySize - 1) {</span>
+<span class="lineNum">      32 </span>                :<span class="lineNoCov">          0 :                         vpol_vlist[columnsAdded + 1].push_back(souter);</span>
+<span class="lineNum">      33 </span>                :<span class="lineNoCov">          0 :                         return vpol_vlist[columnsAdded + 1].size() - 1;</span>
+<span class="lineNum">      34 </span>                :            :                 } else {
+<span class="lineNum">      35 </span>                :<span class="lineNoCov">          0 :                         vlist[columnsAdded + 1].push_back(souter);</span>
+<span class="lineNum">      36 </span>                :<span class="lineNoCov">          0 :                         return vlist[columnsAdded + 1].size() - 1;</span>
+<span class="lineNum">      37 </span>                :            :                 }
+<span class="lineNum">      38 </span>                :            :         } else {
+<span class="lineNum">      39 </span>                :<span class="lineNoCov">          0 :                 return join_spins_to_base(vpol_vlist[columnsAdded][vlistIndex],</span>
+<span class="lineNum">      40 </span>                :<span class="lineNoCov">          0 :                     GrowthVector, vrefpol);</span>
+<span class="lineNum">      41 </span>                :            : 
+<span class="lineNum">      42 </span>                :            :         }
+<a name="43"><span class="lineNum">      43 </span>                :            : }</a>
+<span class="lineNum">      44 </span>                :            : 
+<span class="lineNum">      45 </span>                :<span class="lineNoCov">          0 : void CalculatePartitionVector(int current_column,</span>
+<span class="lineNum">      46 </span>                :            :     const G_TABLE1 &amp;current_config, G_TABLE1 &amp;previous_config,
+<span class="lineNum">      47 </span>                :            :     vector&lt;Storage&gt;   &amp;GrowthMatrix, vector&lt;vector&lt;Storage&gt; &gt;  &amp;vlist, vector&lt;vector&lt;Polynomial&gt; &gt; &amp;vpol,
+<span class="lineNum">      48 </span>                :            :     const int &amp;vpolnew, vector&lt;vector&lt;Storage&gt; &gt;  &amp;vpol_vlist, vector&lt;vector&lt;refPolynomial&gt; &gt;  &amp;vrefpol,
+<span class="lineNum">      49 </span>                :            :     Polynomial &amp;p) {
+<span class="lineNum">      50 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (current_column &lt; ySize - 1) {</span>
+<span class="lineNum">      51 </span>                :            : 
+<span class="lineNum">      52 </span>                :<span class="lineNoCov">          0 :                 previous_config[current_column] = current_config[current_column];</span>
+<span class="lineNum">      53 </span>                :<span class="lineNoCov">          0 :                 int configuration = current_config[current_column];  // The fixed configuration of the extra column of spin</span>
+<span class="lineNum">      54 </span>                :            :                 //Calculate new polynomial
+<span class="lineNum">      55 </span>                :<span class="lineNoCov">          0 :                 const int columnsAdded = current_column;</span>
+<span class="lineNum">      56 </span>                :            :                 //vpol[current_column + 2].clear();
+<span class="lineNum">      57 </span>                :<span class="lineNoCov">          0 :                 vlist[current_column + 1].clear();</span>
+<span class="lineNum">      58 </span>                :<span class="lineNoCov">          0 :                 vpol_vlist[current_column + 1].clear();</span>
+<span class="lineNum">      59 </span>                :<span class="lineNoCov">          0 :                 vrefpol[current_column].clear();</span>
+<span class="lineNum">      60 </span>                :            : 
+<span class="lineNum">      61 </span>                :            :                 //findmaxpower(GrowthMatrix[configuration]);
+<span class="lineNum">      62 </span>                :<span class="lineNoCov">          0 :                 int vlist_index = vlist[current_column].size() - 1;</span>
+<span class="lineNum">      63 </span>                :            : 
+<span class="lineNum">      64 </span>                :<span class="lineNoCov">          0 :                 create_new_vlist(current_column, GrowthMatrix[configuration], columnsAdded,</span>
+<span class="lineNum">      65 </span>                :<span class="lineNoCov">          0 :                     vlist, vlist_index, vrefpol[current_column], vpol_vlist);</span>
+<span class="lineNum">      66 </span>                :            : 
+<span class="lineNum">      67 </span>        [<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :                 if (vrefpol[current_column].size() &lt; MAX_VPOL_SIZE) {</span>
+<span class="lineNum">      68 </span>                :<span class="lineNoCov">          0 :                         calculate_inner_vpol(current_column, vpol, vrefpol, p);</span>
+<span class="lineNum">      69 </span>                :<span class="lineNoCov">          0 :                         vrefpol[current_column].clear();</span>
+<span class="lineNum">      70 </span>                :            :                 }
+<span class="lineNum">      71 </span>                :<span class="lineNoCov">          0 :                 previous_config[current_column + 1] = -1;</span>
+<span class="lineNum">      72 </span>                :            :         } else {
+<span class="lineNum">      73 </span>                :<span class="lineNoCov">          0 :                 refPolynomial refpol;</span>
+<span class="lineNum">      74 </span>                :<span class="lineNoCov">          0 :                 int vlistIndex = vpol_vlist[current_column].size() - 1;</span>
+<span class="lineNum">      75 </span>                :<span class="lineNoCov">          0 :                 int configuration = current_config[current_column];</span>
+<span class="lineNum">      76 </span>                :            : 
+<span class="lineNum">      77 </span>                :<span class="lineNoCov">          0 :                 addEnergy4pol(vpol_vlist[current_column][vlistIndex],</span>
+<span class="lineNum">      78 </span>        [<span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span>]:<span class="lineNoCov">          0 :                     GrowthMatrix[configuration], refpol, MAXPOWER);</span>
+<span class="lineNum">      79 </span>                :            : 
+<span class="lineNum">      80 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :                 int Hamiltonian = calculate_outer_hamiltonian(GrowthMatrix, current_config);</span>
+<span class="lineNum">      81 </span>        [<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :                 vpol[0][vpolnew].clear();</span>
+<span class="lineNum">      82 </span>                :<span class="lineNoCov">          0 :                 refpol.sum(vpol[0][vpolnew], vpol[current_column + 1], MAXPOWER,</span>
+<span class="lineNum">      83 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :                     Hamiltonian, p);</span>
+<span class="lineNum">      84 </span>                :            :         }
+<span class="lineNum">      85 </span>                :<span class="lineNoCov">          0 : }</span>
+<span class="lineNum">      86 </span>                :            : 
+<span class="lineNum">      87 </span>                :            : /*
+<span class="lineNum">      88 </span>                :            :  *This method will scroll through the ylist -ie the list of configurations
+<a name="89"><span class="lineNum">      89 </span>                :            :  */</a>
+<span class="lineNum">      90 </span>                :            : 
+<span class="lineNum">      91 </span>                :<span class="lineNoCov">          0 : void ScrollThroughAllConfigurations(const G_TABLE2 &amp;ylist, vector&lt;vector&lt;Storage&gt; &gt;  &amp;vlist,</span>
+<span class="lineNum">      92 </span>                :            :     vector&lt;vector&lt;Polynomial&gt; &gt; &amp;vpol, vector&lt;vector&lt;Storage&gt; &gt;  &amp;vpol_vlist, vector&lt;vector&lt;refPolynomial&gt; &gt;  &amp;vrefpol,
+<span class="lineNum">      93 </span>                :            :     Polynomial &amp;p) {
+<span class="lineNum">      94 </span>                :            : 
+<span class="lineNum">      95 </span>                :<span class="lineNoCov">          0 :         vector&lt;Storage&gt;   GrowthMatrix;</span>
+<span class="lineNum">      96 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         Create_energy_list(GrowthMatrix);</span>
+<span class="lineNum">      97 </span>                :<span class="lineNoCov">          0 :         Storage s;</span>
+<span class="lineNum">      98 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         Create_energy_list(s);</span>
+<span class="lineNum">      99 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         GrowthMatrix.push_back(s);</span>
+<span class="lineNum">     100 </span>        [<span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span>]:<span class="lineNoCov">          0 :         vector&lt;int&gt; previous_config(ySize + 1, -1);</span>
+<span class="lineNum">     101 </span>                :            : 
+<span class="lineNum">     102 </span>        [<span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span>]:<span class="lineNoCov">          0 :         for (int config = 0; config &lt; ylist.size(); config++) {  //This will scroll through all configurations</span>
+<span class="lineNum">     103 </span>                :            : 
+<span class="lineNum">     104 </span>                :<span class="lineNoCov">          0 :                 int current_column = 0;</span>
+<span class="lineNum">     105 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :                 while (current_column &lt; ySize) {</span>
+<span class="lineNum">     106 </span>        [<span class="branchNoExec" title="Branch 3 was not executed"> # </span><span class="branchNoExec" title="Branch 4 was not executed"> # </span>]:<span class="lineNoCov">          0 :                         while (ylist[config][current_column] == previous_config[current_column])</span>
+<span class="lineNum">     107 </span>                :<span class="lineNoCov">          0 :                                 current_column++;</span>
+<span class="lineNum">     108 </span>                :<span class="lineNoCov">          0 :                         CalculatePartitionVector(current_column, ylist[config], previous_config,</span>
+<span class="lineNum">     109 </span>                :<span class="lineNoCov">          0 :                             GrowthMatrix, vlist, vpol, ylist[config][ySize], vpol_vlist, vrefpol,</span>
+<span class="lineNum">     110 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :                             p);</span>
+<span class="lineNum">     111 </span>                :<span class="lineNoCov">          0 :                         current_column++;</span>
+<span class="lineNum">     112 </span>                :            :                 }
+<span class="lineNum">     113 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         }</span>
+<span class="lineNum">     114 </span>                :<span class="lineNoCov">          0 : }</span>
+<span class="lineNum">     115 </span>                :            : 
+<span class="lineNum">     116 </span>                :            : #endif
+<span class="lineNum">     117 </span>                :            : 
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.9</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

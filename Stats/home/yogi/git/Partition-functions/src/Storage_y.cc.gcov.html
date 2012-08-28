@@ -1,0 +1,505 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - stat.info - /home/yogi/git/Partition-functions/src/Storage_y.cc</title>
+  <link rel="stylesheet" type="text/css" href="../../../../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../../../../index.html">top level</a> - <a href="index.html">home/yogi/git/Partition-functions/src</a> - Storage_y.cc<span style="font-size: 80%;"> (source / <a href="Storage_y.cc.func.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">stat.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">105</td>
+            <td class="headerCovTableEntry">212</td>
+            <td class="headerCovTableEntryLo">49.5 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2012-08-24</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">18</td>
+            <td class="headerCovTableEntry">32</td>
+            <td class="headerCovTableEntryLo">56.2 %</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="headerItem">Branches:</td>
+            <td class="headerCovTableEntry">109</td>
+            <td class="headerCovTableEntry">368</td>
+            <td class="headerCovTableEntryLo">29.6 %</td>
+          </tr>
+          <tr><td><img src="../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">           Branch data     Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>                :            : #ifndef Storage_y_CC</a>
+<span class="lineNum">       2 </span>                :            : #define Storage_y_CC
+<span class="lineNum">       3 </span>                :            : 
+<span class="lineNum">       4 </span>                :            : #include &lt;set&gt;
+<span class="lineNum">       5 </span>                :            : #include &lt;vector&gt;
+<span class="lineNum">       6 </span>                :            : #include &lt;iostream&gt;
+<span class="lineNum">       7 </span>                :            : #include &lt;sstream&gt;
+<span class="lineNum">       8 </span>                :            : #include &lt;fstream&gt;
+<span class="lineNum">       9 </span>                :            : #include &lt;algorithm&gt;
+<span class="lineNum">      10 </span>                :            : #include &quot;latticeSize.cc&quot;
+<span class="lineNum">      11 </span>                :            : #include &quot;Storage.cc&quot;
+<span class="lineNum">      12 </span>                :            : #include &quot;Grid.cc&quot;
+<span class="lineNum">      13 </span>                :            : using namespace std;
+<span class="lineNum">      14 </span>                :            : 
+<span class="lineNum">      15 </span>                :            : // {{{ Storage_y class
+<span class="lineNum">      16 </span>                :            : 
+<span class="lineNum">      17 </span>                :            : /**
+<a name="18"><span class="lineNum">      18 </span>                :            :  *   For storing vlists the size is 2^xsize</a>
+<span class="lineNum">      19 </span>                :            :  */
+<span class="lineNum">      20 </span>[<span class="branchCov" title="Branch 2 was taken 13557 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>][<span class="branchCov" title="Branch 9 was taken 12260 times"> + </span><span class="branchNoCov" title="Branch 10 was not taken"> - </span>]:<span class="lineCov">      34954 : class Storage_y {</span>
+<a name="21"><span class="lineNum">      21 </span>                :            : public:</a>
+<span class="lineNum">      22 </span>                :            : 
+<span class="lineNum">      23 </span>                :<span class="lineCov">       1297 :         Storage_y() :</span>
+<span class="lineNum">      24 </span>        [<span class="branchCov" title="Branch 1 was taken 1297 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>]:<span class="lineCov">       1297 :                         pol_no(-1), delta1(0) {</span>
+<span class="lineNum">      25 </span>                :<span class="lineCov">       1297 :         }</span>
+<span class="lineNum">      26 </span>                :            :         void push_back(const int index, int pow);
+<span class="lineNum">      27 </span>                :            :         void print() const;
+<span class="lineNum">      28 </span>                :            :         void clear();
+<span class="lineNum">      29 </span>                :            :         void partialClear();
+<a name="30"><span class="lineNum">      30 </span>                :            :         bool operator==(const Storage_y &amp;s) const;</a>
+<span class="lineNum">      31 </span>                :            : 
+<span class="lineNum">      32 </span>                :<span class="lineCov">      22970 :         int operator[](const int i) const {</span>
+<span class="lineNum">      33 </span>                :<span class="lineCov">      22970 :                 return list[i];</span>
+<span class="lineNum">      34 </span>                :            :         }
+<span class="lineNum">      35 </span>                :            :         bool operator&lt;(const Storage_y &amp;s) const;
+<span class="lineNum">      36 </span>                :            :         bool equals(const Storage_y &amp;s) const;  // compare everything
+<span class="lineNum">      37 </span>                :            :         bool y_equals(const Storage_y &amp;s) const;  // compare everything
+<span class="lineNum">      38 </span>                :            :         bool x_equals(const Storage_y &amp;s) const;  // compare everything
+<span class="lineNum">      39 </span>                :            :         Storage_y order_it() const;
+<span class="lineNum">      40 </span>                :            :         Storage_y order_it_asending() const;
+<span class="lineNum">      41 </span>                :            : 
+<span class="lineNum">      42 </span>                :            :         int getPol_no() const {
+<span class="lineNum">      43 </span>                :            :                 return pol_no;
+<span class="lineNum">      44 </span>                :            :         }
+<span class="lineNum">      45 </span>                :            : 
+<span class="lineNum">      46 </span>                :            :         void setPol_no(int id) {
+<span class="lineNum">      47 </span>                :            :                 pol_no = id;
+<span class="lineNum">      48 </span>                :            :         }
+<span class="lineNum">      49 </span>                :            :         Storage_y transform(const int &amp;k) const;
+<span class="lineNum">      50 </span>                :            :         Storage_y transpose() const;
+<span class="lineNum">      51 </span>                :            :         Storage_y reflect() const;
+<span class="lineNum">      52 </span>                :            :         Storage_y shift() const;
+<span class="lineNum">      53 </span>                :            :         Storage_y reflect_x() const;
+<span class="lineNum">      54 </span>                :            :         Storage_y shift_x() const;
+<a name="55"><span class="lineNum">      55 </span>                :            :         void calc_subgraphs();</a>
+<span class="lineNum">      56 </span>                :            : 
+<span class="lineNum">      57 </span>                :<span class="lineCov">         51 :         int getDelta() const {</span>
+<span class="lineNum">      58 </span>                :<span class="lineCov">         51 :                 return delta1;</span>
+<span class="lineNum">      59 </span>                :            :         }
+<span class="lineNum">      60 </span>                :            :         int getDelta(const vector&lt;int&gt; &amp;ylist_bc3,
+<a name="61"><span class="lineNum">      61 </span>                :            :             const vector&lt;Storage&gt; &amp;GrowthMatrix) const;</a>
+<span class="lineNum">      62 </span>                :            : 
+<span class="lineNum">      63 </span>                :<span class="lineNoCov">          0 :         vector&lt;pair&lt;int, int&gt; &gt; get_vpr() const {</span>
+<span class="lineNum">      64 </span>                :<span class="lineNoCov">          0 :                 return vpr;</span>
+<a name="65"><span class="lineNum">      65 </span>                :            :         }</a>
+<span class="lineNum">      66 </span>                :            : 
+<span class="lineNum">      67 </span>                :<span class="lineNoCov">          0 :         vector&lt;pair&lt;int, int&gt; &gt; get_inversevpr() const {</span>
+<span class="lineNum">      68 </span>                :<span class="lineNoCov">          0 :                 return inverse_vpr;</span>
+<span class="lineNum">      69 </span>                :            :         }
+<span class="lineNum">      70 </span>                :            :         void output() const;
+<span class="lineNum">      71 </span>                :            :         void setSmallest_x();
+<span class="lineNum">      72 </span>                :            :         void setSmallest();
+<span class="lineNum">      73 </span>                :            :         void y_less(const Storage_y &amp;s);
+<span class="lineNum">      74 </span>                :            : 
+<span class="lineNum">      75 </span>                :            : private:
+<span class="lineNum">      76 </span>                :            :         int list[ySize];
+<span class="lineNum">      77 </span>                :            :         int pol_no;
+<span class="lineNum">      78 </span>                :            :         vector&lt;pair&lt;int, int&gt; &gt; vpr;
+<span class="lineNum">      79 </span>                :            :         vector&lt;pair&lt;int, int&gt; &gt; inverse_vpr;
+<span class="lineNum">      80 </span>                :            :         int delta1;
+<span class="lineNum">      81 </span>                :            : };
+<a name="82"><span class="lineNum">      82 </span>                :<span class="lineCov">          1 : Grid gd_y(xSize, ySize);</span></a>
+<span class="lineNum">      83 </span>                :            : 
+<span class="lineNum">      84 </span>                :<span class="lineNoCov">          0 : int Storage_y::getDelta(const vector&lt;int&gt; &amp;ylist_bc3,</span>
+<span class="lineNum">      85 </span>                :            :     const vector&lt;Storage&gt; &amp;GrowthMatrix) const {
+<span class="lineNum">      86 </span>                :<span class="lineNoCov">          0 :         int delta = 0;</span>
+<span class="lineNum">      87 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         for (int i = 0; i &lt; ySize; i++) {</span>
+<span class="lineNum">      88 </span>                :<span class="lineNoCov">          0 :                 delta += GrowthMatrix[ARRSIZE][list[i]];</span>
+<span class="lineNum">      89 </span>                :            :                 if (BConds3) delta += GrowthMatrix[ylist_bc3[i]][list[i]];
+<span class="lineNum">      90 </span>                :            :         }
+<span class="lineNum">      91 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         for (int i = 1; i &lt; ySize; i++) {</span>
+<span class="lineNum">      92 </span>                :<span class="lineNoCov">          0 :                 delta += GrowthMatrix[list[i - 1]][list[i]];</span>
+<span class="lineNum">      93 </span>                :            :         }
+<span class="lineNum">      94 </span>                :            :         if (BConds1) delta += GrowthMatrix[list[0]][list[ySize - 1]];
+<span class="lineNum">      95 </span>                :<span class="lineNoCov">          0 :         return delta;</span>
+<a name="96"><span class="lineNum">      96 </span>                :            : }</a>
+<span class="lineNum">      97 </span>                :            : 
+<span class="lineNum">      98 </span>                :<span class="lineCov">       1152 : void Storage_y::y_less(const Storage_y &amp;s) {</span>
+<span class="lineNum">      99 </span>                :<span class="lineCov">       1152 :         Storage_y temp = s;</span>
+<span class="lineNum">     100 </span>        [<span class="branchCov" title="Branch 0 was taken 1152 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">       1152 :         Storage_y tempR = s.reflect();</span>
+<span class="lineNum">     101 </span>        [<span class="branchCov" title="Branch 0 was taken 3456 times"> + </span><span class="branchCov" title="Branch 1 was taken 1152 times"> + </span>]:<span class="lineCov">       4608 :         for (int i = 0; i &lt; ySize; i++) {</span>
+<span class="lineNum">     102 </span>        [<span class="branchCov" title="Branch 1 was taken 180 times"> + </span><span class="branchCov" title="Branch 2 was taken 3276 times"> + </span>]:<span class="lineCov">       3456 :                 if (temp &lt; *this) {</span>
+<span class="lineNum">     103 </span>        [<span class="branchCov" title="Branch 0 was taken 180 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        180 :                         *this = temp;</span>
+<span class="lineNum">     104 </span>                :            :                 }
+<span class="lineNum">     105 </span>[<span class="branchCov" title="Branch 1 was taken 158 times"> + </span><span class="branchCov" title="Branch 2 was taken 3298 times"> + </span>][<span class="branchCov" title="Branch 3 was taken 158 times"> + </span><span class="branchNoCov" title="Branch 4 was not taken"> - </span>]:<span class="lineCov">       3456 :                 if (tempR &lt; *this) *this = tempR;</span>
+<span class="lineNum">     106 </span>[<span class="branchCov" title="Branch 0 was taken 3456 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>][<span class="branchCov" title="Branch 3 was taken 3456 times"> + </span><span class="branchNoCov" title="Branch 4 was not taken"> - </span>]:<span class="lineCov">       3456 :                 temp = temp.shift();</span>
+<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 6 was taken 3456 times"> + </span><span class="branchNoCov" title="Branch 7 was not taken"> - </span>]
+<span class="lineNum">     107 </span>[<span class="branchCov" title="Branch 0 was taken 3456 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>][<span class="branchCov" title="Branch 3 was taken 3456 times"> + </span><span class="branchNoCov" title="Branch 4 was not taken"> - </span>]:<span class="lineCov">       3456 :                 tempR = temp.reflect();</span>
+<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 6 was taken 3456 times"> + </span><span class="branchNoCov" title="Branch 7 was not taken"> - </span>]
+<span class="lineNum">     108 </span>        [<span class="branchCov" title="Branch 0 was taken 1152 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">       1152 :         }</span>
+<a name="109"><span class="lineNum">     109 </span>                :<span class="lineCov">       1152 : }</span></a>
+<span class="lineNum">     110 </span>                :            : 
+<span class="lineNum">     111 </span>                :<span class="lineCov">        288 : void Storage_y::setSmallest_x() {</span>
+<span class="lineNum">     112 </span>                :<span class="lineCov">        288 :         Storage_y temp = *this;</span>
+<span class="lineNum">     113 </span>        [<span class="branchCov" title="Branch 0 was taken 288 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        288 :         Storage_y tempR = this-&gt;reflect_x();</span>
+<span class="lineNum">     114 </span>[<span class="branchCov" title="Branch 1 was taken 288 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>][<span class="branchCov" title="Branch 5 was taken 288 times"> + </span><span class="branchNoCov" title="Branch 6 was not taken"> - </span>]:<span class="lineCov">        288 :         vector&lt;Storage_y&gt; tempT(transformARR.size()), tempRT(transformARR.size());</span>
+<span class="lineNum">         </span>[<span class="branchCov" title="Branch 8 was taken 288 times"> + </span><span class="branchNoCov" title="Branch 9 was not taken"> - </span>][<span class="branchCov" title="Branch 13 was taken 288 times"> + </span><span class="branchNoCov" title="Branch 14 was not taken"> - </span>]
+<span class="lineNum">         </span>[<span class="branchCov" title="Branch 17 was taken 288 times"> + </span><span class="branchNoCov" title="Branch 18 was not taken"> - </span>][<span class="branchCov" title="Branch 20 was taken 288 times"> + </span><span class="branchNoCov" title="Branch 21 was not taken"> - </span>]
+<span class="lineNum">     115 </span>        [<span class="branchCov" title="Branch 1 was taken 288 times"> + </span><span class="branchCov" title="Branch 2 was taken 288 times"> + </span>]:<span class="lineCov">        576 :         for (int i = 0; i &lt; transformARR.size(); i++) {</span>
+<span class="lineNum">     116 </span>[<span class="branchCov" title="Branch 0 was taken 288 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>][<span class="branchCov" title="Branch 4 was taken 288 times"> + </span><span class="branchNoCov" title="Branch 5 was not taken"> - </span>]:<span class="lineCov">        288 :                 tempT[i] = this-&gt;transform(i);</span>
+<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 7 was taken 288 times"> + </span><span class="branchNoCov" title="Branch 8 was not taken"> - </span>]
+<span class="lineNum">     117 </span>[<span class="branchCov" title="Branch 1 was taken 288 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>][<span class="branchCov" title="Branch 5 was taken 288 times"> + </span><span class="branchNoCov" title="Branch 6 was not taken"> - </span>]:<span class="lineCov">        288 :                 tempRT[i] = tempT[i].reflect_x();</span>
+<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 8 was taken 288 times"> + </span><span class="branchNoCov" title="Branch 9 was not taken"> - </span>]
+<span class="lineNum">     118 </span>                :            :         }
+<span class="lineNum">     119 </span>                :            :         //  Storage_y tempT = this-&gt;transform();
+<span class="lineNum">     120 </span>                :            :         //Storage_y tempRT = tempT.reflect_x();
+<span class="lineNum">     121 </span>                :<span class="lineCov">        288 :         int i = 0;</span>
+<span class="lineNum">     122 </span>                :<span class="lineCov">        288 :         if (!BConds2) i = xSize - 1;</span>
+<span class="lineNum">     123 </span>        [<span class="branchCov" title="Branch 0 was taken 288 times"> + </span><span class="branchCov" title="Branch 1 was taken 288 times"> + </span>]:<span class="lineCov">        576 :         for (; i &lt; xSize; i++) {</span>
+<span class="lineNum">     124 </span>        [<span class="branchCov" title="Branch 0 was taken 288 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        288 :                 this-&gt;y_less(temp);</span>
+<span class="lineNum">     125 </span>        [<span class="branchCov" title="Branch 0 was taken 288 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        288 :                 this-&gt;y_less(tempR);</span>
+<span class="lineNum">     126 </span>        [<span class="branchCov" title="Branch 1 was taken 288 times"> + </span><span class="branchCov" title="Branch 2 was taken 288 times"> + </span>]:<span class="lineCov">        576 :                 for (int i = 0; i &lt; transformARR.size(); i++) {</span>
+<span class="lineNum">     127 </span>        [<span class="branchCov" title="Branch 1 was taken 288 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>]:<span class="lineCov">        288 :                         this-&gt;y_less(tempT[i]);</span>
+<span class="lineNum">     128 </span>        [<span class="branchCov" title="Branch 1 was taken 288 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>]:<span class="lineCov">        288 :                         this-&gt;y_less(tempRT[i]);</span>
+<span class="lineNum">     129 </span>                :            :                 }
+<span class="lineNum">     130 </span>[<span class="branchCov" title="Branch 0 was taken 288 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>][<span class="branchCov" title="Branch 3 was taken 288 times"> + </span><span class="branchNoCov" title="Branch 4 was not taken"> - </span>]:<span class="lineCov">        288 :                 temp = temp.shift_x();</span>
+<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 6 was taken 288 times"> + </span><span class="branchNoCov" title="Branch 7 was not taken"> - </span>]
+<span class="lineNum">     131 </span>[<span class="branchCov" title="Branch 0 was taken 288 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>][<span class="branchCov" title="Branch 3 was taken 288 times"> + </span><span class="branchNoCov" title="Branch 4 was not taken"> - </span>]:<span class="lineCov">        288 :                 tempR = temp.reflect_x();</span>
+<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 6 was taken 288 times"> + </span><span class="branchNoCov" title="Branch 7 was not taken"> - </span>]
+<span class="lineNum">     132 </span>        [<span class="branchCov" title="Branch 1 was taken 288 times"> + </span><span class="branchCov" title="Branch 2 was taken 288 times"> + </span>]:<span class="lineCov">        576 :                 for (int i = 0; i &lt; transformARR.size(); i++) {</span>
+<span class="lineNum">     133 </span>[<span class="branchCov" title="Branch 0 was taken 288 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>][<span class="branchCov" title="Branch 4 was taken 288 times"> + </span><span class="branchNoCov" title="Branch 5 was not taken"> - </span>]:<span class="lineCov">        288 :                         tempT[i] = temp.transform(i);</span>
+<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 7 was taken 288 times"> + </span><span class="branchNoCov" title="Branch 8 was not taken"> - </span>]
+<span class="lineNum">     134 </span>[<span class="branchCov" title="Branch 1 was taken 288 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>][<span class="branchCov" title="Branch 5 was taken 288 times"> + </span><span class="branchNoCov" title="Branch 6 was not taken"> - </span>]:<span class="lineCov">        288 :                         tempRT[i] = tempT[i].reflect_x();</span>
+<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 8 was taken 288 times"> + </span><span class="branchNoCov" title="Branch 9 was not taken"> - </span>]
+<span class="lineNum">     135 </span>                :            :                 }
+<span class="lineNum">     136 </span>[<span class="branchCov" title="Branch 0 was taken 288 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>][<span class="branchCov" title="Branch 3 was taken 288 times"> + </span><span class="branchNoCov" title="Branch 4 was not taken"> - </span>]:<span class="lineCov">        288 :         }</span>
+<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 6 was taken 288 times"> + </span><span class="branchNoCov" title="Branch 7 was not taken"> - </span>]
+<a name="137"><span class="lineNum">     137 </span>                :<span class="lineCov">        288 : }</span></a>
+<span class="lineNum">     138 </span>                :            : 
+<span class="lineNum">     139 </span>                :<span class="lineCov">        144 : void Storage_y::setSmallest() {</span>
+<span class="lineNum">     140 </span>                :<span class="lineCov">        144 :         Storage_y temp1 = *this;</span>
+<span class="lineNum">     141 </span>        [<span class="branchCov" title="Branch 0 was taken 144 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        144 :         temp1.setSmallest_x();</span>
+<span class="lineNum">     142 </span>[<span class="branchCov" title="Branch 1 was taken 106 times"> + </span><span class="branchCov" title="Branch 2 was taken 38 times"> + </span>][<span class="branchCov" title="Branch 3 was taken 106 times"> + </span><span class="branchNoCov" title="Branch 4 was not taken"> - </span>]:<span class="lineCov">        144 :         if (temp1 &lt; *this) *this = temp1;</span>
+<span class="lineNum">     143 </span>                :            :         if (xSize == ySize &amp;&amp; BConds1 == BConds2) {
+<span class="lineNum">     144 </span>        [<span class="branchCov" title="Branch 0 was taken 144 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        144 :                 Storage_y temp = this-&gt;transpose();</span>
+<span class="lineNum">     145 </span>        [<span class="branchCov" title="Branch 0 was taken 144 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        144 :                 temp.setSmallest_x();</span>
+<span class="lineNum">     146 </span>[<span class="branchCov" title="Branch 1 was taken 53 times"> + </span><span class="branchCov" title="Branch 2 was taken 91 times"> + </span>][<span class="branchCov" title="Branch 3 was taken 53 times"> + </span><span class="branchNoCov" title="Branch 4 was not taken"> - </span>]:<span class="lineCov">        144 :                 if (temp &lt; *this) *this = temp;</span>
+<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 6 was taken 144 times"> + </span><span class="branchNoCov" title="Branch 7 was not taken"> - </span>]
+<span class="lineNum">     147 </span>                :<span class="lineCov">        144 :         }</span>
+<a name="148"><span class="lineNum">     148 </span>                :<span class="lineCov">        144 : }</span></a>
+<span class="lineNum">     149 </span>                :            : 
+<span class="lineNum">     150 </span>                :<span class="lineCov">       7200 : bool Storage_y::operator&lt;(const Storage_y &amp;s) const {</span>
+<span class="lineNum">     151 </span>        [<span class="branchCov" title="Branch 0 was taken 11420 times"> + </span><span class="branchCov" title="Branch 1 was taken 1832 times"> + </span>]:<span class="lineCov">      13252 :         for (int i = 0; i &lt; ySize; i++) {</span>
+<span class="lineNum">     152 </span>        [<span class="branchCov" title="Branch 1 was taken 497 times"> + </span><span class="branchCov" title="Branch 2 was taken 10923 times"> + </span>]:<span class="lineCov">      11420 :                 if (list[i] &lt; s[i]) return true;</span>
+<span class="lineNum">     153 </span>        [<span class="branchCov" title="Branch 1 was taken 4871 times"> + </span><span class="branchCov" title="Branch 2 was taken 6052 times"> + </span>]:<span class="lineCov">      10923 :                 else if (list[i] &gt; s[i]) return false;</span>
+<span class="lineNum">     154 </span>                :            :         }
+<span class="lineNum">     155 </span>                :<span class="lineCov">       7200 :         return false;</span>
+<a name="156"><span class="lineNum">     156 </span>                :            : }</a>
+<span class="lineNum">     157 </span>                :            : 
+<span class="lineNum">     158 </span>                :<span class="lineNoCov">          0 : void Storage_y::output() const {</span>
+<span class="lineNum">     159 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         for (int i = 0; i &lt; ySize; i++)</span>
+<span class="lineNum">     160 </span>                :<span class="lineNoCov">          0 :                 cout &lt;&lt; list[i] &lt;&lt; &quot; &quot;;</span>
+<span class="lineNum">     161 </span>                :<span class="lineNoCov">          0 :         cout &lt;&lt; &quot;\t&quot; &lt;&lt; pol_no;</span>
+<span class="lineNum">     162 </span>                :<span class="lineNoCov">          0 :         cout &lt;&lt; endl;</span>
+<a name="163"><span class="lineNum">     163 </span>                :<span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">     164 </span>                :            : 
+<span class="lineNum">     165 </span>                :<span class="lineCov">        195 : void Storage_y::calc_subgraphs() {</span>
+<span class="lineNum">     166 </span>        [<span class="branchCov" title="Branch 0 was taken 585 times"> + </span><span class="branchCov" title="Branch 1 was taken 195 times"> + </span>]:<span class="lineCov">        780 :         for (int i = 0; i &lt; ySize; i++) {</span>
+<span class="lineNum">     167 </span>        [<span class="branchCov" title="Branch 0 was taken 1755 times"> + </span><span class="branchCov" title="Branch 1 was taken 585 times"> + </span>]:<span class="lineCov">       2340 :                 for (int j = 0; j &lt; xSize; j++) {</span>
+<span class="lineNum">     168 </span>                :<span class="lineCov">       1755 :                         gd_y.setGrid(j, i, transposeARR[list[i]][j]);</span>
+<span class="lineNum">     169 </span>                :            :                 }
+<span class="lineNum">     170 </span>                :            :         }
+<span class="lineNum">     171 </span>                :<span class="lineCov">        195 :         this-&gt;delta1 = gd_y.calcEnergy_brute2d_1();</span>
+<span class="lineNum">     172 </span>                :            :         //gd_y.calculate_edge_subgraphs(vpr, false);
+<span class="lineNum">     173 </span>                :            :         //this-&gt;delta1 = 0;
+<span class="lineNum">     174 </span>                :            :         //for(vector&lt;pair&lt;int, int&gt; &gt;::size_type i = 0; i &lt; vpr.size(); i++){
+<span class="lineNum">     175 </span>                :            :         //  this-&gt;delta1 = this-&gt;delta1 + vpr[i].second;
+<span class="lineNum">     176 </span>                :            :         //}
+<span class="lineNum">     177 </span>                :            :         //gd_y.calculate_edge_subgraphs(inverse_vpr, true);
+<span class="lineNum">     178 </span>                :<span class="lineCov">        195 : }</span>
+<a name="179"><span class="lineNum">     179 </span>                :            : int tempARR[xSize][ySize];</a>
+<span class="lineNum">     180 </span>                :            : 
+<span class="lineNum">     181 </span>                :<span class="lineCov">        144 : Storage_y Storage_y::transpose() const {</span>
+<span class="lineNum">     182 </span>                :<span class="lineCov">        144 :         Storage_y temp;</span>
+<span class="lineNum">     183 </span>        [<span class="branchCov" title="Branch 0 was taken 432 times"> + </span><span class="branchCov" title="Branch 1 was taken 144 times"> + </span>]:<span class="lineCov">        576 :         for (int ind = 0; ind &lt; xSize; ind++) {</span>
+<span class="lineNum">     184 </span>        [<span class="branchCov" title="Branch 0 was taken 1296 times"> + </span><span class="branchCov" title="Branch 1 was taken 432 times"> + </span>]:<span class="lineCov">       1728 :                 for (int j = 0; j &lt; ySize; j++) {</span>
+<span class="lineNum">     185 </span>                :<span class="lineCov">       1296 :                         int i = list[j];</span>
+<span class="lineNum">     186 </span>                :<span class="lineCov">       1296 :                         tempARR[ind][j] = transposeARR[i][ySize - 1 - ind];</span>
+<span class="lineNum">     187 </span>                :            :                 }
+<span class="lineNum">     188 </span>                :            :         }
+<span class="lineNum">     189 </span>        [<span class="branchCov" title="Branch 0 was taken 432 times"> + </span><span class="branchCov" title="Branch 1 was taken 144 times"> + </span>]:<span class="lineCov">        576 :         for (int k = 0; k &lt; ySize; k++) {</span>
+<span class="lineNum">     190 </span>                :            :                 // search for it;
+<span class="lineNum">     191 </span>                :<span class="lineCov">        432 :                 bool found = false;</span>
+<span class="lineNum">     192 </span>[<span class="branchCov" title="Branch 0 was taken 2179 times"> + </span><span class="branchCov" title="Branch 1 was taken 17 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 1764 times"> + </span><span class="branchCov" title="Branch 3 was taken 415 times"> + </span>]:<span class="lineCov">       2196 :                 for (int j = 0; j &lt; ARRSIZE &amp;&amp; !found; j++) {</span>
+<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 4 was taken 1764 times"> + </span><span class="branchCov" title="Branch 5 was taken 432 times"> + </span>]
+<span class="lineNum">     193 </span>                :<span class="lineCov">       1764 :                         bool silu = true;</span>
+<span class="lineNum">     194 </span>[<span class="branchCov" title="Branch 0 was taken 4588 times"> + </span><span class="branchCov" title="Branch 1 was taken 648 times"> + </span>][<span class="branchCov" title="Branch 2 was taken 3472 times"> + </span><span class="branchCov" title="Branch 3 was taken 1116 times"> + </span>]:<span class="lineCov">       5236 :                         for (int l = 0; l &lt; ySize &amp;&amp; silu; l++) {</span>
+<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 4 was taken 3472 times"> + </span><span class="branchCov" title="Branch 5 was taken 1764 times"> + </span>]
+<span class="lineNum">     195 </span>        [<span class="branchCov" title="Branch 0 was taken 1332 times"> + </span><span class="branchCov" title="Branch 1 was taken 2140 times"> + </span>]:<span class="lineCov">       3472 :                                 if (transposeARR[j][l] != tempARR[k][l]) {</span>
+<span class="lineNum">     196 </span>                :<span class="lineCov">       1332 :                                         silu = false;</span>
+<span class="lineNum">     197 </span>                :            :                                 }
+<span class="lineNum">     198 </span>                :            :                         }
+<span class="lineNum">     199 </span>        [<span class="branchCov" title="Branch 0 was taken 432 times"> + </span><span class="branchCov" title="Branch 1 was taken 1332 times"> + </span>]:<span class="lineCov">       1764 :                         if (silu) {</span>
+<span class="lineNum">     200 </span>                :<span class="lineCov">        432 :                                 found = true;</span>
+<span class="lineNum">     201 </span>                :<span class="lineCov">        432 :                                 temp.push_back(k, j);</span>
+<span class="lineNum">     202 </span>                :            :                         }
+<span class="lineNum">     203 </span>                :            :                 }
+<span class="lineNum">     204 </span>                :            :         }
+<span class="lineNum">     205 </span>                :<span class="lineCov">        144 :         return temp;</span>
+<a name="206"><span class="lineNum">     206 </span>                :            : }</a>
+<span class="lineNum">     207 </span>                :            : 
+<span class="lineNum">     208 </span>                :<span class="lineCov">        576 : Storage_y Storage_y::transform(const int &amp;k) const {</span>
+<span class="lineNum">     209 </span>                :<span class="lineCov">        576 :         Storage_y temp;</span>
+<span class="lineNum">     210 </span>        [<span class="branchCov" title="Branch 0 was taken 1728 times"> + </span><span class="branchCov" title="Branch 1 was taken 576 times"> + </span>]:<span class="lineCov">       2304 :         for (int i = 0; i &lt; ySize; i++) {</span>
+<span class="lineNum">     211 </span>                :<span class="lineCov">       1728 :                 int j = transformARR[k][this-&gt;list[i]];  //ARRSIZE - 1 - this-&gt;list[i];</span>
+<span class="lineNum">     212 </span>                :            :                 //int j = ARRSIZE - 1 - this-&gt;list[i];
+<span class="lineNum">     213 </span>                :<span class="lineCov">       1728 :                 temp.push_back(i, j);</span>
+<span class="lineNum">     214 </span>                :            :         }
+<span class="lineNum">     215 </span>                :<span class="lineCov">        576 :         return temp;</span>
+<a name="216"><span class="lineNum">     216 </span>                :            : }</a>
+<span class="lineNum">     217 </span>                :            : 
+<span class="lineNum">     218 </span>                :<span class="lineCov">       4608 : Storage_y Storage_y::reflect() const {</span>
+<span class="lineNum">     219 </span>                :<span class="lineCov">       4608 :         Storage_y temp = *this;</span>
+<span class="lineNum">     220 </span>        [<span class="branchCov" title="Branch 0 was taken 13824 times"> + </span><span class="branchCov" title="Branch 1 was taken 4608 times"> + </span>]:<span class="lineCov">      18432 :         for (int i = 0; i &lt; ySize; i++)</span>
+<span class="lineNum">     221 </span>                :<span class="lineCov">      13824 :                 temp.push_back(i, list[ySize - 1 - i]);</span>
+<span class="lineNum">     222 </span>                :<span class="lineCov">       4608 :         return temp;</span>
+<a name="223"><span class="lineNum">     223 </span>                :            : }</a>
+<span class="lineNum">     224 </span>                :            : 
+<span class="lineNum">     225 </span>                :<span class="lineCov">       1152 : Storage_y Storage_y::reflect_x() const {</span>
+<span class="lineNum">     226 </span>                :<span class="lineCov">       1152 :         Storage_y temp = *this;</span>
+<span class="lineNum">     227 </span>        [<span class="branchCov" title="Branch 0 was taken 3456 times"> + </span><span class="branchCov" title="Branch 1 was taken 1152 times"> + </span>]:<span class="lineCov">       4608 :         for (int i = 0; i &lt; ySize; i++)</span>
+<span class="lineNum">     228 </span>                :<span class="lineCov">       3456 :                 temp.push_back(i, reflectxARR[list[i]]);</span>
+<span class="lineNum">     229 </span>                :<span class="lineCov">       1152 :         return temp;</span>
+<a name="230"><span class="lineNum">     230 </span>                :            : }</a>
+<span class="lineNum">     231 </span>                :            : 
+<span class="lineNum">     232 </span>                :<span class="lineCov">        288 : Storage_y Storage_y::shift_x() const {</span>
+<span class="lineNum">     233 </span>                :<span class="lineCov">        288 :         Storage_y temp = *this;</span>
+<span class="lineNum">     234 </span>        [<span class="branchCov" title="Branch 0 was taken 864 times"> + </span><span class="branchCov" title="Branch 1 was taken 288 times"> + </span>]:<span class="lineCov">       1152 :         for (int i = 0; i &lt; ySize; i++) {</span>
+<span class="lineNum">     235 </span>                :<span class="lineCov">        864 :                 temp.push_back(i, shiftxARR[list[i]]);</span>
+<span class="lineNum">     236 </span>                :            :         }
+<span class="lineNum">     237 </span>                :<span class="lineCov">        288 :         return temp;</span>
+<a name="238"><span class="lineNum">     238 </span>                :            : }</a>
+<span class="lineNum">     239 </span>                :            : 
+<span class="lineNum">     240 </span>                :<span class="lineCov">       3456 : Storage_y Storage_y::shift() const {</span>
+<span class="lineNum">     241 </span>                :            :         if (BConds1) {
+<span class="lineNum">     242 </span>                :            :                 Storage_y temp = *this;
+<span class="lineNum">     243 </span>                :            :                 for (int i = 0; i &lt; ySize - 1; i++) {
+<span class="lineNum">     244 </span>                :            :                         temp.push_back(i, list[i + 1]);
+<span class="lineNum">     245 </span>                :            :                 }
+<span class="lineNum">     246 </span>                :            :                 temp.push_back(ySize - 1, list[0]);
+<span class="lineNum">     247 </span>                :            :                 return temp;
+<span class="lineNum">     248 </span>                :            :         }
+<span class="lineNum">     249 </span>                :<span class="lineCov">       3456 :         return *this;</span>
+<a name="250"><span class="lineNum">     250 </span>                :            : }</a>
+<span class="lineNum">     251 </span>                :            : 
+<span class="lineNum">     252 </span>                :<span class="lineNoCov">          0 : Storage_y Storage_y::order_it_asending() const {</span>
+<span class="lineNum">     253 </span>                :<span class="lineNoCov">          0 :         Storage_y temp;</span>
+<span class="lineNum">     254 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         multiset&lt;int&gt; s(list, list + ySize);</span>
+<span class="lineNum">     255 </span>                :<span class="lineNoCov">          0 :         multiset&lt;int&gt;::iterator sittr, eittr;</span>
+<span class="lineNum">     256 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         sittr = s.begin();</span>
+<span class="lineNum">     257 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         eittr = s.end();</span>
+<span class="lineNum">     258 </span>                :<span class="lineNoCov">          0 :         int i = 0;</span>
+<span class="lineNum">     259 </span>        [<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :         for (; sittr != eittr; sittr++) {</span>
+<span class="lineNum">     260 </span>                :<span class="lineNoCov">          0 :                 temp.push_back(i, *sittr);</span>
+<span class="lineNum">     261 </span>                :<span class="lineNoCov">          0 :                 i++;</span>
+<span class="lineNum">     262 </span>                :            :         }
+<span class="lineNum">     263 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         return temp;</span>
+<a name="264"><span class="lineNum">     264 </span>                :            : }</a>
+<span class="lineNum">     265 </span>                :            : 
+<span class="lineNum">     266 </span>                :<span class="lineNoCov">          0 : Storage_y Storage_y::order_it() const {</span>
+<span class="lineNum">     267 </span>                :<span class="lineNoCov">          0 :         Storage_y temp;</span>
+<span class="lineNum">     268 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         multiset&lt;int&gt; s(list, list + ySize);</span>
+<span class="lineNum">     269 </span>                :<span class="lineNoCov">          0 :         multiset&lt;int&gt;::iterator sittr, eittr;</span>
+<span class="lineNum">     270 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         sittr = s.begin();</span>
+<span class="lineNum">     271 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         eittr = s.end();</span>
+<span class="lineNum">     272 </span>                :<span class="lineNoCov">          0 :         int i = ySize;</span>
+<span class="lineNum">     273 </span>        [<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :         for (; sittr != eittr; sittr++) {</span>
+<span class="lineNum">     274 </span>                :<span class="lineNoCov">          0 :                 i--;</span>
+<span class="lineNum">     275 </span>                :<span class="lineNoCov">          0 :                 temp.push_back(i, *sittr);</span>
+<span class="lineNum">     276 </span>                :            :         }
+<span class="lineNum">     277 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         return temp;</span>
+<a name="278"><span class="lineNum">     278 </span>                :            : }</a>
+<span class="lineNum">     279 </span>                :            : 
+<span class="lineNum">     280 </span>                :<span class="lineNoCov">          0 : bool Storage_y::y_equals(const Storage_y &amp;s) const {</span>
+<span class="lineNum">     281 </span>                :<span class="lineNoCov">          0 :         Storage_y temp = s;</span>
+<span class="lineNum">     282 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         Storage_y tempR = s.reflect();</span>
+<span class="lineNum">     283 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         for (int i = 0; i &lt; ySize; i++) {</span>
+<span class="lineNum">     284 </span>        [<span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span>]:<span class="lineNoCov">          0 :                 if (this-&gt;equals(temp)) return true;</span>
+<span class="lineNum">     285 </span>        [<span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span>]:<span class="lineNoCov">          0 :                 if (this-&gt;equals(tempR)) return true;</span>
+<span class="lineNum">     286 </span>[<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>][<span class="branchNoExec" title="Branch 3 was not executed"> # </span><span class="branchNoExec" title="Branch 4 was not executed"> # </span>]:<span class="lineNoCov">          0 :                 temp = temp.shift();</span>
+<span class="lineNum">         </span>        [<span class="branchNoExec" title="Branch 6 was not executed"> # </span><span class="branchNoExec" title="Branch 7 was not executed"> # </span>]
+<span class="lineNum">     287 </span>[<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>][<span class="branchNoExec" title="Branch 3 was not executed"> # </span><span class="branchNoExec" title="Branch 4 was not executed"> # </span>]:<span class="lineNoCov">          0 :                 tempR = temp.reflect();</span>
+<span class="lineNum">         </span>        [<span class="branchNoExec" title="Branch 6 was not executed"> # </span><span class="branchNoExec" title="Branch 7 was not executed"> # </span>]
+<span class="lineNum">     288 </span>                :            :         }
+<span class="lineNum">     289 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         return false;</span>
+<a name="290"><span class="lineNum">     290 </span>                :            : }</a>
+<span class="lineNum">     291 </span>                :            : 
+<span class="lineNum">     292 </span>                :<span class="lineNoCov">          0 : bool Storage_y::x_equals(const Storage_y &amp;s) const {</span>
+<span class="lineNum">     293 </span>                :<span class="lineNoCov">          0 :         Storage_y thisOrdered = this-&gt;order_it();</span>
+<span class="lineNum">     294 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         Storage_y temp = s;</span>
+<span class="lineNum">     295 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         Storage_y tempR = s.reflect_x();</span>
+<span class="lineNum">     296 </span>[<span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span>][<span class="branchNoExec" title="Branch 5 was not executed"> # </span><span class="branchNoExec" title="Branch 6 was not executed"> # </span>]:<span class="lineNoCov">          0 :         vector&lt;Storage_y&gt; tempT(transformARR.size()), tempRT(transformARR.size());</span>
+<span class="lineNum">         </span>[<span class="branchNoExec" title="Branch 8 was not executed"> # </span><span class="branchNoExec" title="Branch 9 was not executed"> # </span>][<span class="branchNoExec" title="Branch 13 was not executed"> # </span><span class="branchNoExec" title="Branch 14 was not executed"> # </span>]
+<span class="lineNum">         </span>[<span class="branchNoExec" title="Branch 17 was not executed"> # </span><span class="branchNoExec" title="Branch 18 was not executed"> # </span>][<span class="branchNoExec" title="Branch 20 was not executed"> # </span><span class="branchNoExec" title="Branch 21 was not executed"> # </span>]
+<span class="lineNum">     297 </span>        [<span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span>]:<span class="lineNoCov">          0 :         for (int i = 0; i &lt; transformARR.size(); i++) {</span>
+<span class="lineNum">     298 </span>[<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>][<span class="branchNoExec" title="Branch 4 was not executed"> # </span><span class="branchNoExec" title="Branch 5 was not executed"> # </span>]:<span class="lineNoCov">          0 :                 tempT[i] = s.transform(i);</span>
+<span class="lineNum">         </span>        [<span class="branchNoExec" title="Branch 7 was not executed"> # </span><span class="branchNoExec" title="Branch 8 was not executed"> # </span>]
+<span class="lineNum">     299 </span>[<span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span>][<span class="branchNoExec" title="Branch 5 was not executed"> # </span><span class="branchNoExec" title="Branch 6 was not executed"> # </span>]:<span class="lineNoCov">          0 :                 tempRT[i] = tempT[i].reflect_x();</span>
+<span class="lineNum">         </span>        [<span class="branchNoExec" title="Branch 8 was not executed"> # </span><span class="branchNoExec" title="Branch 9 was not executed"> # </span>]
+<span class="lineNum">     300 </span>                :            :         }
+<span class="lineNum">     301 </span>                :            :         //  Storage_y tempT = s.transform();
+<span class="lineNum">     302 </span>                :            :         //  Storage_y tempRT = tempT.reflect_x();
+<span class="lineNum">     303 </span>                :<span class="lineNoCov">          0 :         int j = 0;</span>
+<span class="lineNum">     304 </span>                :<span class="lineNoCov">          0 :         if (!BConds2) j = xSize - 1;</span>
+<span class="lineNum">     305 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         for (; j &lt; xSize; j++) {</span>
+<span class="lineNum">     306 </span>[<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>][<span class="branchNoExec" title="Branch 4 was not executed"> # </span><span class="branchNoExec" title="Branch 5 was not executed"> # </span>]:<span class="lineNoCov">          0 :                 if (thisOrdered.equals(temp.order_it())) if (this-&gt;y_equals(temp)) return true;</span>
+<span class="lineNum">         </span>[<span class="branchNoExec" title="Branch 7 was not executed"> # </span><span class="branchNoExec" title="Branch 8 was not executed"> # </span>][<span class="branchNoExec" title="Branch 9 was not executed"> # </span><span class="branchNoExec" title="Branch 10 was not executed"> # </span>]
+<span class="lineNum">         </span>        [<span class="branchNoExec" title="Branch 12 was not executed"> # </span><span class="branchNoExec" title="Branch 13 was not executed"> # </span>]
+<span class="lineNum">     307 </span>[<span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span>][<span class="branchNoExec" title="Branch 3 was not executed"> # </span><span class="branchNoExec" title="Branch 4 was not executed"> # </span>]:<span class="lineNoCov">          0 :                 if (!tempR.equals(temp)) if (thisOrdered.equals(tempR.order_it())) if (this-&gt;y_equals(</span>
+<span class="lineNum">         </span>[<span class="branchNoExec" title="Branch 7 was not executed"> # </span><span class="branchNoExec" title="Branch 8 was not executed"> # </span>][<span class="branchNoExec" title="Branch 10 was not executed"> # </span><span class="branchNoExec" title="Branch 11 was not executed"> # </span>]
+<span class="lineNum">         </span>[<span class="branchNoExec" title="Branch 12 was not executed"> # </span><span class="branchNoExec" title="Branch 13 was not executed"> # </span>][<span class="branchNoExec" title="Branch 15 was not executed"> # </span><span class="branchNoExec" title="Branch 16 was not executed"> # </span>]
+<span class="lineNum">     308 </span>                :<span class="lineNoCov">          0 :                     tempR)) return true;</span>
+<span class="lineNum">     309 </span>                :            : 
+<span class="lineNum">     310 </span>        [<span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span>]:<span class="lineNoCov">          0 :                 for (int i = 0; i &lt; transformARR.size(); i++) {</span>
+<span class="lineNum">     311 </span>[<span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span>][<span class="branchNoExec" title="Branch 5 was not executed"> # </span><span class="branchNoExec" title="Branch 6 was not executed"> # </span>]:<span class="lineNoCov">          0 :                         if (thisOrdered.equals(tempT[i].order_it())) if (this-&gt;y_equals(tempT[i])) return true;</span>
+<span class="lineNum">         </span>[<span class="branchNoExec" title="Branch 8 was not executed"> # </span><span class="branchNoExec" title="Branch 9 was not executed"> # </span>][<span class="branchNoExec" title="Branch 11 was not executed"> # </span><span class="branchNoExec" title="Branch 12 was not executed"> # </span>]
+<span class="lineNum">         </span>        [<span class="branchNoExec" title="Branch 14 was not executed"> # </span><span class="branchNoExec" title="Branch 15 was not executed"> # </span>]
+<span class="lineNum">     312 </span>[<span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span>][<span class="branchNoExec" title="Branch 5 was not executed"> # </span><span class="branchNoExec" title="Branch 6 was not executed"> # </span>]:<span class="lineNoCov">          0 :                         if (thisOrdered.equals(tempRT[i].order_it())) if (this-&gt;y_equals(</span>
+<span class="lineNum">         </span>  [<span class="branchNoExec" title="Branch 8 was not executed"> # </span><span class="branchNoExec" title="Branch 9 was not executed"> # </span><span class="branchNoExec" title="Branch 10 was not executed"> # </span><span class="branchNoExec" title="Branch 11 was not executed"> # </span>]
+<span class="lineNum">         </span>        [<span class="branchNoExec" title="Branch 13 was not executed"> # </span><span class="branchNoExec" title="Branch 14 was not executed"> # </span>]
+<span class="lineNum">     313 </span>                :<span class="lineNoCov">          0 :                             tempRT[i])) return true;</span>
+<span class="lineNum">     314 </span>                :            :                 }
+<span class="lineNum">     315 </span>[<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>][<span class="branchNoExec" title="Branch 3 was not executed"> # </span><span class="branchNoExec" title="Branch 4 was not executed"> # </span>]:<span class="lineNoCov">          0 :                 temp = temp.shift_x();</span>
+<span class="lineNum">         </span>        [<span class="branchNoExec" title="Branch 6 was not executed"> # </span><span class="branchNoExec" title="Branch 7 was not executed"> # </span>]
+<span class="lineNum">     316 </span>[<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>][<span class="branchNoExec" title="Branch 3 was not executed"> # </span><span class="branchNoExec" title="Branch 4 was not executed"> # </span>]:<span class="lineNoCov">          0 :                 tempR = temp.reflect_x();</span>
+<span class="lineNum">         </span>        [<span class="branchNoExec" title="Branch 6 was not executed"> # </span><span class="branchNoExec" title="Branch 7 was not executed"> # </span>]
+<span class="lineNum">     317 </span>        [<span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span>]:<span class="lineNoCov">          0 :                 for (int i = 0; i &lt; transformARR.size(); i++) {</span>
+<span class="lineNum">     318 </span>[<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>][<span class="branchNoExec" title="Branch 4 was not executed"> # </span><span class="branchNoExec" title="Branch 5 was not executed"> # </span>]:<span class="lineNoCov">          0 :                         tempT[i] = temp.transform(i);</span>
+<span class="lineNum">         </span>        [<span class="branchNoExec" title="Branch 7 was not executed"> # </span><span class="branchNoExec" title="Branch 8 was not executed"> # </span>]
+<span class="lineNum">     319 </span>[<span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span>][<span class="branchNoExec" title="Branch 5 was not executed"> # </span><span class="branchNoExec" title="Branch 6 was not executed"> # </span>]:<span class="lineNoCov">          0 :                         tempRT[i] = tempT[i].reflect_x();</span>
+<span class="lineNum">         </span>        [<span class="branchNoExec" title="Branch 8 was not executed"> # </span><span class="branchNoExec" title="Branch 9 was not executed"> # </span>]
+<span class="lineNum">     320 </span>                :            :                 }
+<span class="lineNum">     321 </span>                :            :         }
+<span class="lineNum">     322 </span>[<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>][<span class="branchNoExec" title="Branch 3 was not executed"> # </span><span class="branchNoExec" title="Branch 4 was not executed"> # </span>]:<span class="lineNoCov">          0 :         return false;</span>
+<span class="lineNum">         </span>[<span class="branchNoExec" title="Branch 6 was not executed"> # </span><span class="branchNoExec" title="Branch 7 was not executed"> # </span>][<span class="branchNoExec" title="Branch 9 was not executed"> # </span><span class="branchNoExec" title="Branch 10 was not executed"> # </span>]
+<a name="323"><span class="lineNum">     323 </span>                :            : }</a>
+<span class="lineNum">     324 </span>                :            : 
+<span class="lineNum">     325 </span>                :<span class="lineNoCov">          0 : bool Storage_y::operator==(const Storage_y &amp;s) const {</span>
+<span class="lineNum">     326 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (delta1 == s.delta1) if (this-&gt;vpr == s.vpr</span>
+<span class="lineNum">         </span>  [<span class="branchNoExec" title="Branch 3 was not executed"> # </span><span class="branchNoExec" title="Branch 4 was not executed"> # </span><span class="branchNoExec" title="Branch 5 was not executed"> # </span><span class="branchNoExec" title="Branch 6 was not executed"> # </span>]
+<span class="lineNum">         </span>        [<span class="branchNoExec" title="Branch 7 was not executed"> # </span><span class="branchNoExec" title="Branch 8 was not executed"> # </span>]
+<span class="lineNum">     327 </span>                :<span class="lineNoCov">          0 :             &amp;&amp; this-&gt;inverse_vpr == s.inverse_vpr) {</span>
+<span class="lineNum">     328 </span>        [<span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span>]:<span class="lineNoCov">          0 :                 if (this-&gt;x_equals(s)) return true;</span>
+<span class="lineNum">     329 </span>                :            :                 else if (xSize == ySize &amp;&amp; BConds1 == BConds2) {
+<span class="lineNum">     330 </span>                :<span class="lineNoCov">          0 :                         Storage_y temp = s.transpose();</span>
+<span class="lineNum">     331 </span>        [<span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span>]:<span class="lineNoCov">          0 :                         if (!s.equals(temp)) {</span>
+<span class="lineNum">     332 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :                                 return this-&gt;x_equals(temp);</span>
+<span class="lineNum">     333 </span>        [<span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span>]:<span class="lineNoCov">          0 :                         }</span>
+<span class="lineNum">     334 </span>                :            :                 }
+<span class="lineNum">     335 </span>                :            :         }
+<span class="lineNum">     336 </span>                :<span class="lineNoCov">          0 :         return false;</span>
+<a name="337"><span class="lineNum">     337 </span>                :            : }</a>
+<span class="lineNum">     338 </span>                :            : 
+<span class="lineNum">     339 </span>                :<span class="lineNoCov">          0 : bool Storage_y::equals(const Storage_y &amp;s) const {</span>
+<span class="lineNum">     340 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         for (int i = 0; i &lt; ySize; i++)</span>
+<span class="lineNum">     341 </span>        [<span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span>]:<span class="lineNoCov">          0 :                 if (list[i] != s[i]) return false;</span>
+<span class="lineNum">     342 </span>                :<span class="lineNoCov">          0 :         return true;</span>
+<a name="343"><span class="lineNum">     343 </span>                :            : }</a>
+<span class="lineNum">     344 </span>                :            : 
+<span class="lineNum">     345 </span>                :<span class="lineNoCov">          0 : void Storage_y::clear() {</span>
+<span class="lineNum">     346 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         for (int i = 0; i &lt; ySize; i++)</span>
+<span class="lineNum">     347 </span>                :<span class="lineNoCov">          0 :                 list[i] = -1;</span>
+<span class="lineNum">     348 </span>                :<span class="lineNoCov">          0 : }</span>
+<span class="lineNum">     349 </span>                :            : 
+<span class="lineNum">     350 </span>                :            : /**
+<a name="351"><span class="lineNum">     351 </span>                :            :  *  Don't clear the group_id</a>
+<span class="lineNum">     352 </span>                :            :  */
+<span class="lineNum">     353 </span>                :<span class="lineNoCov">          0 : void Storage_y::partialClear() {</span>
+<span class="lineNum">     354 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         for (int i = 0; i &lt; ySize; i++)</span>
+<span class="lineNum">     355 </span>                :<span class="lineNoCov">          0 :                 list[i] = -1;</span>
+<a name="356"><span class="lineNum">     356 </span>                :<span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">     357 </span>                :            : 
+<span class="lineNum">     358 </span>                :<span class="lineCov">      20471 : void Storage_y::push_back(const int index, int pow) {</span>
+<span class="lineNum">     359 </span>                :<span class="lineCov">      20471 :         this-&gt;list[index] = pow;</span>
+<a name="360"><span class="lineNum">     360 </span>                :<span class="lineCov">      20471 : }</span></a>
+<span class="lineNum">     361 </span>                :            : 
+<span class="lineNum">     362 </span>                :<span class="lineNoCov">          0 : void Storage_y::print() const {</span>
+<span class="lineNum">     363 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         for (int i = 0; i &lt; ySize; i++)</span>
+<span class="lineNum">     364 </span>                :<span class="lineNoCov">          0 :                 cout &lt;&lt; list[i] &lt;&lt; &quot; &quot;;</span>
+<a name="365"><span class="lineNum">     365 </span>                :<span class="lineNoCov">          0 :         cout &lt;&lt; endl;</span></a>
+<span class="lineNum">     366 </span>                :<span class="lineNoCov">          0 : }</span>
+<span class="lineNum">     367 </span>                :<span class="lineNoCov">          0 : ostream &amp; operator&lt;&lt;(ostream &amp; out, const Storage_y &amp;s) {</span>
+<span class="lineNum">     368 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :     for (int i = 0; i &lt; ySize; i++)</span>
+<span class="lineNum">     369 </span>                :<span class="lineNoCov">          0 :         out &lt;&lt; s[i] &lt;&lt; &quot; &quot;;</span>
+<span class="lineNum">     370 </span>                :<span class="lineNoCov">          0 :     out &lt;&lt; &quot; delta: &quot; &lt;&lt; s.getDelta() &lt;&lt; endl;</span>
+<span class="lineNum">     371 </span>                :<span class="lineNoCov">          0 :     Storage_y temp = s;</span>
+<span class="lineNum">     372 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :     temp.calc_subgraphs();</span>
+<span class="lineNum">     373 </span>[<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>][<span class="branchNoExec" title="Branch 3 was not executed"> # </span><span class="branchNoExec" title="Branch 4 was not executed"> # </span>]:<span class="lineNoCov">          0 :     out &lt;&lt; &quot;vpr: &quot; &lt;&lt; temp.get_vpr() &lt;&lt; endl;</span>
+<span class="lineNum">         </span>[<span class="branchNoExec" title="Branch 6 was not executed"> # </span><span class="branchNoExec" title="Branch 7 was not executed"> # </span>][<span class="branchNoExec" title="Branch 9 was not executed"> # </span><span class="branchNoExec" title="Branch 10 was not executed"> # </span>]
+<span class="lineNum">         </span>        [<span class="branchNoExec" title="Branch 12 was not executed"> # </span><span class="branchNoExec" title="Branch 13 was not executed"> # </span>]
+<span class="lineNum">     374 </span>[<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>][<span class="branchNoExec" title="Branch 3 was not executed"> # </span><span class="branchNoExec" title="Branch 4 was not executed"> # </span>]:<span class="lineNoCov">          0 :     out &lt;&lt; &quot;ivpr: &quot; &lt;&lt; temp.get_inversevpr() &lt;&lt; endl;</span>
+<span class="lineNum">         </span>[<span class="branchNoExec" title="Branch 6 was not executed"> # </span><span class="branchNoExec" title="Branch 7 was not executed"> # </span>][<span class="branchNoExec" title="Branch 9 was not executed"> # </span><span class="branchNoExec" title="Branch 10 was not executed"> # </span>]
+<span class="lineNum">         </span>        [<span class="branchNoExec" title="Branch 12 was not executed"> # </span><span class="branchNoExec" title="Branch 13 was not executed"> # </span>]
+<span class="lineNum">     375 </span>                :<span class="lineNoCov">          0 :     return out;</span>
+<span class="lineNum">     376 </span>                :            : }
+<span class="lineNum">     377 </span>                :            : 
+<span class="lineNum">     378 </span>                :            : // }}}
+<span class="lineNum">     379 </span>                :            : 
+<span class="lineNum">     380 </span>                :            : #endif
+<span class="lineNum">     381 </span>                :            : 
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.9</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>
