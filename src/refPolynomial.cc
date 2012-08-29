@@ -26,10 +26,8 @@ public:
 		s.clear();
 	}
 	void push_back(int expo, int coeff);
-	void push_back(int &expo, int &coeff);
 	ostream &output(ostream &out) const;
 	bool operator==(const refPolynomial &p) const;
-	refPolynomial operator+=(const refPolynomial &p);
 	void sum(Polynomial &p, const vector<Polynomial> &vPol, const int &maxpower,
 	    Polynomial &p1) const;
 	void sum(Polynomial &p, const vector<Polynomial> &vPol, const int &maxpower,
@@ -40,7 +38,6 @@ public:
 	    const int &maxpower1, const int &maxpower2);
 	void raise(const refPolynomial &p, const int &power, const int &maxpower,
 	    const int &maxpower1, const int &coeff);
-	refPolynomial operator*(const int &x);
 
 	map<int, int>::iterator begin() {
 		return s.begin();
@@ -65,7 +62,6 @@ public:
 	void next(map<int, int>::const_iterator &st) const {
 		++st;
 	}
-	void add(refPolynomial &p);
 
 	void ylist_multiplicity(vector<vector<int> > &ylistTable) const;
 
@@ -73,33 +69,6 @@ private:
 	map<int, int> s;
 };
 
-refPolynomial refPolynomial::operator+=(const refPolynomial &p) {
-	map<int, int>::const_iterator st = p.begin(), en = p.end();
-	while (st != en) {
-		this->push_back((*st).first, (*st).second);
-		++st;
-	}
-	return *this;
-}
-
-refPolynomial refPolynomial::operator*(const int &x) {
-	if (x == 1) return *this;
-	refPolynomial temp = *this;
-	map<int, int>::iterator st = temp.begin(), en = temp.end();
-	while (st != en) {
-		(*st).second = (*st).second * x;
-		temp.next(st);
-	}
-	return temp;
-}
-
-void refPolynomial::add(refPolynomial &p) {
-	map<int, int>::iterator st = p.begin(), en = p.end();
-	while (st != en) {
-		this->push_back((*st).first, (*st).second);
-		p.next(st);
-	}
-}
 
 void refPolynomial::sum(refPolynomial &p, vector<refPolynomial> &s2list) {
 	map<int, int>::iterator st = p.begin(), en = p.end(), s2st, s2en;
@@ -254,10 +223,6 @@ bool refPolynomial::operator==(const refPolynomial &p) const {
 }
 
 void refPolynomial::push_back(int expo, int coeff) {
-	s[expo] += coeff;
-}
-
-void refPolynomial::push_back(int &expo, int &coeff) {
 	s[expo] += coeff;
 }
 

@@ -42,7 +42,11 @@ public:
 	bool equals(const Storage &s) const;  // compare everything
 
 	int operator[](const int i) const {
-		return list[i];
+    	if(i > ARRSIZE){
+    		cout << i << endl;
+    		throw new runtime_error("trying to retrive an array out of bound" + i);
+    	}
+    	return list[i];
 	}
 
 	int getId() const {

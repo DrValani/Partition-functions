@@ -9,15 +9,6 @@
 #include "latticeSize.cc"
 using namespace std;
 
-#ifndef xSize
-#define xSize 3
-#endif
-
-#ifndef ySize
-#define ySize 3
-#endif
-
-
 extern time_t startTime;
 extern const int MAXPOWER;
 extern int shiftxARR[];
