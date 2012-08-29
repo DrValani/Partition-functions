@@ -32,16 +32,16 @@
             <td></td>
             <td class="headerItem">Lines:</td>
             <td class="headerCovTableEntry">0</td>
-            <td class="headerCovTableEntry">44</td>
+            <td class="headerCovTableEntry">43</td>
             <td class="headerCovTableEntryLo">0.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-08-28</td>
+            <td class="headerValue">2012-08-29</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">0</td>
-            <td class="headerCovTableEntry">10</td>
+            <td class="headerCovTableEntry">5</td>
             <td class="headerCovTableEntryLo">0.0 %</td>
           </tr>
           <tr>
@@ -50,7 +50,7 @@
             <td></td>
             <td class="headerItem">Branches:</td>
             <td class="headerCovTableEntry">0</td>
-            <td class="headerCovTableEntry">60</td>
+            <td class="headerCovTableEntry">40</td>
             <td class="headerCovTableEntryLo">0.0 %</td>
           </tr>
           <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
@@ -205,8 +205,7 @@
 <span class="lineNum">     134 </span>                :            :     {
 <span class="lineNum">     135 </span>                :<span class="lineNoCov">          0 :       _Distance __parent = (__holeIndex - 1) / 2;</span>
 <span class="lineNum">     136 </span>[<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>][<span class="branchNoExec" title="Branch 5 was not executed"> # </span><span class="branchNoExec" title="Branch 6 was not executed"> # </span>]:<span class="lineNoCov">          0 :       while (__holeIndex &gt; __topIndex &amp;&amp; *(__first + __parent) &lt; __value)</span>
-<span class="lineNum">         </span>[<span class="branchNoExec" title="Branch 7 was not executed"> # </span><span class="branchNoExec" title="Branch 8 was not executed"> # </span>][<span class="branchNoExec" title="Branch 9 was not executed"> # </span><span class="branchNoExec" title="Branch 10 was not executed"> # </span>]
-<span class="lineNum">         </span>[<span class="branchNoExec" title="Branch 14 was not executed"> # </span><span class="branchNoExec" title="Branch 15 was not executed"> # </span>][<span class="branchNoExec" title="Branch 16 was not executed"> # </span><span class="branchNoExec" title="Branch 17 was not executed"> # </span>]
+<span class="lineNum">         </span>        [<span class="branchNoExec" title="Branch 7 was not executed"> # </span><span class="branchNoExec" title="Branch 8 was not executed"> # </span>]
 <span class="lineNum">     137 </span>                :            :         {
 <span class="lineNum">     138 </span>                :<span class="lineNoCov">          0 :           *(__first + __holeIndex) = _GLIBCXX_MOVE(*(__first + __parent));</span>
 <span class="lineNum">     139 </span>                :<span class="lineNoCov">          0 :           __holeIndex = __parent;</span>
@@ -301,16 +300,15 @@
 <span class="lineNum">     228 </span>                :            :     {
 <span class="lineNum">     229 </span>                :<span class="lineNoCov">          0 :       const _Distance __topIndex = __holeIndex;</span>
 <span class="lineNum">     230 </span>                :<span class="lineNoCov">          0 :       _Distance __secondChild = __holeIndex;</span>
-<span class="lineNum">     231 </span>[<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>][<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :       while (__secondChild &lt; (__len - 1) / 2)</span>
+<span class="lineNum">     231 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :       while (__secondChild &lt; (__len - 1) / 2)</span>
 <span class="lineNum">     232 </span>                :            :         {
 <span class="lineNum">     233 </span>                :<span class="lineNoCov">          0 :           __secondChild = 2 * (__secondChild + 1);</span>
-<span class="lineNum">     234 </span>[<span class="branchNoExec" title="Branch 5 was not executed"> # </span><span class="branchNoExec" title="Branch 6 was not executed"> # </span>][<span class="branchNoExec" title="Branch 12 was not executed"> # </span><span class="branchNoExec" title="Branch 13 was not executed"> # </span>]:<span class="lineNoCov">          0 :           if (*(__first + __secondChild) &lt; *(__first + (__secondChild - 1)))</span>
+<span class="lineNum">     234 </span>        [<span class="branchNoExec" title="Branch 5 was not executed"> # </span><span class="branchNoExec" title="Branch 6 was not executed"> # </span>]:<span class="lineNoCov">          0 :           if (*(__first + __secondChild) &lt; *(__first + (__secondChild - 1)))</span>
 <span class="lineNum">     235 </span>                :<span class="lineNoCov">          0 :             __secondChild--;</span>
 <span class="lineNum">     236 </span>                :<span class="lineNoCov">          0 :           *(__first + __holeIndex) = _GLIBCXX_MOVE(*(__first + __secondChild));</span>
 <span class="lineNum">     237 </span>                :<span class="lineNoCov">          0 :           __holeIndex = __secondChild;</span>
 <span class="lineNum">     238 </span>                :            :         }
 <span class="lineNum">     239 </span>[<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>][<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :       if ((__len &amp; 1) == 0 &amp;&amp; __secondChild == (__len - 2) / 2)</span>
-<span class="lineNum">         </span>[<span class="branchNoExec" title="Branch 4 was not executed"> # </span><span class="branchNoExec" title="Branch 5 was not executed"> # </span>][<span class="branchNoExec" title="Branch 6 was not executed"> # </span><span class="branchNoExec" title="Branch 7 was not executed"> # </span>]
 <span class="lineNum">     240 </span>                :            :         {
 <span class="lineNum">     241 </span>                :<span class="lineNoCov">          0 :           __secondChild = 2 * (__secondChild + 1);</span>
 <span class="lineNum">     242 </span>                :<span class="lineNoCov">          0 :           *(__first + __holeIndex) = _GLIBCXX_MOVE(*(__first</span>
@@ -460,7 +458,7 @@
 <span class="lineNum">     385 </span>                :            :       __glibcxx_function_requires(_LessThanComparableConcept&lt;_ValueType&gt;)
 <span class="lineNum">     386 </span>                :            :       __glibcxx_requires_valid_range(__first, __last);
 <span class="lineNum">     387 </span>                :            : 
-<span class="lineNum">     388 </span>[<span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span>][<span class="branchNoExec" title="Branch 4 was not executed"> # </span><span class="branchNoExec" title="Branch 5 was not executed"> # </span>]:<span class="lineNoCov">          0 :       if (__last - __first &lt; 2)</span>
+<span class="lineNum">     388 </span>        [<span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span>]:<span class="lineNoCov">          0 :       if (__last - __first &lt; 2)</span>
 <span class="lineNum">     389 </span>                :<span class="lineNoCov">          0 :         return;</span>
 <span class="lineNum">     390 </span>                :            : 
 <span class="lineNum">     391 </span>                :<span class="lineNoCov">          0 :       const _DistanceType __len = __last - __first;</span>
@@ -470,8 +468,8 @@
 <span class="lineNum">     395 </span>                :<span class="lineNoCov">          0 :           _ValueType __value = _GLIBCXX_MOVE(*(__first + __parent));</span>
 <span class="lineNum">     396 </span>[<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>][<span class="branchNoExec" title="Branch 3 was not executed"> # </span><span class="branchNoExec" title="Branch 4 was not executed"> # </span>]:<span class="lineNoCov">          0 :           std::__adjust_heap(__first, __parent, __len, _GLIBCXX_MOVE(__value));</span>
 <span class="lineNum">         </span>        [<span class="branchNoExec" title="Branch 6 was not executed"> # </span><span class="branchNoExec" title="Branch 7 was not executed"> # </span>]
-<span class="lineNum">     397 </span>[<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>][<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :           if (__parent == 0)</span>
-<span class="lineNum">     398 </span>                :<span class="lineNoCov">          0 :             return;</span>
+<span class="lineNum">     397 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :           if (__parent == 0)</span>
+<span class="lineNum">     398 </span>                :            :             return;
 <span class="lineNum">     399 </span>        [<span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span>]:<span class="lineNoCov">          0 :           __parent--;</span>
 <span class="lineNum">     400 </span>                :            :         }
 <span class="lineNum">     401 </span>                :            :     }
@@ -537,7 +535,7 @@
 <span class="lineNum">     461 </span>                :            :       __glibcxx_requires_valid_range(__first, __last);
 <span class="lineNum">     462 </span>                :            :       __glibcxx_requires_heap(__first, __last);
 <span class="lineNum">     463 </span>                :            : 
-<span class="lineNum">     464 </span>[<span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span>][<span class="branchNoExec" title="Branch 4 was not executed"> # </span><span class="branchNoExec" title="Branch 5 was not executed"> # </span>]:<span class="lineNoCov">          0 :       while (__last - __first &gt; 1)</span>
+<span class="lineNum">     464 </span>        [<span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span>]:<span class="lineNoCov">          0 :       while (__last - __first &gt; 1)</span>
 <span class="lineNum">     465 </span>                :            :         {
 <span class="lineNum">     466 </span>                :<span class="lineNoCov">          0 :           --__last;</span>
 <span class="lineNum">     467 </span>                :<span class="lineNoCov">          0 :           std::__pop_heap(__first, __last, __last);</span>

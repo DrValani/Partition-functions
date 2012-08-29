@@ -32,17 +32,17 @@
             <td></td>
             <td class="headerItem">Lines:</td>
             <td class="headerCovTableEntry">23</td>
-            <td class="headerCovTableEntry">28</td>
-            <td class="headerCovTableEntryMed">82.1 %</td>
+            <td class="headerCovTableEntry">25</td>
+            <td class="headerCovTableEntryHi">92.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-08-28</td>
+            <td class="headerValue">2012-08-29</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">51</td>
-            <td class="headerCovTableEntry">84</td>
-            <td class="headerCovTableEntryLo">60.7 %</td>
+            <td class="headerCovTableEntry">72</td>
+            <td class="headerCovTableEntryLo">70.8 %</td>
           </tr>
           <tr>
             <td></td>
@@ -783,9 +783,9 @@
 <span class="lineNum">     712 </span>                :            :       typedef typename __traits_type::value_type        value_type;
 <span class="lineNum">     713 </span>                :            :       typedef typename __traits_type::difference_type   difference_type;
 <span class="lineNum">     714 </span>                :            :       typedef typename __traits_type::reference         reference;
-<a name="715"><span class="lineNum">     715 </span>                :            :       typedef typename __traits_type::pointer           pointer;</a>
+<span class="lineNum">     715 </span>                :            :       typedef typename __traits_type::pointer           pointer;
 <span class="lineNum">     716 </span>                :            : 
-<span class="lineNum">     717 </span>                :<span class="lineNoCov">          0 :       _GLIBCXX_CONSTEXPR __normal_iterator() : _M_current(_Iterator()) { }</span>
+<span class="lineNum">     717 </span>                :            :       _GLIBCXX_CONSTEXPR __normal_iterator() : _M_current(_Iterator()) { }
 <a name="718"><span class="lineNum">     718 </span>                :            : </a>
 <span class="lineNum">     719 </span>                :            :       explicit
 <span class="lineNum">     720 </span>                :<span class="lineCov">     161868 :       __normal_iterator(const _Iterator&amp; __i) : _M_current(__i) { }</span>
@@ -813,10 +813,10 @@
 <span class="lineNum">     742 </span>                :<span class="lineCov">       2218 :         ++_M_current;</span>
 <span class="lineNum">     743 </span>                :<span class="lineCov">       2218 :         return *this;</span>
 <span class="lineNum">     744 </span>                :            :       }
-<a name="745"><span class="lineNum">     745 </span>                :            : </a>
+<span class="lineNum">     745 </span>                :            : 
 <span class="lineNum">     746 </span>                :            :       __normal_iterator
-<span class="lineNum">     747 </span>                :<span class="lineNoCov">          0 :       operator++(int)</span>
-<span class="lineNum">     748 </span>                :<span class="lineNoCov">          0 :       { return __normal_iterator(_M_current++); }</span>
+<span class="lineNum">     747 </span>                :            :       operator++(int)
+<span class="lineNum">     748 </span>                :            :       { return __normal_iterator(_M_current++); }
 <span class="lineNum">     749 </span>                :            : 
 <a name="750"><span class="lineNum">     750 </span>                :            :       // Bidirectional iterator requirements</a>
 <span class="lineNum">     751 </span>                :            :       __normal_iterator&amp;

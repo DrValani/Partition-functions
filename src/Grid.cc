@@ -8,445 +8,105 @@ using namespace std;
 
 #include "Grid.h"
 
-void Grid::changeAll(const int change, const int to)const{
-  for(int z = 0; z < xSize; z++){//May need to change to row_size col_size
-    for(int y = 0; y < ySize; y++){
-      if(subARR[z][y] == change){
-	subARR[z][y] = to;
-      }
-    }
-  }
-}
-void Grid::check_neighbour(const int &i,const int &j, const int &ngh_i,
-			   const int &ngh_j, int &subG_counter, 
-			   int &subG_no, vector<pair<int, int> > &vpr, bool inverse)const{
-  if(!inverse)
-    inverse = (bv[i][j] == bv[ngh_i][ngh_j]);
-  else
-    inverse = (bv[i][j] != bv[ngh_i][ngh_j]);
-  if(inverse){ 
-    if(subARR[ngh_i][ngh_j] == -1){
-      subARR[ngh_i][ngh_j] = subG_no;
-      vpr[subG_no].first++;
-      vpr[subG_no].second++;
-    }
-    else{
-      if(subG_no != subARR[ngh_i][ngh_j]){
-	this->changeAll(subARR[i][j], subARR[ngh_i][ngh_j]);
-	vpr[subARR[ngh_i][ngh_j]].first += vpr[subG_no].first;
-	vpr[subARR[ngh_i][ngh_j]].second += vpr[subG_no].second;
-	vpr[subG_no].first = 0;
-	vpr[subG_no].second = 0;
-	subG_no = subARR[ngh_i][ngh_j];
-      }
-      vpr[subG_no].second++;
-    }
-  }
-  else{
-    if(subARR[ngh_i][ngh_j] == -1){
-      subG_counter++;
-      subARR[ngh_i][ngh_j] = subG_counter;
-      pair<int, int> pr(1, 0);
-      vpr.push_back(pr);
-    }
-  }
-}
-void Grid::calculate_edge_subgraphs(vector<pair<int, int> > &vpr, bool inverse)const{
-  vpr.clear();
-  for(int i = 0; i < xSize; i++)//May need to change to row_size col_size
-    for(int j = 0; j < ySize; j++)
-      subARR[i][j] = -1;
-
-  int subG_counter = 0;
-  pair<int, int> pr(1, 0); // pr(# of vertexs, delta value)
-  vpr.push_back(pr);
-  subARR[0][0] = subG_counter;
-  for(int i = 0; i < xSize; i++){ //May need to change to row_size col_size
-    for(int j = 0; j < ySize; j++){
-      int subG_no = subARR[i][j];
-      if(i == xSize - 1 && j == ySize - 1){
-	if(BConds2){
-	  this->check_neighbour(i, j, 0, j, subG_counter,subG_no,vpr,inverse);
-	}
-	if(BConds1){
-	  this->check_neighbour(i, j, i, 0, subG_counter,subG_no,vpr,inverse);
-	}
-      }
-      else if(i == xSize - 1){
-	this->check_neighbour(i, j, i, j+1, subG_counter,subG_no,vpr,inverse);
-	if(BConds2){
-	  this->check_neighbour(i, j, 0, j, subG_counter,subG_no,vpr,inverse);
-	}
-      }
-      else if(j == ySize - 1){
-	this->check_neighbour(i, j, i+1, j, subG_counter,subG_no,vpr,inverse);
-	if(BConds1){
-	  this->check_neighbour(i, j, i, 0, subG_counter,subG_no,vpr,inverse);
-	}
-      }
-      else{
-	this->check_neighbour(i, j, i, j+1, subG_counter,subG_no,vpr,inverse);
-	this->check_neighbour(i, j, i+1, j, subG_counter,subG_no,vpr,inverse);
-      }
-    }
-  }
-
-  sort(vpr.begin(), vpr.end());
-  // Now clean up vector
-  vector<pair<int, int> >::iterator s1, e1;
-  s1 = vpr.begin();
-  e1 = vpr.end();
-  while(s1 != e1){
-    if(s1->first == 0 && s1->second == 0){
-      vpr.erase(s1);
-      s1 = vpr.begin();
-      e1 = vpr.end();
-    }
-    else
-      s1++;
-  }
-}
-
 // {{{ calcEnergy
 
-int Grid::calcEnergy_step1() const{
-  int delta=0;
-  for(int indexR = 0; indexR < row_size-1; indexR++){
-    if (bv[indexR][0]==bv[indexR+1][0]){delta++;}
-  }
-  if(BConds2)
-    if (bv[row_size-1][0]==bv[0][0]){delta++;} // (1)
-  return delta;
+int Grid::calcEnergy_step3() const {
+	int delta = 0;
+	for (int indexR = 0; indexR < row_size; indexR++) {
+		if (bv[indexR][0] == bv[indexR][1]) {
+			delta++;
+		}
+	}
+	return delta;
+}
+int Grid::calcEnergy_step3_1() const {
+	int delta = 0;
+	for (int indexR = 0; indexR < row_size - 1; indexR++) {
+		if (bv[indexR][0] == bv[indexR + 1][0]) {
+			delta++;
+		}
+	}
+	if (BConds2)
+		if (bv[row_size - 1][0] == bv[0][0]) {
+			delta++;
+		} // (1)
+	return delta;
 }
 
-int Grid::calcEnergy_step2() const{
-  int delta=0;
-  for(int indexR = 0; indexR < row_size-1; indexR++){
-    if (bv[indexR][1]==bv[indexR+1][1]){delta++;}
-    if (bv[indexR][0]==bv[indexR][1]){delta++;}
-  }
-  if (bv[row_size-1][0]==bv[row_size-1][1]){delta++;}
-  if(BConds2)
-    if (bv[row_size-1][1]==bv[0][1]){delta++;} // (1)
-  return delta;
+int Grid::calcEnergy_brute2d_1() const {
+	int delta = 0;
+	for (int indexC = 0; indexC < col_size; indexC++) {
+		for (int indexR = 0; indexR < row_size - 1; indexR++) {
+			if (bv[indexR][indexC] == bv[indexR + 1][indexC]) {
+				delta++;
+			}
+		}
+	}
+	for (int indexR = 0; indexR < row_size; indexR++) {
+		for (int indexC = 0; indexC < col_size - 1; indexC++) {
+			if (bv[indexR][indexC] == bv[indexR][indexC + 1]) {
+				delta++;
+			}
+		}
+	}
+	if (BConds2)
+		for (int indexC = 0; indexC < col_size; indexC++) {
+			if (bv[row_size - 1][indexC] == bv[0][indexC]) {
+				delta++;
+			} // (1)
+		}
+	if (BConds1)
+		for (int indexR = 0; indexR < row_size; indexR++) {
+			if (bv[indexR][0] == bv[indexR][col_size - 1]) {
+				delta++;
+			}
+		}
+	return delta;
 }
-
-int Grid::calcEnergy_step3() const{
-  int delta=0;
-  for(int indexR = 0; indexR < row_size; indexR++){
-    if (bv[indexR][0]==bv[indexR][1]){delta++;}
-  }
-  return delta;
-}
-int Grid::calcEnergy_step3_1() const{
-  int delta=0;
-  for(int indexR = 0; indexR < row_size-1; indexR++){
-    if (bv[indexR][0]==bv[indexR+1][0]){delta++;}
-  }
-   if(BConds2)
-    if (bv[row_size-1][0]==bv[0][0]){delta++;} // (1)
-  return delta;
-}
-int Grid::calcEnergy_step4() const{
-  int delta=0;
-  for(int indexR = 0; indexR < row_size; indexR++){
-    if (bv[indexR][0]==bv[indexR][2]){delta++;}
-    if (bv[indexR][1]==bv[indexR][2]){delta++;}
-  }
-  for(int indexR = 0; indexR < row_size-1; indexR++){
-    if (bv[indexR][2]==bv[indexR+1][2]){delta++;}
-  }
-  if(BConds2)
-    if (bv[row_size-1][2]==bv[0][2]){delta++;} // (1)
-  return delta;
-}
-
-int Grid::calcEnergy_brute2d_1() const{
-  int delta=0;
-  for(int indexC = 0; indexC < col_size; indexC++){
-    for(int indexR = 0; indexR < row_size-1; indexR++){
-      if (bv[indexR][indexC]==bv[indexR+1][indexC]){delta++;}
-    }
-  }
-  for(int indexR = 0; indexR < row_size; indexR++){
-    for(int indexC = 0; indexC < col_size-1; indexC++){
-      if (bv[indexR][indexC]==bv[indexR][indexC+1]){delta++;}
-    }
-  }
-  if(BConds2)
-    for(int indexC = 0; indexC < col_size; indexC++){
-      if (bv[row_size-1][indexC]==bv[0][indexC]){delta++;} // (1)
-    }
-  if(BConds1)
-    for(int indexR = 0; indexR < row_size; indexR++){
-      if (bv[indexR][0]==bv[indexR][col_size-1]){delta++;}
-    }
-  return delta;
-}
-int Grid::calcEnergy_brute2() const{
-  int delta=0;
-
- for(int indexR = 0; indexR < row_size; indexR++){
-   if (bv[indexR][0]==bv[indexR][2]){delta++;}
-   if (bv[indexR][2]==bv[indexR][3]){delta++;}
-   if (bv[indexR][1]==bv[indexR][3]){delta++;}
- }
-  for(int indexR = 0; indexR < row_size-1; indexR++){
-      if (bv[indexR][2]==bv[indexR+1][2]){delta++;}
-      if (bv[indexR][3]==bv[indexR+1][3]){delta++;}
-  }
-  if(BConds2){
-    if (bv[row_size-1][2]==bv[0][2]){delta++;} // (1)
-    if (bv[row_size-1][3]==bv[0][3]){delta++;} // (1)
-  }
-  if(BConds1)
-    for(int i = 0; i < row_size; i++)
-      if (bv[i][2]==bv[i][3]){delta++;} // (1)
-  return delta;
-}   
-int Grid::calcEnergy_brute3() const{
-  int delta=0;
-
- for(int indexR = 0; indexR < row_size; indexR++){
-   if (bv[indexR][0]==bv[indexR][3]){delta++;}
-   if (bv[indexR][1]==bv[indexR][4]){delta++;}
-   if (bv[indexR][2]==bv[indexR][5]){delta++;}
-   if (bv[indexR][3]==bv[indexR][4]){delta++;}
-   if (bv[indexR][4]==bv[indexR][5]){delta++;}
-
-
- }
-  for(int indexR = 0; indexR < row_size-1; indexR++){
-      if (bv[indexR][3]==bv[indexR+1][3]){delta++;}
-      if (bv[indexR][4]==bv[indexR+1][4]){delta++;}
-      if (bv[indexR][5]==bv[indexR+1][5]){delta++;}
-  }
-  if(BConds2){
-    if (bv[row_size-1][3]==bv[0][3]){delta++;} // (1)
-    if (bv[row_size-1][4]==bv[0][4]){delta++;} // (1)
-    if (bv[row_size-1][5]==bv[0][5]){delta++;} // (1)
-  }
-  if(BConds1)
-    for(int i = 0; i < row_size; i++)
-      if (bv[i][3]==bv[i][5]){delta++;} // (1)
-  return delta;
-}   
-
-int Grid::calcEnergy_brute4() const{
-  int delta=0;
-
-  for(int indexR = 0; indexR < row_size; indexR++){
-    if (bv[indexR][0]==bv[indexR][4]){delta++;}
-    if (bv[indexR][1]==bv[indexR][5]){delta++;}
-    if (bv[indexR][2]==bv[indexR][6]){delta++;}
-    if (bv[indexR][3]==bv[indexR][7]){delta++;}
-    
-    if (bv[indexR][4]==bv[indexR][5]){delta++;}
-    if (bv[indexR][5]==bv[indexR][6]){delta++;}
-    if (bv[indexR][6]==bv[indexR][7]){delta++;}
-  }
-  for(int indexR = 0; indexR < row_size-1; indexR++){
-    if (bv[indexR][4]==bv[indexR+1][4]){delta++;}
-    if (bv[indexR][5]==bv[indexR+1][5]){delta++;}
-    if (bv[indexR][6]==bv[indexR+1][6]){delta++;}
-    if (bv[indexR][7]==bv[indexR+1][7]){delta++;}
-  }
-  if(BConds2)
-    for(int i = 4; i < 8; i++)
-      if (bv[row_size-1][i]==bv[0][i]){delta++;} // (1)
-  if(BConds1)
-    for(int i = 0; i < row_size; i++)
-      if (bv[i][7]==bv[i][4]){delta++;} // (1)
-  return delta;
-}  
-int Grid::calcEnergy_brute5() const{
-  int delta=0;
-
- for(int indexR = 0; indexR < row_size; indexR++){
-   if (bv[indexR][0]==bv[indexR][5]){delta++;}
-   if (bv[indexR][1]==bv[indexR][6]){delta++;}
-   if (bv[indexR][2]==bv[indexR][7]){delta++;}
-   if (bv[indexR][3]==bv[indexR][8]){delta++;}
-   if (bv[indexR][4]==bv[indexR][9]){delta++;}
-
-   if (bv[indexR][5]==bv[indexR][6]){delta++;}
-   if (bv[indexR][6]==bv[indexR][7]){delta++;}
-   if (bv[indexR][7]==bv[indexR][8]){delta++;}
-   if (bv[indexR][8]==bv[indexR][9]){delta++;}
-
- }
-  for(int indexR = 0; indexR < row_size-1; indexR++){
-      
-      if (bv[indexR][5]==bv[indexR+1][5]){delta++;}
-      if (bv[indexR][6]==bv[indexR+1][6]){delta++;}
-      if (bv[indexR][7]==bv[indexR+1][7]){delta++;}
-      if (bv[indexR][8]==bv[indexR+1][8]){delta++;}
-      if (bv[indexR][9]==bv[indexR+1][9]){delta++;}
-  }
-  if(BConds2)
-    for(int i = 5; i < 10; i++)
-      if (bv[row_size-1][i]==bv[0][i]){delta++;} // (1)
-  if(BConds1)
-    for(int i = 0; i < row_size; i++)
-      if (bv[i][5]==bv[i][9]){delta++;} // (1)
-  return delta;
-}  
-int Grid::calcEnergy_brute6() const{
-  int delta=0;
-
- for(int indexR = 0; indexR < row_size; indexR++){
-   if (bv[indexR][0]==bv[indexR][2]){delta++;}   
-   if (bv[indexR][1]==bv[indexR][3]){delta++;}
-   if (bv[indexR][0]==bv[indexR][1]){delta++;}
-   if (bv[indexR][2]==bv[indexR][3]){delta++;}
- }
- for(int i = 0; i < 4; i++){
-   for(int indexR = 0; indexR < row_size-1; indexR++){
-     if (bv[indexR][i]==bv[indexR+1][i]){delta++;}
-   }
- } 
- if(BConds1)
-   for(int i = 0; i < 4; i++){
-     if (bv[row_size-1][i]==bv[0][i]){delta++;} // (1)
- }
- return delta;
-}  
-int Grid::calcEnergy_brute7() const{
-  int delta=0;
-
- for(int indexR = 0; indexR < row_size; indexR++){
-   if (bv[indexR][0]==bv[indexR][3]){delta++;}   
-   if (bv[indexR][1]==bv[indexR][4]){delta++;}
-   if (bv[indexR][2]==bv[indexR][5]){delta++;}
-   if (bv[indexR][0]==bv[indexR][1]){delta++;}
-   if (bv[indexR][1]==bv[indexR][2]){delta++;}
-   if (bv[indexR][3]==bv[indexR][4]){delta++;}
-   if (bv[indexR][4]==bv[indexR][5]){delta++;}
- }
- for(int i = 0; i < 6; i++){
-   for(int indexR = 0; indexR < row_size-1; indexR++){
-     if (bv[indexR][i]==bv[indexR+1][i]){delta++;}
-   }
- }
- if(BConds1)
-   for(int i = 0; i < 6; i++){
-     if (bv[row_size-1][i]==bv[0][i]){delta++;} // (1)
-   }
- return delta;
-}  
-int Grid::calcEnergy_brute8() const{
-  int delta=0;
-
- for(int indexR = 0; indexR < row_size; indexR++){
-   if (bv[indexR][0]==bv[indexR][4]){delta++;}   
-   if (bv[indexR][1]==bv[indexR][5]){delta++;}
-   if (bv[indexR][2]==bv[indexR][6]){delta++;}
-   if (bv[indexR][3]==bv[indexR][7]){delta++;}
-   if (bv[indexR][0]==bv[indexR][1]){delta++;}
-   if (bv[indexR][1]==bv[indexR][2]){delta++;}
-   if (bv[indexR][2]==bv[indexR][3]){delta++;}
-   if (bv[indexR][4]==bv[indexR][5]){delta++;}
-   if (bv[indexR][5]==bv[indexR][6]){delta++;}
-   if (bv[indexR][6]==bv[indexR][7]){delta++;}
- }
- for(int i = 0; i < 8; i++){
-   for(int indexR = 0; indexR < row_size-1; indexR++){
-     if (bv[indexR][i]==bv[indexR+1][i]){delta++;}
-   }
- }
- if(BConds1)
-   for(int i = 0; i < 8; i++){
-     if (bv[row_size-1][i]==bv[0][i]){delta++;} // (1)
-   }
- return delta;
-} 
-int Grid::calcEnergy_brute9() const{
-  int delta=0;
-
- for(int indexR = 0; indexR < row_size; indexR++){
-   if (bv[indexR][0]==bv[indexR][5]){delta++;}   
-   if (bv[indexR][1]==bv[indexR][6]){delta++;}
-   if (bv[indexR][2]==bv[indexR][7]){delta++;}
-   if (bv[indexR][3]==bv[indexR][8]){delta++;}
-   if (bv[indexR][4]==bv[indexR][9]){delta++;}
-
-   if (bv[indexR][0]==bv[indexR][1]){delta++;}
-   if (bv[indexR][1]==bv[indexR][2]){delta++;}
-   if (bv[indexR][2]==bv[indexR][3]){delta++;}
-   if (bv[indexR][3]==bv[indexR][4]){delta++;}
-   if (bv[indexR][5]==bv[indexR][6]){delta++;}
-   if (bv[indexR][6]==bv[indexR][7]){delta++;}
-   if (bv[indexR][7]==bv[indexR][8]){delta++;}
-   if (bv[indexR][8]==bv[indexR][9]){delta++;}
- }
- for(int i = 0; i < 10;i++){
-   for(int indexR = 0; indexR < row_size-1; indexR++){
-     if (bv[indexR][i]==bv[indexR+1][i]){delta++;}
-   }
- }
- if(BConds1)
-   for(int i = 0; i < 10;i++){
-     if (bv[row_size-1][i]==bv[0][i]){delta++;} // (1)
-   }
- return delta;
-} 
-
 // }}}
 
 // {{{ Methods
 
-bool Grid::equals(const Grid &g)const{
-  for(int r = 0; r < row_size; r++){
-     for(int c = 0; c < col_size; c++){
-       if(this->bv[r][c] != g.bv[r][c]){
-	   return false;
-       }
-     }
-   }
-   return true;
+bool Grid::equals(const Grid &g) const {
+	for (int r = 0; r < row_size; r++) {
+		for (int c = 0; c < col_size; c++) {
+			if (this->bv[r][c] != g.bv[r][c]) {
+				return false;
+			}
+		}
+	}
+	return true;
 }
-void Grid::transform(const vector<int> &perm){
-  for(int r = 0; r < row_size; r++)
-    for(int c = 0; c < col_size; c++)
-      this->bv[r][c] = perm[this->bv[r][c]];
+void Grid::transform(const vector<int> &perm) {
+	for (int r = 0; r < row_size; r++)
+		for (int c = 0; c < col_size; c++)
+			this->bv[r][c] = perm[this->bv[r][c]];
 }
-void Grid::reflect(){
-  const Grid temp = *this;
-  for(int r = 0; r < row_size; r++){
-    for(int c = 0; c < col_size; c++){
-      this->bv[r][c] = temp.bv[row_size-1-r][c];
-    }
-  }
+void Grid::reflect() {
+	const Grid temp = *this;
+	for (int r = 0; r < row_size; r++) {
+		for (int c = 0; c < col_size; c++) {
+			this->bv[r][c] = temp.bv[row_size - 1 - r][c];
+		}
+	}
 }
-void Grid::shift(){
-  const Grid temp = *this;
-  for(int c = 0; c < col_size; c++){
-    for(int r = 0; r < row_size - 1; r++){
-      this->bv[r + 1][c] = temp.bv[r][c];
-    }
-    this->bv[0][c] = temp.bv[row_size - 1][c];
-  }
+void Grid::shift() {
+	const Grid temp = *this;
+	for (int c = 0; c < col_size; c++) {
+		for (int r = 0; r < row_size - 1; r++) {
+			this->bv[r + 1][c] = temp.bv[r][c];
+		}
+		this->bv[0][c] = temp.bv[row_size - 1][c];
+	}
 }
-void Grid::rotate(){
-  const Grid temp = *this;
-  for(int r = 0; r < row_size-1; r++){
-    for(int c = 0; c < col_size; c++){
-      this->bv[r][c] = temp.bv[r+1][c];
-    }
-  }
-  for(int c = 0; c < col_size; c++){
-    this->bv[row_size-1][c] = temp.bv[0][c];
-  }
+void Grid::reset() {
+	for (int indexR = 0; indexR < row_size; indexR++) {
+		for (int indexC = 0; indexC < col_size; indexC++) {
+			bv[indexR][indexC] = 0;
+		}
+	}
+	moreCombos = true;
 }
-void Grid::reset(){
-  for(int indexR =0; indexR < row_size; indexR++){
-    for(int indexC =0; indexC < col_size; indexC++){
-      bv[indexR][indexC] = 0;
-    }
-  }
-  moreCombos = true;
-}
-
 
 /**********************************************\
  *   Change the Grid to the next combination. *
@@ -457,137 +117,133 @@ void Grid::reset(){
  *                                            *
  *   returns false if all possible            *
  *   combinations have been called            *
-\**********************************************/
+ \**********************************************/
 
-void Grid::nextCombination(){
-  int indexR = 0; int indexC = 0; bool stop = false;
-  
-  while (!stop){
-    if(bv[indexR][indexC] < Q - 1){
-      bv[indexR][indexC]++;
-      stop = true;
-    }
-    else {
-      bv[indexR][indexC] = 0; 
-      if(indexR < row_size-1){
-	indexR++;
-      }
-      else if(indexC < col_size-1){
-	indexC++; indexR = 0;}
-      else{//No more combinations
-	stop = true;
-	moreCombos = false;
-      }
-    }
-  }
+void Grid::nextCombination() {
+	int indexR = 0;
+	int indexC = 0;
+	bool stop = false;
+
+	while (!stop) {
+		if (bv[indexR][indexC] < Q - 1) {
+			bv[indexR][indexC]++;
+			stop = true;
+		} else {
+			bv[indexR][indexC] = 0;
+			if (indexR < row_size - 1) {
+				indexR++;
+			} else if (indexC < col_size - 1) {
+				indexC++;
+				indexR = 0;
+			} else { //No more combinations
+				stop = true;
+				moreCombos = false;
+			}
+		}
+	}
 }
 
-
 /* Make a n x m Grid. */
-Grid::Grid(const int &_row_size, const int &_col_size):row_size(_row_size),
-                                           col_size(_col_size),
-                                           moreCombos(true){
+Grid::Grid(const int &_row_size, const int &_col_size) :
+		row_size(_row_size), col_size(_col_size), moreCombos(true) {
 
-  for(int indexR =0; indexR < _row_size; indexR++){
-    vector<int> temp;
-    for(int indexC =0; indexC < _col_size; indexC++){
-      temp.push_back(0);
-    }
-    bv.push_back(temp);
-  } 
+	for (int indexR = 0; indexR < _row_size; indexR++) {
+		vector<int> temp;
+		for (int indexC = 0; indexC < _col_size; indexC++) {
+			temp.push_back(0);
+		}
+		bv.push_back(temp);
+	}
 }
 
 /*Is there any more combinations left, return true if there are. */
-bool Grid::combinationsRemaining() const{return moreCombos;}
-
-/* Print out the Grid. */
-void Grid::print() const{    
-  for(int indexR =0; indexR < row_size; indexR++){
-    for(int indexC =0; indexC < col_size; indexC++){
-      cout << bv[indexR][indexC];
-    }
-    cout << endl;
-  }cout <<endl;
+bool Grid::combinationsRemaining() const {
+	return moreCombos;
 }
 
-	
+/* Print out the Grid. */
+void Grid::print() const {
+	for (int indexR = 0; indexR < row_size; indexR++) {
+		for (int indexC = 0; indexC < col_size; indexC++) {
+			cout << bv[indexR][indexC];
+		}
+		cout << endl;
+	}
+	cout << endl;
+}
+
 // {{{ Test class method
 
 /*Test out the class */
 /*int main(){
-  cout << "start" << endl;
-  float x = 0; float power = 0;
-Grid Fourth;
-while(Fourth.combinationsRemaining()){
-  Grid Third;
-  while(Third.combinationsRemaining()){
-    Grid Second;
-    while(Second.combinationsRemaining()){
-      Grid First;
-      while(First.combinationsRemaining()) {
-        power = 0;
-        power = First.calcEnergyClosed()
-                          + First.calcEnergyClosed(Second)
-                          + Second.calcEnergyClosed();
+ cout << "start" << endl;
+ float x = 0; float power = 0;
+ Grid Fourth;
+ while(Fourth.combinationsRemaining()){
+ Grid Third;
+ while(Third.combinationsRemaining()){
+ Grid Second;
+ while(Second.combinationsRemaining()){
+ Grid First;
+ while(First.combinationsRemaining()) {
+ power = 0;
+ power = First.calcEnergyClosed()
+ + First.calcEnergyClosed(Second)
+ + Second.calcEnergyClosed();
 
-        cout << "Value: " << First.calcEnergyClosed()
-                          + First.calcEnergyClosed(Second)
-                          + Second.calcEnergyClosed() <<endl;
+ cout << "Value: " << First.calcEnergyClosed()
+ + First.calcEnergyClosed(Second)
+ + Second.calcEnergyClosed() <<endl;
 
-        First.nextCombination();
-        x++;
-        if(x == 262143){
-        First.print();   Second.print();
-        cout <<" AHHH" << endl;   }
-      }
-      Second.nextCombination();
-    }
-  Third.nextCombination();
-  }
-Fourth.print();
-Fourth.nextCombination();
-  }
-cout << "highest power: " << power << endl;
-cout << "total combos: " << x << endl;
+ First.nextCombination();
+ x++;
+ if(x == 262143){
+ First.print();   Second.print();
+ cout <<" AHHH" << endl;   }
+ }
+ Second.nextCombination();
+ }
+ Third.nextCombination();
+ }
+ Fourth.print();
+ Fourth.nextCombination();
+ }
+ cout << "highest power: " << power << endl;
+ cout << "total combos: " << x << endl;
 
-   system("PAUSE");
-   return 0;
+ system("PAUSE");
+ return 0;
 
-   }*/
-
-
+ }*/
 
 // }}}
-
 // }}}
 ostream & operator<<(ostream & out, const Grid &g) {
-    int row_size = g.get_row_size();
-    int col_size = g.get_col_size();
-    for (int r = 0; r < row_size; r++) {
-        for (int c = 0; c < col_size; c++) {
-            out << g.getPoint(r, c);
-        }
-        out << endl;
-    }
-    return out;
+	int row_size = g.get_row_size();
+	int col_size = g.get_col_size();
+	for (int r = 0; r < row_size; r++) {
+		for (int c = 0; c < col_size; c++) {
+			out << g.getPoint(r, c);
+		}
+		out << endl;
+	}
+	return out;
 }
-
 
 ostream & operator<<(ostream & out, const vector<Grid> &g) {
-    int row_size = g[0].get_row_size();
-    int col_size = g[0].get_col_size();
-    for (int r = 0; r < row_size; r++) {
-        for (vector<Grid>::size_type s = 0; s < g.size(); s++) {
-            for (int c = 0; c < col_size; c++) {
-                out << g[s].getPoint(r, c);
-            }
-            out << " ";
-        }
-        out << endl;
-    }
-    return out;
+	int row_size = g[0].get_row_size();
+	int col_size = g[0].get_col_size();
+	for (int r = 0; r < row_size; r++) {
+		for (vector<Grid>::size_type s = 0; s < g.size(); s++) {
+			for (int c = 0; c < col_size; c++) {
+				out << g[s].getPoint(r, c);
+			}
+			out << " ";
+		}
+		out << endl;
+	}
+	return out;
 }
-
 
 // }}}
 #endif

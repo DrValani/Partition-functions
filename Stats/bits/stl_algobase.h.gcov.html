@@ -37,12 +37,12 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-08-28</td>
+            <td class="headerValue">2012-08-29</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">50</td>
-            <td class="headerCovTableEntry">111</td>
-            <td class="headerCovTableEntryLo">45.0 %</td>
+            <td class="headerCovTableEntry">100</td>
+            <td class="headerCovTableEntryLo">50.0 %</td>
           </tr>
           <tr>
             <td></td>
@@ -50,8 +50,8 @@
             <td></td>
             <td class="headerItem">Branches:</td>
             <td class="headerCovTableEntry">22</td>
-            <td class="headerCovTableEntry">54</td>
-            <td class="headerCovTableEntryLo">40.7 %</td>
+            <td class="headerCovTableEntry">52</td>
+            <td class="headerCovTableEntryLo">42.3 %</td>
           </tr>
           <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -397,7 +397,7 @@
 <span class="lineNum">     326 </span>                :            :           typedef typename iterator_traits&lt;_II&gt;::difference_type _Distance;
 <span class="lineNum">     327 </span>[<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>][<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineCov">      18306 :           for(_Distance __n = __last - __first; __n &gt; 0; --__n)</span>
 <span class="lineNum">         </span>[<span class="branchNoExec" title="Branch 4 was not executed"> # </span><span class="branchNoExec" title="Branch 5 was not executed"> # </span>][<span class="branchCov" title="Branch 6 was taken 24 times"> + </span><span class="branchCov" title="Branch 7 was taken 8 times"> + </span>]
-<span class="lineNum">         </span>[<span class="branchNoCov" title="Branch 8 was not taken"> - </span><span class="branchCov" title="Branch 9 was taken 18274 times"> + </span>][<span class="branchNoExec" title="Branch 10 was not executed"> # </span><span class="branchNoExec" title="Branch 11 was not executed"> # </span>]
+<span class="lineNum">         </span>[<span class="branchNoExec" title="Branch 8 was not executed"> # </span><span class="branchNoExec" title="Branch 9 was not executed"> # </span>][<span class="branchNoCov" title="Branch 10 was not taken"> - </span><span class="branchCov" title="Branch 11 was taken 18274 times"> + </span>]
 <span class="lineNum">     328 </span>                :            :             {
 <span class="lineNum">     329 </span>                :<span class="lineCov">         24 :               *__result = *__first;</span>
 <span class="lineNum">     330 </span>                :<span class="lineCov">         24 :               ++__first;</span>
@@ -602,7 +602,6 @@
 <span class="lineNum">     529 </span>                :            :           typename iterator_traits&lt;_BI1&gt;::difference_type __n;
 <span class="lineNum">     530 </span>[<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>][<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineCov">         16 :           for (__n = __last - __first; __n &gt; 0; --__n)</span>
 <span class="lineNum">         </span>[<span class="branchNoExec" title="Branch 4 was not executed"> # </span><span class="branchNoExec" title="Branch 5 was not executed"> # </span>][<span class="branchCov" title="Branch 6 was taken 14 times"> + </span><span class="branchCov" title="Branch 7 was taken 2 times"> + </span>]
-<span class="lineNum">         </span>        [<span class="branchNoExec" title="Branch 8 was not executed"> # </span><span class="branchNoExec" title="Branch 9 was not executed"> # </span>]
 <span class="lineNum">     531 </span>                :<span class="lineCov">         14 :             *--__result = *--__last;</span>
 <span class="lineNum">     532 </span>                :<span class="lineCov">          2 :           return __result;</span>
 <span class="lineNum">     533 </span>                :            :         }
