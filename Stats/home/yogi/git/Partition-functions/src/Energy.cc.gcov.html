@@ -31,8 +31,8 @@
             <td class="headerValue">stat.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">28</td>
-            <td class="headerCovTableEntry">28</td>
+            <td class="headerCovTableEntry">29</td>
+            <td class="headerCovTableEntry">29</td>
             <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr>
@@ -49,8 +49,8 @@
             <td></td>
             <td></td>
             <td class="headerItem">Branches:</td>
-            <td class="headerCovTableEntry">45</td>
-            <td class="headerCovTableEntry">88</td>
+            <td class="headerCovTableEntry">46</td>
+            <td class="headerCovTableEntry">90</td>
             <td class="headerCovTableEntryLo">51.1 %</td>
           </tr>
           <tr><td><img src="../../../../../glass.png" width=3 height=3 alt=""></td></tr>
@@ -124,8 +124,8 @@
 <span class="lineNum">      48 </span>                :            : 
 <span class="lineNum">      49 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          1 :     makeGroups();</span>
 <span class="lineNum">      50 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          1 :     G_TABLE1 transformGroups;</span>
-<span class="lineNum">      51 </span>        [<span class="branchCov" title="Branch 1 was taken 4 times"> + </span><span class="branchCov" title="Branch 2 was taken 1 time"> + </span>]:<span class="lineCov">          5 :     for (int i = 0; i &lt; TRANSFORMGROUP.size(); i++) {</span>
-<span class="lineNum">      52 </span>        [<span class="branchCov" title="Branch 0 was taken 4 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          4 :         transformGroups.push_back(i);</span>
+<span class="lineNum">      51 </span>        [<span class="branchCov" title="Branch 1 was taken 16 times"> + </span><span class="branchCov" title="Branch 2 was taken 1 time"> + </span>]:<span class="lineCov">         17 :     for (int i = 0; i &lt; TRANSFORMGROUP.size(); i++) {</span>
+<span class="lineNum">      52 </span>        [<span class="branchCov" title="Branch 0 was taken 16 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         16 :         transformGroups.push_back(i);</span>
 <span class="lineNum">      53 </span>                :            :     }
 <span class="lineNum">      54 </span>                :            : 
 <span class="lineNum">      55 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          1 :     G_TABLE2 ylistTable;</span>
@@ -156,11 +156,11 @@
 <span class="lineNum">      77 </span>                :            : 
 <span class="lineNum">      78 </span>                :<span class="lineCov">          1 :     time(&amp;startTime);</span>
 <span class="lineNum">      79 </span>                :            :     if(BConds3){
-<span class="lineNum">      80 </span>                :            :         total.ylist_multiplicity(ylistTable);
-<span class="lineNum">      81 </span>                :            :         buildAdd(ylistTable, transformGroups, vlist1, vpol, vpol_vlist);
+<span class="lineNum">      80 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          1 :         total.ylist_multiplicity(ylistTable);</span>
+<span class="lineNum">      81 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          1 :         buildAdd(ylistTable, transformGroups, vlist1, vpol, vpol_vlist);</span>
 <span class="lineNum">      82 </span>                :            :     }
 <span class="lineNum">      83 </span>                :            :     else{
-<span class="lineNum">      84 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          1 :         buildAdd(ylistTable, transformGroups, vlist1, vpol, vpol_vlist, total);</span>
+<span class="lineNum">      84 </span>                :            :         buildAdd(ylistTable, transformGroups, vlist1, vpol, vpol_vlist, total);
 <a name="85"><span class="lineNum">      85 </span>                :            :     }</a>
 <span class="lineNum">      86 </span>[<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>][<span class="branchCov" title="Branch 3 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 4 was not taken"> - </span>]:<span class="lineCov">          1 :     return 0;</span>
 <span class="lineNum">         </span>[<span class="branchCov" title="Branch 6 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 7 was not taken"> - </span>][<span class="branchCov" title="Branch 9 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 10 was not taken"> - </span>]

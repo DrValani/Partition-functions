@@ -31,18 +31,18 @@
             <td class="headerValue">stat.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">48</td>
+            <td class="headerCovTableEntry">50</td>
             <td class="headerCovTableEntry">56</td>
-            <td class="headerCovTableEntryMed">85.7 %</td>
+            <td class="headerCovTableEntryMed">89.3 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
             <td class="headerValue">2012-08-29</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">45</td>
+            <td class="headerCovTableEntry">46</td>
             <td class="headerCovTableEntry">49</td>
-            <td class="headerCovTableEntryHi">91.8 %</td>
+            <td class="headerCovTableEntryHi">93.9 %</td>
           </tr>
           <tr>
             <td></td>
@@ -139,20 +139,20 @@
 <span class="lineNum">      68 </span>                :            : 
 <a name="69"><span class="lineNum">      69 </span>                :            : struct __gmp_binary_plus</a>
 <span class="lineNum">      70 </span>                :            : {
-<span class="lineNum">      71 </span>                :<span class="lineCov">     106236 :   static void eval(mpz_ptr z, mpz_srcptr w, mpz_srcptr v)</span>
-<span class="lineNum">      72 </span>                :<span class="lineCov">     106236 :   { mpz_add(z, w, v); }</span>
+<span class="lineNum">      71 </span>                :<span class="lineCov">  410282388 :   static void eval(mpz_ptr z, mpz_srcptr w, mpz_srcptr v)</span>
+<span class="lineNum">      72 </span>                :<span class="lineCov">  410282388 :   { mpz_add(z, w, v); }</span>
 <span class="lineNum">      73 </span>                :            : 
 <span class="lineNum">      74 </span>                :            :   static void eval(mpz_ptr z, mpz_srcptr w, unsigned long int l)
 <span class="lineNum">      75 </span>                :            :   { mpz_add_ui(z, w, l); }
 <a name="76"><span class="lineNum">      76 </span>                :            :   static void eval(mpz_ptr z, unsigned long int l, mpz_srcptr w)</a>
 <span class="lineNum">      77 </span>                :            :   { mpz_add_ui(z, w, l); }
-<span class="lineNum">      78 </span>                :<span class="lineCov">         51 :   static void eval(mpz_ptr z, mpz_srcptr w, signed long int l)</span>
+<span class="lineNum">      78 </span>                :<span class="lineCov">     261024 :   static void eval(mpz_ptr z, mpz_srcptr w, signed long int l)</span>
 <span class="lineNum">      79 </span>                :            :   {
-<span class="lineNum">      80 </span>        [<span class="branchCov" title="Branch 0 was taken 51 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         51 :     if (l &gt;= 0)</span>
-<span class="lineNum">      81 </span>                :<span class="lineCov">         51 :       mpz_add_ui(z, w, l);</span>
+<span class="lineNum">      80 </span>        [<span class="branchCov" title="Branch 0 was taken 261024 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">     261024 :     if (l &gt;= 0)</span>
+<span class="lineNum">      81 </span>                :<span class="lineCov">     261024 :       mpz_add_ui(z, w, l);</span>
 <span class="lineNum">      82 </span>                :            :     else
 <span class="lineNum">      83 </span>                :<span class="lineNoCov">          0 :       mpz_sub_ui(z, w, -l);</span>
-<span class="lineNum">      84 </span>                :<span class="lineCov">         51 :   }</span>
+<span class="lineNum">      84 </span>                :<span class="lineCov">     261024 :   }</span>
 <span class="lineNum">      85 </span>                :            :   static void eval(mpz_ptr z, signed long int l, mpz_srcptr w)
 <span class="lineNum">      86 </span>                :            :   {
 <span class="lineNum">      87 </span>                :            :     if (l &gt;= 0)
@@ -394,8 +394,8 @@
 <span class="lineNum">     323 </span>                :            :   { mpz_mul_ui(z, w, l); }
 <a name="324"><span class="lineNum">     324 </span>                :            :   static void eval(mpz_ptr z, unsigned long int l, mpz_srcptr w)</a>
 <span class="lineNum">     325 </span>                :            :   { mpz_mul_ui(z, w, l); }
-<span class="lineNum">     326 </span>                :<span class="lineCov">       3491 :   static void eval(mpz_ptr z, mpz_srcptr w, signed long int l)</span>
-<span class="lineNum">     327 </span>                :<span class="lineCov">       3491 :   { mpz_mul_si (z, w, l); }</span>
+<span class="lineNum">     326 </span>                :<span class="lineCov">    2427591 :   static void eval(mpz_ptr z, mpz_srcptr w, signed long int l)</span>
+<span class="lineNum">     327 </span>                :<span class="lineCov">    2427591 :   { mpz_mul_si (z, w, l); }</span>
 <span class="lineNum">     328 </span>                :            :   static void eval(mpz_ptr z, signed long int l, mpz_srcptr w)
 <span class="lineNum">     329 </span>                :            :   { mpz_mul_si (z, w, l); }
 <span class="lineNum">     330 </span>                :            :   static void eval(mpz_ptr z, mpz_srcptr w, double d)
@@ -898,8 +898,8 @@
 <span class="lineNum">     827 </span>                :            :   { return mpz_cmp_ui(z, l) != 0; }
 <a name="828"><span class="lineNum">     828 </span>                :            :   static bool eval(unsigned long int l, mpz_srcptr z)</a>
 <span class="lineNum">     829 </span>                :            :   { return mpz_cmp_ui(z, l) != 0; }
-<span class="lineNum">     830 </span>                :<span class="lineCov">        102 :   static bool eval(mpz_srcptr z, signed long int l)</span>
-<span class="lineNum">     831 </span>                :<span class="lineCov">        102 :   { return mpz_cmp_si(z, l) != 0; }</span>
+<span class="lineNum">     830 </span>                :<span class="lineCov">        219 :   static bool eval(mpz_srcptr z, signed long int l)</span>
+<span class="lineNum">     831 </span>                :<span class="lineCov">        219 :   { return mpz_cmp_si(z, l) != 0; }</span>
 <span class="lineNum">     832 </span>                :            :   static bool eval(signed long int l, mpz_srcptr z)
 <span class="lineNum">     833 </span>                :            :   { return mpz_cmp_si(z, l) != 0; }
 <span class="lineNum">     834 </span>                :            :   static bool eval(mpz_srcptr z, double d)
@@ -1551,7 +1551,7 @@
 <span class="lineNum">    1480 </span>                :            :   typename __gmp_resolve_ref&lt;T&gt;::ref_type val1;
 <a name="1481"><span class="lineNum">    1481 </span>                :            :   typename __gmp_resolve_ref&lt;U&gt;::ref_type val2;</a>
 <span class="lineNum">    1482 </span>                :            : 
-<span class="lineNum">    1483 </span>                :<span class="lineCov">     109781 :   __gmp_binary_expr(const T &amp;v1, const U &amp;v2) : val1(v1), val2(v2) { }</span>
+<span class="lineNum">    1483 </span>                :<span class="lineCov">  412971006 :   __gmp_binary_expr(const T &amp;v1, const U &amp;v2) : val1(v1), val2(v2) { }</span>
 <span class="lineNum">    1484 </span>                :            : private:
 <span class="lineNum">    1485 </span>                :            :   __gmp_binary_expr();
 <span class="lineNum">    1486 </span>                :            : };
@@ -1611,12 +1611,12 @@
 <span class="lineNum">    1540 </span>                :            :   mp_bitcnt_t get_prec() const { return mpf_get_default_prec(); }
 <a name="1541"><span class="lineNum">    1541 </span>                :            : </a>
 <span class="lineNum">    1542 </span>                :            :   // constructors and destructor
-<a name="1543"><span class="lineNum">    1543 </span>                :<span class="lineCov">        413 :   __gmp_expr() { mpz_init(mp); }</span></a>
+<a name="1543"><span class="lineNum">    1543 </span>                :<span class="lineCov">       9922 :   __gmp_expr() { mpz_init(mp); }</span></a>
 <span class="lineNum">    1544 </span>                :            : 
-<a name="1545"><span class="lineNum">    1545 </span>                :<span class="lineCov">     127881 :   __gmp_expr(const __gmp_expr &amp;z) { mpz_init_set(mp, z.mp); }</span></a>
+<a name="1545"><span class="lineNum">    1545 </span>                :<span class="lineCov">  471981160 :   __gmp_expr(const __gmp_expr &amp;z) { mpz_init_set(mp, z.mp); }</span></a>
 <span class="lineNum">    1546 </span>                :            :   template &lt;class T, class U&gt;
-<span class="lineNum">    1547 </span>                :<span class="lineCov">       3491 :   __gmp_expr(const __gmp_expr&lt;T, U&gt; &amp;expr)</span>
-<span class="lineNum">    1548 </span>                :<span class="lineCov">       3491 :   { mpz_init(mp); __gmp_set_expr(mp, expr); }</span>
+<span class="lineNum">    1547 </span>                :<span class="lineCov">    2427591 :   __gmp_expr(const __gmp_expr&lt;T, U&gt; &amp;expr)</span>
+<span class="lineNum">    1548 </span>                :<span class="lineCov">    2427591 :   { mpz_init(mp); __gmp_set_expr(mp, expr); }</span>
 <span class="lineNum">    1549 </span>                :            : 
 <span class="lineNum">    1550 </span>                :            :   __gmp_expr(signed char c) { mpz_init_set_si(mp, c); }
 <a name="1551"><span class="lineNum">    1551 </span>                :            :   __gmp_expr(unsigned char c) { mpz_init_set_ui(mp, c); }</a>
@@ -1669,19 +1669,19 @@
 <span class="lineNum">    1598 </span>                :            : 
 <a name="1599"><span class="lineNum">    1599 </span>                :            :   explicit __gmp_expr(mpz_srcptr z) { mpz_init_set(mp, z); }</a>
 <span class="lineNum">    1600 </span>                :            : 
-<span class="lineNum">    1601 </span>                :<span class="lineCov">     131788 :   ~__gmp_expr() { mpz_clear(mp); }</span>
+<span class="lineNum">    1601 </span>                :<span class="lineCov">  474418676 :   ~__gmp_expr() { mpz_clear(mp); }</span>
 <a name="1602"><span class="lineNum">    1602 </span>                :            : </a>
 <span class="lineNum">    1603 </span>                :            :   // assignment operators
-<span class="lineNum">    1604 </span>                :<span class="lineNoCov">          0 :   __gmp_expr &amp; operator=(const __gmp_expr &amp;z)</span>
-<a name="1605"><span class="lineNum">    1605 </span>                :<span class="lineNoCov">          0 :   { mpz_set(mp, z.mp); return *this; }</span></a>
+<span class="lineNum">    1604 </span>                :<span class="lineCov">    4298749 :   __gmp_expr &amp; operator=(const __gmp_expr &amp;z)</span>
+<a name="1605"><span class="lineNum">    1605 </span>                :<span class="lineCov">    4298749 :   { mpz_set(mp, z.mp); return *this; }</span></a>
 <span class="lineNum">    1606 </span>                :            :   template &lt;class T, class U&gt;
-<span class="lineNum">    1607 </span>                :<span class="lineCov">     106290 :   __gmp_expr&lt;value_type, value_type&gt; &amp; operator=(const __gmp_expr&lt;T, U&gt; &amp;expr)</span>
-<span class="lineNum">    1608 </span>                :<span class="lineCov">     106290 :   { __gmp_set_expr(mp, expr); return *this; }</span>
+<span class="lineNum">    1607 </span>                :<span class="lineCov">  410543415 :   __gmp_expr&lt;value_type, value_type&gt; &amp; operator=(const __gmp_expr&lt;T, U&gt; &amp;expr)</span>
+<span class="lineNum">    1608 </span>                :<span class="lineCov">  410543415 :   { __gmp_set_expr(mp, expr); return *this; }</span>
 <span class="lineNum">    1609 </span>                :            : 
 <span class="lineNum">    1610 </span>                :            :   __gmp_expr &amp; operator=(signed char c) { mpz_set_si(mp, c); return *this; }
 <a name="1611"><span class="lineNum">    1611 </span>                :            :   __gmp_expr &amp; operator=(unsigned char c) { mpz_set_ui(mp, c); return *this; }</a>
 <span class="lineNum">    1612 </span>                :            : 
-<span class="lineNum">    1613 </span>                :<span class="lineCov">      31271 :   __gmp_expr &amp; operator=(signed int i) { mpz_set_si(mp, i); return *this; }</span>
+<span class="lineNum">    1613 </span>                :<span class="lineCov">   73603373 :   __gmp_expr &amp; operator=(signed int i) { mpz_set_si(mp, i); return *this; }</span>
 <span class="lineNum">    1614 </span>                :            :   __gmp_expr &amp; operator=(unsigned int i) { mpz_set_ui(mp, i); return *this; }
 <span class="lineNum">    1615 </span>                :            : 
 <span class="lineNum">    1616 </span>                :            :   __gmp_expr &amp; operator=(signed short int s)
@@ -1724,8 +1724,8 @@
 <span class="lineNum">    1653 </span>                :            :   }
 <a name="1654"><span class="lineNum">    1654 </span>                :            : </a>
 <a name="1655"><span class="lineNum">    1655 </span>                :            :   // conversion functions</a>
-<span class="lineNum">    1656 </span>                :<span class="lineCov">     212723 :   mpz_srcptr __get_mp() const { return mp; }</span>
-<a name="1657"><span class="lineNum">    1657 </span>                :<span class="lineCov">       3491 :   mpz_ptr __get_mp() { return mp; }</span></a>
+<span class="lineNum">    1656 </span>                :<span class="lineCov">  820826105 :   mpz_srcptr __get_mp() const { return mp; }</span>
+<a name="1657"><span class="lineNum">    1657 </span>                :<span class="lineCov">    2427591 :   mpz_ptr __get_mp() { return mp; }</span></a>
 <span class="lineNum">    1658 </span>                :            :   mpz_srcptr get_mpz_t() const { return mp; }
 <span class="lineNum">    1659 </span>                :<span class="lineCov">          3 :   mpz_ptr get_mpz_t() { return mp; }</span>
 <span class="lineNum">    1660 </span>                :            : 
@@ -2150,10 +2150,10 @@
 <span class="lineNum">    2079 </span>                :            : // these should (and will) be provided separately
 <a name="2080"><span class="lineNum">    2080 </span>                :            : </a>
 <span class="lineNum">    2081 </span>                :            : template &lt;class T&gt;
-<span class="lineNum">    2082 </span>                :<span class="lineCov">         92 : inline std::ostream &amp; operator&lt;&lt;</span>
+<span class="lineNum">    2082 </span>                :<span class="lineCov">         80 : inline std::ostream &amp; operator&lt;&lt;</span>
 <span class="lineNum">    2083 </span>                :            : (std::ostream &amp;o, const __gmp_expr&lt;T, T&gt; &amp;expr)
 <span class="lineNum">    2084 </span>                :            : {
-<span class="lineNum">    2085 </span>                :<span class="lineCov">         92 :   return o &lt;&lt; expr.__get_mp();</span>
+<span class="lineNum">    2085 </span>                :<span class="lineCov">         80 :   return o &lt;&lt; expr.__get_mp();</span>
 <span class="lineNum">    2086 </span>                :            : }
 <span class="lineNum">    2087 </span>                :            : 
 <span class="lineNum">    2088 </span>                :            : template &lt;class T, class U&gt;
@@ -2188,10 +2188,10 @@
 <span class="lineNum">    2117 </span>                :            : }
 <a name="2118"><span class="lineNum">    2118 </span>                :            : </a>
 <span class="lineNum">    2119 </span>                :            : template &lt;class T&gt;
-<span class="lineNum">    2120 </span>                :<span class="lineCov">     109781 : inline void __gmp_set_expr(mpz_ptr z, const __gmp_expr&lt;mpz_t, T&gt; &amp;expr)</span>
+<span class="lineNum">    2120 </span>                :<span class="lineCov">  412971006 : inline void __gmp_set_expr(mpz_ptr z, const __gmp_expr&lt;mpz_t, T&gt; &amp;expr)</span>
 <span class="lineNum">    2121 </span>                :            : {
-<span class="lineNum">    2122 </span>                :<span class="lineCov">     109781 :   expr.eval(z);</span>
-<span class="lineNum">    2123 </span>                :<span class="lineCov">     109781 : }</span>
+<span class="lineNum">    2122 </span>                :<span class="lineCov">  412971006 :   expr.eval(z);</span>
+<span class="lineNum">    2123 </span>                :<span class="lineCov">  412971006 : }</span>
 <span class="lineNum">    2124 </span>                :            : 
 <span class="lineNum">    2125 </span>                :            : template &lt;&gt;
 <span class="lineNum">    2126 </span>                :            : inline void __gmp_set_expr(mpz_ptr z, const mpq_class &amp;q)
@@ -2375,11 +2375,11 @@
 <span class="lineNum">    2304 </span>                :            : 
 <a name="2305"><span class="lineNum">    2305 </span>                :            :   __gmp_binary_expr&lt;val1_type, val2_type, Op&gt; expr;</a>
 <span class="lineNum">    2306 </span>                :            : public:
-<a name="2307"><span class="lineNum">    2307 </span>                :<span class="lineCov">     102748 :   __gmp_expr(const val1_type &amp;val1, const val2_type &amp;val2)</span></a>
-<span class="lineNum">    2308 </span>                :<span class="lineCov">     102748 :     : expr(val1, val2) { }</span>
-<span class="lineNum">    2309 </span>                :<span class="lineCov">     102748 :   void eval(typename __gmp_resolve_expr&lt;T&gt;::ptr_type p,</span>
+<a name="2307"><span class="lineNum">    2307 </span>                :<span class="lineCov">  407854800 :   __gmp_expr(const val1_type &amp;val1, const val2_type &amp;val2)</span></a>
+<span class="lineNum">    2308 </span>                :<span class="lineCov">  407854800 :     : expr(val1, val2) { }</span>
+<span class="lineNum">    2309 </span>                :<span class="lineCov">  407854800 :   void eval(typename __gmp_resolve_expr&lt;T&gt;::ptr_type p,</span>
 <span class="lineNum">    2310 </span>                :            :             unsigned long int = 0) const
-<span class="lineNum">    2311 </span>                :<span class="lineCov">     102748 :   { Op::eval(p, expr.val1.__get_mp(), expr.val2.__get_mp()); }</span>
+<span class="lineNum">    2311 </span>                :<span class="lineCov">  407854800 :   { Op::eval(p, expr.val1.__get_mp(), expr.val2.__get_mp()); }</span>
 <span class="lineNum">    2312 </span>                :            :   const val1_type &amp; get_val1() const { return expr.val1; }
 <span class="lineNum">    2313 </span>                :            :   const val2_type &amp; get_val2() const { return expr.val2; }
 <span class="lineNum">    2314 </span>                :            :   unsigned long int get_prec() const
@@ -2402,11 +2402,11 @@
 <span class="lineNum">    2331 </span>                :            : 
 <a name="2332"><span class="lineNum">    2332 </span>                :            :   __gmp_binary_expr&lt;val1_type, val2_type, Op&gt; expr;</a>
 <span class="lineNum">    2333 </span>                :            : public:
-<a name="2334"><span class="lineNum">    2334 </span>                :<span class="lineCov">       3542 :   __gmp_expr(const val1_type &amp;val1, const val2_type &amp;val2)</span></a>
-<span class="lineNum">    2335 </span>                :<span class="lineCov">       3542 :     : expr(val1, val2) { }</span>
-<span class="lineNum">    2336 </span>                :<span class="lineCov">       3542 :   void eval(typename __gmp_resolve_expr&lt;T&gt;::ptr_type p,</span>
+<a name="2334"><span class="lineNum">    2334 </span>                :<span class="lineCov">    2688615 :   __gmp_expr(const val1_type &amp;val1, const val2_type &amp;val2)</span></a>
+<span class="lineNum">    2335 </span>                :<span class="lineCov">    2688615 :     : expr(val1, val2) { }</span>
+<span class="lineNum">    2336 </span>                :<span class="lineCov">    2688615 :   void eval(typename __gmp_resolve_expr&lt;T&gt;::ptr_type p,</span>
 <span class="lineNum">    2337 </span>                :            :             unsigned long int = 0) const
-<span class="lineNum">    2338 </span>                :<span class="lineCov">       3542 :   { Op::eval(p, expr.val1.__get_mp(), expr.val2); }</span>
+<span class="lineNum">    2338 </span>                :<span class="lineCov">    2688615 :   { Op::eval(p, expr.val1.__get_mp(), expr.val2); }</span>
 <span class="lineNum">    2339 </span>                :            :   const val1_type &amp; get_val1() const { return expr.val1; }
 <span class="lineNum">    2340 </span>                :            :   const val2_type &amp; get_val2() const { return expr.val2; }
 <span class="lineNum">    2341 </span>                :            :   unsigned long int get_prec() const { return expr.val1.get_prec(); }
@@ -2510,13 +2510,13 @@
 <span class="lineNum">    2439 </span>                :            : 
 <a name="2440"><span class="lineNum">    2440 </span>                :            :   __gmp_binary_expr&lt;val1_type, val2_type, Op&gt; expr;</a>
 <span class="lineNum">    2441 </span>                :            : public:
-<a name="2442"><span class="lineNum">    2442 </span>                :<span class="lineCov">       3491 :   __gmp_expr(const val1_type &amp;val1, const val2_type &amp;val2)</span></a>
-<span class="lineNum">    2443 </span>                :<span class="lineCov">       3491 :     : expr(val1, val2) { }</span>
-<span class="lineNum">    2444 </span>                :<span class="lineCov">       3491 :   void eval(typename __gmp_resolve_expr&lt;T&gt;::ptr_type p) const</span>
+<a name="2442"><span class="lineNum">    2442 </span>                :<span class="lineCov">    2427591 :   __gmp_expr(const val1_type &amp;val1, const val2_type &amp;val2)</span></a>
+<span class="lineNum">    2443 </span>                :<span class="lineCov">    2427591 :     : expr(val1, val2) { }</span>
+<span class="lineNum">    2444 </span>                :<span class="lineCov">    2427591 :   void eval(typename __gmp_resolve_expr&lt;T&gt;::ptr_type p) const</span>
 <span class="lineNum">    2445 </span>                :            :   {
-<span class="lineNum">    2446 </span>                :<span class="lineCov">       3491 :     __gmp_expr&lt;T, T&gt; temp(expr.val2);</span>
-<span class="lineNum">    2447 </span>        [<span class="branchCov" title="Branch 2 was taken 3491 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">       3491 :     Op::eval(p, expr.val1.__get_mp(), temp.__get_mp());</span>
-<span class="lineNum">    2448 </span>                :<span class="lineCov">       3491 :   }</span>
+<span class="lineNum">    2446 </span>                :<span class="lineCov">    2427591 :     __gmp_expr&lt;T, T&gt; temp(expr.val2);</span>
+<span class="lineNum">    2447 </span>        [<span class="branchCov" title="Branch 2 was taken 2427591 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">    2427591 :     Op::eval(p, expr.val1.__get_mp(), temp.__get_mp());</span>
+<span class="lineNum">    2448 </span>                :<span class="lineCov">    2427591 :   }</span>
 <span class="lineNum">    2449 </span>                :            :   void eval(typename __gmp_resolve_expr&lt;T&gt;::ptr_type p,
 <span class="lineNum">    2450 </span>                :            :             mp_bitcnt_t prec) const
 <span class="lineNum">    2451 </span>                :            :   {
@@ -3204,9 +3204,9 @@
 <span class="lineNum">    3133 </span>                :            : __GMP_DEFINE_UNARY_FUNCTION(operator-, __gmp_unary_minus)
 <a name="3134"><span class="lineNum">    3134 </span>                :            : __GMP_DEFINE_UNARY_FUNCTION(operator~, __gmp_unary_com)</a>
 <a name="3135"><span class="lineNum">    3135 </span>                :            : </a>
-<a name="3136"><span class="lineNum">    3136 </span>                :<span class="lineCov">     106287 : __GMP_DEFINE_BINARY_FUNCTION(operator+, __gmp_binary_plus)</span></a>
+<a name="3136"><span class="lineNum">    3136 </span>                :<span class="lineCov">  410543412 : __GMP_DEFINE_BINARY_FUNCTION(operator+, __gmp_binary_plus)</span></a>
 <span class="lineNum">    3137 </span>                :<span class="lineCov">          3 : __GMP_DEFINE_BINARY_FUNCTION(operator-, __gmp_binary_minus)</span>
-<span class="lineNum">    3138 </span>                :<span class="lineCov">       3491 : __GMP_DEFINE_BINARY_FUNCTION(operator*, __gmp_binary_multiplies)</span>
+<span class="lineNum">    3138 </span>                :<span class="lineCov">    2427591 : __GMP_DEFINE_BINARY_FUNCTION(operator*, __gmp_binary_multiplies)</span>
 <span class="lineNum">    3139 </span>                :            : __GMP_DEFINE_BINARY_FUNCTION(operator/, __gmp_binary_divides)
 <span class="lineNum">    3140 </span>                :            : __GMP_DEFINE_BINARY_FUNCTION(operator%, __gmp_binary_modulus)
 <span class="lineNum">    3141 </span>                :            : __GMP_DEFINE_BINARY_FUNCTION(operator&amp;, __gmp_binary_and)
@@ -3217,7 +3217,7 @@
 <a name="3146"><span class="lineNum">    3146 </span>                :            : __GMP_DEFINE_BINARY_FUNCTION_UI(operator&gt;&gt;, __gmp_binary_rshift)</a>
 <a name="3147"><span class="lineNum">    3147 </span>                :            : </a>
 <span class="lineNum">    3148 </span>                :<span class="lineNoCov">          0 : __GMP_DEFINE_BINARY_TYPE_FUNCTION(bool, operator==, __gmp_binary_equal)</span>
-<span class="lineNum">    3149 </span>                :<span class="lineCov">        102 : __GMP_DEFINE_BINARY_TYPE_FUNCTION(bool, operator!=, __gmp_binary_not_equal)</span>
+<span class="lineNum">    3149 </span>                :<span class="lineCov">        219 : __GMP_DEFINE_BINARY_TYPE_FUNCTION(bool, operator!=, __gmp_binary_not_equal)</span>
 <span class="lineNum">    3150 </span>                :            : __GMP_DEFINE_BINARY_TYPE_FUNCTION(bool, operator&lt;, __gmp_binary_less)
 <span class="lineNum">    3151 </span>                :            : __GMP_DEFINE_BINARY_TYPE_FUNCTION(bool, operator&lt;=, __gmp_binary_less_equal)
 <span class="lineNum">    3152 </span>                :            : __GMP_DEFINE_BINARY_TYPE_FUNCTION(bool, operator&gt;, __gmp_binary_greater)

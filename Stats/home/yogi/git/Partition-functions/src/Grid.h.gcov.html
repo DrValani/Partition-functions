@@ -92,7 +92,7 @@
 <span class="lineNum">      21 </span>                :            :  * every combination and return false once all possible   
 <a name="22"><span class="lineNum">      22 </span>                :            :  * combinations have been called.                         </a>
 <span class="lineNum">      23 </span>                :            :  **/
-<span class="lineNum">      24 </span>                :<span class="lineCov">         49 : class Grid{</span>
+<span class="lineNum">      24 </span>                :<span class="lineCov">        489 : class Grid{</span>
 <span class="lineNum">      25 </span>                :            : public:  
 <span class="lineNum">      26 </span>                :            :   Grid():row_size(1),col_size(1){}
 <span class="lineNum">      27 </span>                :            :   Grid(const int &amp;_row_size, const int &amp;_col_size);
@@ -108,8 +108,8 @@
 <span class="lineNum">      37 </span>                :            :   int calcEnergy_brute2d_1()const;
 <a name="38"><span class="lineNum">      38 </span>                :            :   void reset();</a>
 <a name="39"><span class="lineNum">      39 </span>                :            :   void nextCombination();</a>
-<a name="40"><span class="lineNum">      40 </span>                :<span class="lineCov">        160 :   int getPoint(int x, int y)const{return (bv[x][y]);}</span></a>
-<a name="41"><span class="lineNum">      41 </span>                :<span class="lineCov">       1755 :   void setGrid(const int &amp;x,const int &amp;y, const int &amp;i){bv[x][y] = i;}</span></a>
+<a name="40"><span class="lineNum">      40 </span>                :<span class="lineCov">        880 :   int getPoint(int x, int y)const{return (bv[x][y]);}</span></a>
+<a name="41"><span class="lineNum">      41 </span>                :<span class="lineCov">    3136440 :   void setGrid(const int &amp;x,const int &amp;y, const int &amp;i){bv[x][y] = i;}</span></a>
 <span class="lineNum">      42 </span>                :<span class="lineNoCov">          0 :   int get_row_size()const{return row_size;}</span>
 <span class="lineNum">      43 </span>                :<span class="lineNoCov">          0 :   int get_col_size()const{return col_size;}</span>
 <span class="lineNum">      44 </span>                :            :   //set point (x, y) to i

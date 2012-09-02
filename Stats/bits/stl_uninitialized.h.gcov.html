@@ -40,18 +40,18 @@
             <td class="headerValue">2012-08-29</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">59</td>
+            <td class="headerCovTableEntry">62</td>
             <td class="headerCovTableEntry">65</td>
-            <td class="headerCovTableEntryHi">90.8 %</td>
+            <td class="headerCovTableEntryHi">95.4 %</td>
           </tr>
           <tr>
             <td></td>
             <td></td>
             <td></td>
             <td class="headerItem">Branches:</td>
-            <td class="headerCovTableEntry">43</td>
+            <td class="headerCovTableEntry">46</td>
             <td class="headerCovTableEntry">100</td>
-            <td class="headerCovTableEntryLo">43.0 %</td>
+            <td class="headerCovTableEntryLo">46.0 %</td>
           </tr>
           <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -138,24 +138,24 @@
 <span class="lineNum">      67 </span>                :            :     {
 <a name="68"><span class="lineNum">      68 </span>                :            :       template&lt;typename _InputIterator, typename _ForwardIterator&gt;</a>
 <span class="lineNum">      69 </span>                :            :         static _ForwardIterator
-<span class="lineNum">      70 </span>                :<span class="lineCov">      27189 :         __uninit_copy(_InputIterator __first, _InputIterator __last,</span>
+<span class="lineNum">      70 </span>                :<span class="lineCov">    5190733 :         __uninit_copy(_InputIterator __first, _InputIterator __last,</span>
 <span class="lineNum">      71 </span>                :            :                       _ForwardIterator __result)
 <span class="lineNum">      72 </span>                :            :         {
-<span class="lineNum">      73 </span>                :<span class="lineCov">      27189 :           _ForwardIterator __cur = __result;</span>
+<span class="lineNum">      73 </span>                :<span class="lineCov">    5190733 :           _ForwardIterator __cur = __result;</span>
 <span class="lineNum">      74 </span>                :            :           __try
 <span class="lineNum">      75 </span>                :            :             {
-<span class="lineNum">      76 </span>[<span class="branchCov" title="Branch 1 was taken 8 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>][<span class="branchNoCov" title="Branch 4 was not taken"> - </span><span class="branchCov" title="Branch 5 was taken 8 times"> + </span>]:<span class="lineCov">      28410 :               for (; __first != __last; ++__first, ++__cur)</span>
-<span class="lineNum">         </span>[<span class="branchCov" title="Branch 7 was taken 500 times"> + </span><span class="branchNoCov" title="Branch 8 was not taken"> - </span>][<span class="branchNoCov" title="Branch 10 was not taken"> - </span><span class="branchCov" title="Branch 11 was taken 500 times"> + </span>]
-<span class="lineNum">         </span>[<span class="branchCov" title="Branch 12 was taken 570 times"> + </span><span class="branchCov" title="Branch 13 was taken 498 times"> + </span>][<span class="branchCov" title="Branch 14 was taken 105 times"> + </span><span class="branchCov" title="Branch 15 was taken 68 times"> + </span>]
-<span class="lineNum">         </span>[<span class="branchCov" title="Branch 17 was taken 56 times"> + </span><span class="branchNoCov" title="Branch 18 was not taken"> - </span>][<span class="branchCov" title="Branch 20 was taken 51 times"> + </span><span class="branchCov" title="Branch 21 was taken 5 times"> + </span>]
-<span class="lineNum">         </span>[<span class="branchCov" title="Branch 22 was taken 133 times"> + </span><span class="branchCov" title="Branch 23 was taken 36 times"> + </span>][<span class="branchCov" title="Branch 24 was taken 314 times"> + </span><span class="branchCov" title="Branch 25 was taken 1530 times"> + </span>]
-<span class="lineNum">         </span>[<span class="branchNoExec" title="Branch 26 was not executed"> # </span><span class="branchNoExec" title="Branch 27 was not executed"> # </span>][<span class="branchCov" title="Branch 29 was taken 24520 times"> + </span><span class="branchNoCov" title="Branch 30 was not taken"> - </span>]
-<span class="lineNum">         </span>[<span class="branchNoCov" title="Branch 32 was not taken"> - </span><span class="branchCov" title="Branch 33 was taken 24520 times"> + </span>][<span class="branchCov" title="Branch 35 was taken 72 times"> + </span><span class="branchNoCov" title="Branch 36 was not taken"> - </span>]
-<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 38 was taken 48 times"> + </span><span class="branchCov" title="Branch 39 was taken 24 times"> + </span>]
-<span class="lineNum">      77 </span>[<span class="branchNoExec" title="Branch 5 was not executed"> # </span><span class="branchNoExec" title="Branch 6 was not executed"> # </span>][<span class="branchCov" title="Branch 9 was taken 570 times"> + </span><span class="branchNoCov" title="Branch 10 was not taken"> - </span>]:<span class="lineCov">       1221 :                 std::_Construct(std::__addressof(*__cur), *__first);</span>
-<span class="lineNum">         </span>[<span class="branchCov" title="Branch 16 was taken 51 times"> + </span><span class="branchNoCov" title="Branch 17 was not taken"> - </span>][<span class="branchCov" title="Branch 20 was taken 133 times"> + </span><span class="branchNoCov" title="Branch 21 was not taken"> - </span>]
-<span class="lineNum">         </span>[<span class="branchCov" title="Branch 24 was taken 314 times"> + </span><span class="branchNoCov" title="Branch 25 was not taken"> - </span>][<span class="branchCov" title="Branch 34 was taken 48 times"> + </span><span class="branchNoCov" title="Branch 35 was not taken"> - </span>]
-<span class="lineNum">      78 </span>                :<span class="lineCov">      27189 :               return __cur;</span>
+<span class="lineNum">      76 </span>[<span class="branchCov" title="Branch 1 was taken 8 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>][<span class="branchNoCov" title="Branch 4 was not taken"> - </span><span class="branchCov" title="Branch 5 was taken 8 times"> + </span>]:<span class="lineCov">    6076900 :               for (; __first != __last; ++__first, ++__cur)</span>
+<span class="lineNum">         </span>[<span class="branchCov" title="Branch 7 was taken 466008 times"> + </span><span class="branchNoCov" title="Branch 8 was not taken"> - </span>][<span class="branchNoCov" title="Branch 10 was not taken"> - </span><span class="branchCov" title="Branch 11 was taken 466008 times"> + </span>]
+<span class="lineNum">         </span>[<span class="branchCov" title="Branch 12 was taken 706023 times"> + </span><span class="branchCov" title="Branch 13 was taken 433528 times"> + </span>][<span class="branchCov" title="Branch 14 was taken 37266 times"> + </span><span class="branchCov" title="Branch 15 was taken 3830 times"> + </span>]
+<span class="lineNum">         </span>[<span class="branchCov" title="Branch 17 was taken 7073 times"> + </span><span class="branchNoCov" title="Branch 18 was not taken"> - </span>][<span class="branchCov" title="Branch 20 was taken 7066 times"> + </span><span class="branchCov" title="Branch 21 was taken 7 times"> + </span>]
+<span class="lineNum">         </span>[<span class="branchCov" title="Branch 22 was taken 32435 times"> + </span><span class="branchCov" title="Branch 23 was taken 72 times"> + </span>][<span class="branchCov" title="Branch 24 was taken 103185 times"> + </span><span class="branchCov" title="Branch 25 was taken 2028394 times"> + </span>]
+<span class="lineNum">         </span>[<span class="branchNoExec" title="Branch 26 was not executed"> # </span><span class="branchNoExec" title="Branch 27 was not executed"> # </span>][<span class="branchCov" title="Branch 29 was taken 2258462 times"> + </span><span class="branchNoCov" title="Branch 30 was not taken"> - </span>]
+<span class="lineNum">         </span>[<span class="branchNoCov" title="Branch 32 was not taken"> - </span><span class="branchCov" title="Branch 33 was taken 2258462 times"> + </span>][<span class="branchCov" title="Branch 35 was taken 616 times"> + </span><span class="branchNoCov" title="Branch 36 was not taken"> - </span>]
+<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 38 was taken 192 times"> + </span><span class="branchCov" title="Branch 39 was taken 424 times"> + </span>]
+<span class="lineNum">      77 </span>[<span class="branchNoExec" title="Branch 5 was not executed"> # </span><span class="branchNoExec" title="Branch 6 was not executed"> # </span>][<span class="branchCov" title="Branch 9 was taken 706023 times"> + </span><span class="branchNoCov" title="Branch 10 was not taken"> - </span>]:<span class="lineCov">     886167 :                 std::_Construct(std::__addressof(*__cur), *__first);</span>
+<span class="lineNum">         </span>[<span class="branchCov" title="Branch 16 was taken 7066 times"> + </span><span class="branchNoCov" title="Branch 17 was not taken"> - </span>][<span class="branchCov" title="Branch 20 was taken 32435 times"> + </span><span class="branchNoCov" title="Branch 21 was not taken"> - </span>]
+<span class="lineNum">         </span>[<span class="branchCov" title="Branch 24 was taken 103185 times"> + </span><span class="branchNoCov" title="Branch 25 was not taken"> - </span>][<span class="branchCov" title="Branch 34 was taken 192 times"> + </span><span class="branchNoCov" title="Branch 35 was not taken"> - </span>]
+<span class="lineNum">      78 </span>                :<span class="lineCov">    5190733 :               return __cur;</span>
 <span class="lineNum">      79 </span>                :            :             }
 <span class="lineNum">      80 </span>                :<span class="lineNoCov">          0 :           __catch(...)</span>
 <span class="lineNum">      81 </span>                :            :             {
@@ -173,9 +173,9 @@
 <span class="lineNum">      90 </span>                :            :     {
 <a name="91"><span class="lineNum">      91 </span>                :            :       template&lt;typename _InputIterator, typename _ForwardIterator&gt;</a>
 <span class="lineNum">      92 </span>                :            :         static _ForwardIterator
-<span class="lineNum">      93 </span>                :<span class="lineCov">       9786 :         __uninit_copy(_InputIterator __first, _InputIterator __last,</span>
+<span class="lineNum">      93 </span>                :<span class="lineCov">   13476781 :         __uninit_copy(_InputIterator __first, _InputIterator __last,</span>
 <span class="lineNum">      94 </span>                :            :                       _ForwardIterator __result)
-<span class="lineNum">      95 </span>                :<span class="lineCov">       9786 :         { return std::copy(__first, __last, __result); }</span>
+<span class="lineNum">      95 </span>                :<span class="lineCov">   13476781 :         { return std::copy(__first, __last, __result); }</span>
 <span class="lineNum">      96 </span>                :            :     };
 <span class="lineNum">      97 </span>                :            : 
 <span class="lineNum">      98 </span>                :            :   /**
@@ -189,7 +189,7 @@
 <span class="lineNum">     106 </span>                :            :   */
 <a name="107"><span class="lineNum">     107 </span>                :            :   template&lt;typename _InputIterator, typename _ForwardIterator&gt;</a>
 <span class="lineNum">     108 </span>                :            :     inline _ForwardIterator
-<span class="lineNum">     109 </span>                :<span class="lineCov">      36975 :     uninitialized_copy(_InputIterator __first, _InputIterator __last,</span>
+<span class="lineNum">     109 </span>                :<span class="lineCov">   18667514 :     uninitialized_copy(_InputIterator __first, _InputIterator __last,</span>
 <span class="lineNum">     110 </span>                :            :                        _ForwardIterator __result)
 <span class="lineNum">     111 </span>                :            :     {
 <span class="lineNum">     112 </span>                :            :       typedef typename iterator_traits&lt;_InputIterator&gt;::value_type
@@ -199,7 +199,7 @@
 <span class="lineNum">     116 </span>                :            : 
 <span class="lineNum">     117 </span>                :            :       return std::__uninitialized_copy&lt;(__is_trivial(_ValueType1)
 <span class="lineNum">     118 </span>                :            :                                         &amp;&amp; __is_trivial(_ValueType2))&gt;::
-<span class="lineNum">     119 </span>                :<span class="lineCov">      36975 :         __uninit_copy(__first, __last, __result);</span>
+<span class="lineNum">     119 </span>                :<span class="lineCov">   18667514 :         __uninit_copy(__first, __last, __result);</span>
 <span class="lineNum">     120 </span>                :            :     }
 <span class="lineNum">     121 </span>                :            : 
 <span class="lineNum">     122 </span>                :            : 
@@ -262,20 +262,20 @@
 <span class="lineNum">     179 </span>                :            :     {
 <a name="180"><span class="lineNum">     180 </span>                :            :       template&lt;typename _ForwardIterator, typename _Size, typename _Tp&gt;</a>
 <span class="lineNum">     181 </span>                :            :         static void
-<span class="lineNum">     182 </span>                :<span class="lineCov">        710 :         __uninit_fill_n(_ForwardIterator __first, _Size __n,</span>
+<span class="lineNum">     182 </span>                :<span class="lineCov">     117480 :         __uninit_fill_n(_ForwardIterator __first, _Size __n,</span>
 <span class="lineNum">     183 </span>                :            :                         const _Tp&amp; __x)
 <span class="lineNum">     184 </span>                :            :         {
-<span class="lineNum">     185 </span>                :<span class="lineCov">        710 :           _ForwardIterator __cur = __first;</span>
+<span class="lineNum">     185 </span>                :<span class="lineCov">     117480 :           _ForwardIterator __cur = __first;</span>
 <span class="lineNum">     186 </span>                :            :           __try
 <span class="lineNum">     187 </span>                :            :             {
-<span class="lineNum">     188 </span>[<span class="branchCov" title="Branch 0 was taken 4 times"> + </span><span class="branchCov" title="Branch 1 was taken 1 time"> + </span>][<span class="branchCov" title="Branch 2 was taken 8 times"> + </span><span class="branchCov" title="Branch 3 was taken 2 times"> + </span>]:<span class="lineCov">       1822 :               for (; __n &gt; 0; --__n, ++__cur)</span>
-<span class="lineNum">         </span>[<span class="branchNoExec" title="Branch 4 was not executed"> # </span><span class="branchNoExec" title="Branch 5 was not executed"> # </span>][<span class="branchCov" title="Branch 6 was taken 8 times"> + </span><span class="branchCov" title="Branch 7 was taken 2 times"> + </span>]
-<span class="lineNum">         </span>[<span class="branchCov" title="Branch 8 was taken 16 times"> + </span><span class="branchCov" title="Branch 9 was taken 4 times"> + </span>][<span class="branchCov" title="Branch 10 was taken 500 times"> + </span><span class="branchCov" title="Branch 11 was taken 125 times"> + </span>]
-<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 12 was taken 576 times"> + </span><span class="branchCov" title="Branch 13 was taken 576 times"> + </span>]
-<span class="lineNum">     189 </span>[<span class="branchCov" title="Branch 1 was taken 4 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>][<span class="branchCov" title="Branch 5 was taken 8 times"> + </span><span class="branchNoCov" title="Branch 6 was not taken"> - </span>]:<span class="lineCov">       1112 :                 std::_Construct(std::__addressof(*__cur), __x);</span>
-<span class="lineNum">         </span>[<span class="branchNoExec" title="Branch 9 was not executed"> # </span><span class="branchNoExec" title="Branch 10 was not executed"> # </span>][<span class="branchCov" title="Branch 13 was taken 8 times"> + </span><span class="branchNoCov" title="Branch 14 was not taken"> - </span>]
-<span class="lineNum">         </span>[<span class="branchCov" title="Branch 17 was taken 16 times"> + </span><span class="branchNoCov" title="Branch 18 was not taken"> - </span>][<span class="branchCov" title="Branch 21 was taken 500 times"> + </span><span class="branchNoCov" title="Branch 22 was not taken"> - </span>]
-<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 25 was taken 576 times"> + </span><span class="branchNoCov" title="Branch 26 was not taken"> - </span>]
+<span class="lineNum">     188 </span>[<span class="branchCov" title="Branch 0 was taken 4 times"> + </span><span class="branchCov" title="Branch 1 was taken 1 time"> + </span>][<span class="branchCov" title="Branch 2 was taken 8 times"> + </span><span class="branchCov" title="Branch 3 was taken 2 times"> + </span>]:<span class="lineCov">     585323 :               for (; __n &gt; 0; --__n, ++__cur)</span>
+<span class="lineNum">         </span>[<span class="branchCov" title="Branch 4 was taken 3 times"> + </span><span class="branchCov" title="Branch 5 was taken 1 time"> + </span>][<span class="branchCov" title="Branch 6 was taken 376 times"> + </span><span class="branchCov" title="Branch 7 was taken 94 times"> + </span>]
+<span class="lineNum">         </span>[<span class="branchCov" title="Branch 8 was taken 752 times"> + </span><span class="branchCov" title="Branch 9 was taken 188 times"> + </span>][<span class="branchCov" title="Branch 10 was taken 466008 times"> + </span><span class="branchCov" title="Branch 11 was taken 116502 times"> + </span>]
+<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 12 was taken 692 times"> + </span><span class="branchCov" title="Branch 13 was taken 692 times"> + </span>]
+<span class="lineNum">     189 </span>[<span class="branchCov" title="Branch 1 was taken 4 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>][<span class="branchCov" title="Branch 5 was taken 8 times"> + </span><span class="branchNoCov" title="Branch 6 was not taken"> - </span>]:<span class="lineCov">     467843 :                 std::_Construct(std::__addressof(*__cur), __x);</span>
+<span class="lineNum">         </span>[<span class="branchCov" title="Branch 9 was taken 3 times"> + </span><span class="branchNoCov" title="Branch 10 was not taken"> - </span>][<span class="branchCov" title="Branch 13 was taken 376 times"> + </span><span class="branchNoCov" title="Branch 14 was not taken"> - </span>]
+<span class="lineNum">         </span>[<span class="branchCov" title="Branch 17 was taken 752 times"> + </span><span class="branchNoCov" title="Branch 18 was not taken"> - </span>][<span class="branchCov" title="Branch 21 was taken 466008 times"> + </span><span class="branchNoCov" title="Branch 22 was not taken"> - </span>]
+<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 25 was taken 692 times"> + </span><span class="branchNoCov" title="Branch 26 was not taken"> - </span>]
 <span class="lineNum">     190 </span>                :            :             }
 <span class="lineNum">     191 </span>                :<span class="lineNoCov">          0 :           __catch(...)</span>
 <span class="lineNum">     192 </span>                :            :             {
@@ -285,7 +285,7 @@
 <span class="lineNum">         </span>            <span class="branchNoExec" title="Branch 19 was not executed"> # </span>]
 <span class="lineNum">     194 </span>                :<span class="lineNoCov">          0 :               __throw_exception_again;</span>
 <span class="lineNum">     195 </span>                :            :             }
-<span class="lineNum">     196 </span>                :<span class="lineCov">        710 :         }</span>
+<span class="lineNum">     196 </span>                :<span class="lineCov">     117480 :         }</span>
 <span class="lineNum">     197 </span>                :            :     };
 <span class="lineNum">     198 </span>                :            : 
 <span class="lineNum">     199 </span>                :            :   template&lt;&gt;
@@ -293,9 +293,9 @@
 <span class="lineNum">     201 </span>                :            :     {
 <a name="202"><span class="lineNum">     202 </span>                :            :       template&lt;typename _ForwardIterator, typename _Size, typename _Tp&gt;</a>
 <span class="lineNum">     203 </span>                :            :         static void
-<span class="lineNum">     204 </span>                :<span class="lineCov">        605 :         __uninit_fill_n(_ForwardIterator __first, _Size __n,</span>
+<span class="lineNum">     204 </span>                :<span class="lineCov">     951250 :         __uninit_fill_n(_ForwardIterator __first, _Size __n,</span>
 <span class="lineNum">     205 </span>                :            :                         const _Tp&amp; __x)
-<span class="lineNum">     206 </span>                :<span class="lineCov">        605 :         { std::fill_n(__first, __n, __x); }</span>
+<span class="lineNum">     206 </span>                :<span class="lineCov">     951250 :         { std::fill_n(__first, __n, __x); }</span>
 <span class="lineNum">     207 </span>                :            :     };
 <span class="lineNum">     208 </span>                :            : 
 <span class="lineNum">     209 </span>                :            :   /**
@@ -309,14 +309,14 @@
 <span class="lineNum">     217 </span>                :            :   */
 <a name="218"><span class="lineNum">     218 </span>                :            :   template&lt;typename _ForwardIterator, typename _Size, typename _Tp&gt;</a>
 <span class="lineNum">     219 </span>                :            :     inline void
-<span class="lineNum">     220 </span>                :<span class="lineCov">       1315 :     uninitialized_fill_n(_ForwardIterator __first, _Size __n, const _Tp&amp; __x)</span>
+<span class="lineNum">     220 </span>                :<span class="lineCov">    1068730 :     uninitialized_fill_n(_ForwardIterator __first, _Size __n, const _Tp&amp; __x)</span>
 <span class="lineNum">     221 </span>                :            :     {
 <span class="lineNum">     222 </span>                :            :       typedef typename iterator_traits&lt;_ForwardIterator&gt;::value_type
 <span class="lineNum">     223 </span>                :            :         _ValueType;
 <span class="lineNum">     224 </span>                :            : 
-<span class="lineNum">     225 </span>                :<span class="lineCov">       1315 :       std::__uninitialized_fill_n&lt;__is_trivial(_ValueType)&gt;::</span>
+<span class="lineNum">     225 </span>                :<span class="lineCov">    1068730 :       std::__uninitialized_fill_n&lt;__is_trivial(_ValueType)&gt;::</span>
 <span class="lineNum">     226 </span>                :            :         __uninit_fill_n(__first, __n, __x);
-<span class="lineNum">     227 </span>                :<span class="lineCov">       1315 :     }</span>
+<span class="lineNum">     227 </span>                :<span class="lineCov">    1068730 :     }</span>
 <span class="lineNum">     228 </span>                :            : 
 <span class="lineNum">     229 </span>                :            :   // Extensions: versions of uninitialized_copy, uninitialized_fill,
 <span class="lineNum">     230 </span>                :            :   //  and uninitialized_fill_n that take an allocator parameter.
@@ -346,19 +346,19 @@
 <span class="lineNum">     254 </span>                :            : 
 <a name="255"><span class="lineNum">     255 </span>                :            :   template&lt;typename _InputIterator, typename _ForwardIterator, typename _Tp&gt;</a>
 <span class="lineNum">     256 </span>                :            :     inline _ForwardIterator
-<span class="lineNum">     257 </span>                :<span class="lineCov">      36975 :     __uninitialized_copy_a(_InputIterator __first, _InputIterator __last,</span>
+<span class="lineNum">     257 </span>                :<span class="lineCov">   18667514 :     __uninitialized_copy_a(_InputIterator __first, _InputIterator __last,</span>
 <span class="lineNum">     258 </span>                :            :                            _ForwardIterator __result, allocator&lt;_Tp&gt;&amp;)
-<span class="lineNum">     259 </span>                :<span class="lineCov">      36975 :     { return std::uninitialized_copy(__first, __last, __result); }</span>
+<span class="lineNum">     259 </span>                :<span class="lineCov">   18667514 :     { return std::uninitialized_copy(__first, __last, __result); }</span>
 <span class="lineNum">     260 </span>                :            : 
 <span class="lineNum">     261 </span>                :            :   template&lt;typename _InputIterator, typename _ForwardIterator,
 <a name="262"><span class="lineNum">     262 </span>                :            :            typename _Allocator&gt;</a>
 <span class="lineNum">     263 </span>                :            :     inline _ForwardIterator
-<span class="lineNum">     264 </span>                :<span class="lineCov">       7984 :     __uninitialized_move_a(_InputIterator __first, _InputIterator __last,</span>
+<span class="lineNum">     264 </span>                :<span class="lineCov">   12545938 :     __uninitialized_move_a(_InputIterator __first, _InputIterator __last,</span>
 <span class="lineNum">     265 </span>                :            :                            _ForwardIterator __result, _Allocator&amp; __alloc)
 <span class="lineNum">     266 </span>                :            :     {
 <span class="lineNum">     267 </span>                :            :       return std::__uninitialized_copy_a(_GLIBCXX_MAKE_MOVE_ITERATOR(__first),
 <span class="lineNum">     268 </span>                :            :                                          _GLIBCXX_MAKE_MOVE_ITERATOR(__last),
-<span class="lineNum">     269 </span>                :<span class="lineCov">       7984 :                                          __result, __alloc);</span>
+<span class="lineNum">     269 </span>                :<span class="lineCov">   12545938 :                                          __result, __alloc);</span>
 <span class="lineNum">     270 </span>                :            :     }
 <span class="lineNum">     271 </span>                :            : 
 <span class="lineNum">     272 </span>                :            :   template&lt;typename _ForwardIterator, typename _Tp, typename _Allocator&gt;
@@ -407,9 +407,9 @@
 <span class="lineNum">     315 </span>                :            :   template&lt;typename _ForwardIterator, typename _Size, typename _Tp,
 <a name="316"><span class="lineNum">     316 </span>                :            :            typename _Tp2&gt;</a>
 <span class="lineNum">     317 </span>                :            :     inline void
-<span class="lineNum">     318 </span>                :<span class="lineCov">       1315 :     __uninitialized_fill_n_a(_ForwardIterator __first, _Size __n, </span>
+<span class="lineNum">     318 </span>                :<span class="lineCov">    1068730 :     __uninitialized_fill_n_a(_ForwardIterator __first, _Size __n, </span>
 <span class="lineNum">     319 </span>                :            :                              const _Tp&amp; __x, allocator&lt;_Tp2&gt;&amp;)
-<span class="lineNum">     320 </span>                :<span class="lineCov">       1315 :     { std::uninitialized_fill_n(__first, __n, __x); }</span>
+<span class="lineNum">     320 </span>                :<span class="lineCov">    1068730 :     { std::uninitialized_fill_n(__first, __n, __x); }</span>
 <span class="lineNum">     321 </span>                :            : 
 <span class="lineNum">     322 </span>                :            : 
 <span class="lineNum">     323 </span>                :            :   // Extensions: __uninitialized_copy_move, __uninitialized_move_copy,

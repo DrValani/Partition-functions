@@ -49,9 +49,9 @@
             <td></td>
             <td></td>
             <td class="headerItem">Branches:</td>
-            <td class="headerCovTableEntry">70</td>
-            <td class="headerCovTableEntry">114</td>
-            <td class="headerCovTableEntryLo">61.4 %</td>
+            <td class="headerCovTableEntry">71</td>
+            <td class="headerCovTableEntry">116</td>
+            <td class="headerCovTableEntryLo">61.2 %</td>
           </tr>
           <tr><td><img src="../../../../../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -78,96 +78,96 @@
 <span class="lineNum">       7 </span>                :            : #include &quot;myTimer.cc&quot;
 <a name="8"><span class="lineNum">       8 </span>                :            : #include &quot;Storage_y.cc&quot;</a>
 <span class="lineNum">       9 </span>                :            : 
-<span class="lineNum">      10 </span>                :<span class="lineCov">        432 : int forward_traverse_tree(int tree_index, int current_column, Storage_y svy,</span>
+<span class="lineNum">      10 </span>                :<span class="lineCov">       1038 : int forward_traverse_tree(int tree_index, int current_column, Storage_y svy,</span>
 <span class="lineNum">      11 </span>                :            :     vector&lt;Storage&gt; &amp;config_tree, vector&lt;int&gt; &amp;deltaCounter) {
-<span class="lineNum">      12 </span>                :<span class="lineCov">        432 :         int configuration = config_tree[tree_index][svy[current_column]];</span>
-<span class="lineNum">      13 </span>        [<span class="branchCov" title="Branch 0 was taken 288 times"> + </span><span class="branchCov" title="Branch 1 was taken 144 times"> + </span>]:<span class="lineCov">        432 :         if (current_column &lt; ySize - 1) {</span>
+<span class="lineNum">      12 </span>                :<span class="lineCov">       1038 :         int configuration = config_tree[tree_index][svy[current_column]];</span>
+<span class="lineNum">      13 </span>        [<span class="branchCov" title="Branch 0 was taken 692 times"> + </span><span class="branchCov" title="Branch 1 was taken 346 times"> + </span>]:<span class="lineCov">       1038 :         if (current_column &lt; ySize - 1) {</span>
 <span class="lineNum">      14 </span>                :            :                 return forward_traverse_tree(configuration, current_column + 1, svy,
-<span class="lineNum">      15 </span>        [<span class="branchCov" title="Branch 1 was taken 288 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>]:<span class="lineCov">        288 :                     config_tree, deltaCounter);</span>
-<span class="lineNum">      16 </span>        [<span class="branchCov" title="Branch 0 was taken 51 times"> + </span><span class="branchCov" title="Branch 1 was taken 93 times"> + </span>]:<span class="lineCov">        144 :         } else if (configuration == -1) {</span>
-<span class="lineNum">      17 </span>                :<span class="lineCov">         51 :                 svy.calc_subgraphs();</span>
-<span class="lineNum">      18 </span>                :<span class="lineCov">         51 :                 deltaCounter.push_back(svy.getDelta());</span>
-<span class="lineNum">      19 </span>                :<span class="lineCov">         51 :                 config_tree[tree_index].push_back(svy[current_column],</span>
-<span class="lineNum">      20 </span>                :<span class="lineCov">        102 :                     deltaCounter.size() - 1);</span>
+<span class="lineNum">      15 </span>        [<span class="branchCov" title="Branch 1 was taken 692 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>]:<span class="lineCov">        692 :                     config_tree, deltaCounter);</span>
+<span class="lineNum">      16 </span>        [<span class="branchCov" title="Branch 0 was taken 88 times"> + </span><span class="branchCov" title="Branch 1 was taken 258 times"> + </span>]:<span class="lineCov">        346 :         } else if (configuration == -1) {</span>
+<span class="lineNum">      17 </span>                :<span class="lineCov">         88 :                 svy.calc_subgraphs();</span>
+<span class="lineNum">      18 </span>                :<span class="lineCov">         88 :                 deltaCounter.push_back(svy.getDelta());</span>
+<span class="lineNum">      19 </span>                :<span class="lineCov">         88 :                 config_tree[tree_index].push_back(svy[current_column],</span>
+<span class="lineNum">      20 </span>                :<span class="lineCov">        176 :                     deltaCounter.size() - 1);</span>
 <span class="lineNum">      21 </span>                :            :         }
-<span class="lineNum">      22 </span>                :<span class="lineCov">        432 :         return config_tree[tree_index][svy[current_column]];</span>
+<span class="lineNum">      22 </span>                :<span class="lineCov">       1038 :         return config_tree[tree_index][svy[current_column]];</span>
 <a name="23"><span class="lineNum">      23 </span>                :            : }</a>
 <span class="lineNum">      24 </span>                :            : 
-<span class="lineNum">      25 </span>                :<span class="lineCov">         24 : void create_ylist_table(int tree_index, const int current_column,</span>
+<span class="lineNum">      25 </span>                :<span class="lineCov">         36 : void create_ylist_table(int tree_index, const int current_column,</span>
 <span class="lineNum">      26 </span>                :            :     G_TABLE2 &amp;ylistTable, vector&lt;int&gt; yogi, vector&lt;Storage&gt; &amp;config_tree) {
-<span class="lineNum">      27 </span>        [<span class="branchCov" title="Branch 0 was taken 4 times"> + </span><span class="branchCov" title="Branch 1 was taken 20 times"> + </span>]:<span class="lineCov">         24 :         if (current_column &lt; ySize - 1) {</span>
-<span class="lineNum">      28 </span>        [<span class="branchCov" title="Branch 0 was taken 32 times"> + </span><span class="branchCov" title="Branch 1 was taken 4 times"> + </span>]:<span class="lineCov">         36 :                 for (int config = 0; config &lt; ARRSIZE; config++) {</span>
-<span class="lineNum">      29 </span>        [<span class="branchCov" title="Branch 2 was taken 23 times"> + </span><span class="branchCov" title="Branch 3 was taken 9 times"> + </span>]:<span class="lineCov">         32 :                         if (config_tree[tree_index][config] != -1) {</span>
-<span class="lineNum">      30 </span>                :<span class="lineCov">         23 :                                 yogi[current_column] = config;</span>
-<span class="lineNum">      31 </span>                :<span class="lineCov">         23 :                                 create_ylist_table(config_tree[tree_index][config], current_column + 1,</span>
-<span class="lineNum">      32 </span>        [<span class="branchCov" title="Branch 2 was taken 23 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">         46 :                                     ylistTable, yogi, config_tree);</span>
+<span class="lineNum">      27 </span>        [<span class="branchCov" title="Branch 0 was taken 5 times"> + </span><span class="branchCov" title="Branch 1 was taken 31 times"> + </span>]:<span class="lineCov">         36 :         if (current_column &lt; ySize - 1) {</span>
+<span class="lineNum">      28 </span>        [<span class="branchCov" title="Branch 0 was taken 80 times"> + </span><span class="branchCov" title="Branch 1 was taken 5 times"> + </span>]:<span class="lineCov">         85 :                 for (int config = 0; config &lt; ARRSIZE; config++) {</span>
+<span class="lineNum">      29 </span>        [<span class="branchCov" title="Branch 2 was taken 35 times"> + </span><span class="branchCov" title="Branch 3 was taken 45 times"> + </span>]:<span class="lineCov">         80 :                         if (config_tree[tree_index][config] != -1) {</span>
+<span class="lineNum">      30 </span>                :<span class="lineCov">         35 :                                 yogi[current_column] = config;</span>
+<span class="lineNum">      31 </span>                :<span class="lineCov">         35 :                                 create_ylist_table(config_tree[tree_index][config], current_column + 1,</span>
+<span class="lineNum">      32 </span>[<span class="branchCov" title="Branch 1 was taken 35 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>][<span class="branchCov" title="Branch 4 was taken 35 times"> + </span><span class="branchNoCov" title="Branch 5 was not taken"> - </span>]:<span class="lineCov">         70 :                                     ylistTable, yogi, config_tree);</span>
 <span class="lineNum">      33 </span>                :            :                         }
 <span class="lineNum">      34 </span>                :            :                 }
 <span class="lineNum">      35 </span>                :            :         } else {
-<span class="lineNum">      36 </span>        [<span class="branchCov" title="Branch 0 was taken 160 times"> + </span><span class="branchCov" title="Branch 1 was taken 20 times"> + </span>]:<span class="lineCov">        180 :                 for (int config = 0; config &lt; ARRSIZE; config++) {</span>
-<span class="lineNum">      37 </span>        [<span class="branchCov" title="Branch 2 was taken 51 times"> + </span><span class="branchCov" title="Branch 3 was taken 109 times"> + </span>]:<span class="lineCov">        160 :                         if (config_tree[tree_index][config] != -1) {</span>
-<span class="lineNum">      38 </span>                :<span class="lineCov">         51 :                                 yogi[current_column] = config;</span>
-<span class="lineNum">      39 </span>                :<span class="lineCov">         51 :                                 yogi[ySize] = config_tree[tree_index][config];</span>
-<span class="lineNum">      40 </span>                :<span class="lineCov">         51 :                                 ylistTable.push_back(yogi);</span>
-<span class="lineNum">      41 </span>        [<span class="branchCov" title="Branch 0 was taken 204 times"> + </span><span class="branchCov" title="Branch 1 was taken 51 times"> + </span>]:<span class="lineCov">        255 :                                 for (int i = 0; i &lt;= ySize; i++)</span>
-<span class="lineNum">      42 </span>                :<span class="lineCov">        204 :                                         cout &lt;&lt; yogi[i] &lt;&lt; &quot; &quot;;</span>
-<span class="lineNum">      43 </span>                :<span class="lineCov">         51 :                                 cout &lt;&lt; endl;</span>
+<span class="lineNum">      36 </span>        [<span class="branchCov" title="Branch 0 was taken 496 times"> + </span><span class="branchCov" title="Branch 1 was taken 31 times"> + </span>]:<span class="lineCov">        527 :                 for (int config = 0; config &lt; ARRSIZE; config++) {</span>
+<span class="lineNum">      37 </span>        [<span class="branchCov" title="Branch 2 was taken 88 times"> + </span><span class="branchCov" title="Branch 3 was taken 408 times"> + </span>]:<span class="lineCov">        496 :                         if (config_tree[tree_index][config] != -1) {</span>
+<span class="lineNum">      38 </span>                :<span class="lineCov">         88 :                                 yogi[current_column] = config;</span>
+<span class="lineNum">      39 </span>                :<span class="lineCov">         88 :                                 yogi[ySize] = config_tree[tree_index][config];</span>
+<span class="lineNum">      40 </span>                :<span class="lineCov">         88 :                                 ylistTable.push_back(yogi);</span>
+<span class="lineNum">      41 </span>        [<span class="branchCov" title="Branch 0 was taken 352 times"> + </span><span class="branchCov" title="Branch 1 was taken 88 times"> + </span>]:<span class="lineCov">        440 :                                 for (int i = 0; i &lt;= ySize; i++)</span>
+<span class="lineNum">      42 </span>                :<span class="lineCov">        352 :                                         cout &lt;&lt; yogi[i] &lt;&lt; &quot; &quot;;</span>
+<span class="lineNum">      43 </span>                :<span class="lineCov">         88 :                                 cout &lt;&lt; endl;</span>
 <span class="lineNum">      44 </span>                :            :                         }
 <span class="lineNum">      45 </span>                :            :                 }
 <span class="lineNum">      46 </span>                :            :         }
-<span class="lineNum">      47 </span>                :<span class="lineCov">         24 : }</span>
+<span class="lineNum">      47 </span>                :<span class="lineCov">         36 : }</span>
 <span class="lineNum">      48 </span>                :            : 
 <span class="lineNum">      49 </span>                :            : /**
 <a name="50"><span class="lineNum">      50 </span>                :            :  *Difference is find_symmetrical_equivalent is used instead</a>
 <span class="lineNum">      51 </span>                :            :  */
-<span class="lineNum">      52 </span>                :<span class="lineCov">         20 : Storage lastColumn(G_TABLE1 &amp;transformGroups, Storage_y svy,</span>
+<span class="lineNum">      52 </span>                :<span class="lineCov">         31 : Storage lastColumn(G_TABLE1 &amp;transformGroups, Storage_y svy,</span>
 <span class="lineNum">      53 </span>                :            :     vector&lt;Storage&gt; &amp;config_tree, vector&lt;int&gt; &amp;deltaCounter) {
-<span class="lineNum">      54 </span>                :<span class="lineCov">         20 :         Storage outer(true);</span>
-<span class="lineNum">      55 </span>        [<span class="branchCov" title="Branch 0 was taken 160 times"> + </span><span class="branchCov" title="Branch 1 was taken 20 times"> + </span>]:<span class="lineCov">        180 :         for (int a = 0; a &lt; ARRSIZE; a++) {</span>
-<span class="lineNum">      56 </span>                :<span class="lineCov">        160 :                 int new_a = find_symmetrical_equivalent(a, transformGroups, outer);</span>
-<span class="lineNum">      57 </span>        [<span class="branchCov" title="Branch 0 was taken 144 times"> + </span><span class="branchCov" title="Branch 1 was taken 16 times"> + </span>]:<span class="lineCov">        160 :                 if (new_a == -1) {</span>
-<span class="lineNum">      58 </span>                :<span class="lineCov">        144 :                         svy.push_back(0, a);</span>
-<span class="lineNum">      59 </span>                :<span class="lineCov">        144 :                         Storage_y tempsvy = svy;</span>
-<span class="lineNum">      60 </span>        [<span class="branchCov" title="Branch 0 was taken 144 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        144 :                         tempsvy.calc_subgraphs();</span>
-<span class="lineNum">      61 </span>        [<span class="branchCov" title="Branch 0 was taken 144 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        144 :                         tempsvy.setSmallest();</span>
+<span class="lineNum">      54 </span>                :<span class="lineCov">         31 :         Storage outer(true);</span>
+<span class="lineNum">      55 </span>        [<span class="branchCov" title="Branch 0 was taken 496 times"> + </span><span class="branchCov" title="Branch 1 was taken 31 times"> + </span>]:<span class="lineCov">        527 :         for (int a = 0; a &lt; ARRSIZE; a++) {</span>
+<span class="lineNum">      56 </span>                :<span class="lineCov">        496 :                 int new_a = find_symmetrical_equivalent(a, transformGroups, outer);</span>
+<span class="lineNum">      57 </span>        [<span class="branchCov" title="Branch 0 was taken 346 times"> + </span><span class="branchCov" title="Branch 1 was taken 150 times"> + </span>]:<span class="lineCov">        496 :                 if (new_a == -1) {</span>
+<span class="lineNum">      58 </span>                :<span class="lineCov">        346 :                         svy.push_back(0, a);</span>
+<span class="lineNum">      59 </span>                :<span class="lineCov">        346 :                         Storage_y tempsvy = svy;</span>
+<span class="lineNum">      60 </span>        [<span class="branchCov" title="Branch 0 was taken 346 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        346 :                         tempsvy.calc_subgraphs();</span>
+<span class="lineNum">      61 </span>        [<span class="branchCov" title="Branch 0 was taken 346 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        346 :                         tempsvy.setSmallest();</span>
 <span class="lineNum">      62 </span>                :            : 
-<span class="lineNum">      63 </span>                :<span class="lineCov">        144 :                         int alternate = forward_traverse_tree(config_tree.size() - 1, 0, tempsvy,</span>
-<span class="lineNum">      64 </span>  [<span class="branchCov" title="Branch 0 was taken 144 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 144 times"> + </span><span class="branchNoCov" title="Branch 4 was not taken"> - </span>]:<span class="lineCov">        288 :                             config_tree, deltaCounter);</span>
-<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 6 was taken 144 times"> + </span><span class="branchNoCov" title="Branch 7 was not taken"> - </span>]
-<span class="lineNum">      65 </span>                :<span class="lineCov">        144 :                         outer.push_back(a, alternate);</span>
-<span class="lineNum">      66 </span>                :<span class="lineCov">         16 :                 } else outer.push_back(a, outer[new_a]);</span>
+<span class="lineNum">      63 </span>                :<span class="lineCov">        346 :                         int alternate = forward_traverse_tree(config_tree.size() - 1, 0, tempsvy,</span>
+<span class="lineNum">      64 </span>  [<span class="branchCov" title="Branch 0 was taken 346 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 346 times"> + </span><span class="branchNoCov" title="Branch 4 was not taken"> - </span>]:<span class="lineCov">        692 :                             config_tree, deltaCounter);</span>
+<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 6 was taken 346 times"> + </span><span class="branchNoCov" title="Branch 7 was not taken"> - </span>]
+<span class="lineNum">      65 </span>                :<span class="lineCov">        346 :                         outer.push_back(a, alternate);</span>
+<span class="lineNum">      66 </span>                :<span class="lineCov">        150 :                 } else outer.push_back(a, outer[new_a]);</span>
 <span class="lineNum">      67 </span>                :            :         }
-<span class="lineNum">      68 </span>                :<span class="lineCov">         20 :         return outer;</span>
+<span class="lineNum">      68 </span>                :<span class="lineCov">         31 :         return outer;</span>
 <a name="69"><span class="lineNum">      69 </span>                :            : }</a>
 <span class="lineNum">      70 </span>                :            : 
-<span class="lineNum">      71 </span>                :<span class="lineCov">         24 : int buildBase(const int current_column, vector&lt;Storage&gt; &amp;config_tree,</span>
+<span class="lineNum">      71 </span>                :<span class="lineCov">         36 : int buildBase(const int current_column, vector&lt;Storage&gt; &amp;config_tree,</span>
 <span class="lineNum">      72 </span>                :            :     G_TABLE1 transformGroups, vector&lt;vector&lt;Storage&gt; &gt; &amp;vlist, Storage_y &amp;svy,
 <span class="lineNum">      73 </span>                :            :     vector&lt;int&gt; &amp;deltaCounter, vector&lt;Storage&gt; &amp;vpol_vlist) {
 <span class="lineNum">      74 </span>                :            : 
-<span class="lineNum">      75 </span>        [<span class="branchCov" title="Branch 0 was taken 4 times"> + </span><span class="branchCov" title="Branch 1 was taken 20 times"> + </span>]:<span class="lineCov">         24 :         if (current_column &gt; 0) {</span>
-<span class="lineNum">      76 </span>                :<span class="lineCov">          4 :                 Storage souter(true);</span>
-<span class="lineNum">      77 </span>        [<span class="branchCov" title="Branch 0 was taken 32 times"> + </span><span class="branchCov" title="Branch 1 was taken 4 times"> + </span>]:<span class="lineCov">         36 :                 for (int config = 0; config &lt; ARRSIZE; config++) {</span>
+<span class="lineNum">      75 </span>        [<span class="branchCov" title="Branch 0 was taken 5 times"> + </span><span class="branchCov" title="Branch 1 was taken 31 times"> + </span>]:<span class="lineCov">         36 :         if (current_column &gt; 0) {</span>
+<span class="lineNum">      76 </span>                :<span class="lineCov">          5 :                 Storage souter(true);</span>
+<span class="lineNum">      77 </span>        [<span class="branchCov" title="Branch 0 was taken 80 times"> + </span><span class="branchCov" title="Branch 1 was taken 5 times"> + </span>]:<span class="lineCov">         85 :                 for (int config = 0; config &lt; ARRSIZE; config++) {</span>
 <span class="lineNum">      78 </span>                :            : 
 <span class="lineNum">      79 </span>                :            :                         int sym_equivalent_config = find_symmetrical_equivalent(config,
-<span class="lineNum">      80 </span>                :<span class="lineCov">         32 :                             transformGroups, souter);</span>
-<span class="lineNum">      81 </span>        [<span class="branchCov" title="Branch 0 was taken 23 times"> + </span><span class="branchCov" title="Branch 1 was taken 9 times"> + </span>]:<span class="lineCov">         32 :                         if (sym_equivalent_config == -1) {</span>
-<span class="lineNum">      82 </span>                :<span class="lineCov">         23 :                                 G_TABLE1 sub_transformGroups;</span>
-<span class="lineNum">      83 </span>                :<span class="lineCov">         23 :                                 svy.push_back(current_column, config);</span>
-<span class="lineNum">      84 </span>        [<span class="branchCov" title="Branch 0 was taken 23 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         23 :                                 Calculate_subgroup(sub_transformGroups, config, transformGroups);</span>
+<span class="lineNum">      80 </span>                :<span class="lineCov">         80 :                             transformGroups, souter);</span>
+<span class="lineNum">      81 </span>        [<span class="branchCov" title="Branch 0 was taken 35 times"> + </span><span class="branchCov" title="Branch 1 was taken 45 times"> + </span>]:<span class="lineCov">         80 :                         if (sym_equivalent_config == -1) {</span>
+<span class="lineNum">      82 </span>                :<span class="lineCov">         35 :                                 G_TABLE1 sub_transformGroups;</span>
+<span class="lineNum">      83 </span>                :<span class="lineCov">         35 :                                 svy.push_back(current_column, config);</span>
+<span class="lineNum">      84 </span>        [<span class="branchCov" title="Branch 0 was taken 35 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         35 :                                 Calculate_subgroup(sub_transformGroups, config, transformGroups);</span>
 <span class="lineNum">      85 </span>                :            :                                 int vector_index = buildBase(current_column - 1, config_tree,
-<span class="lineNum">      86 </span>[<span class="branchCov" title="Branch 0 was taken 23 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>][<span class="branchCov" title="Branch 3 was taken 23 times"> + </span><span class="branchNoCov" title="Branch 4 was not taken"> - </span>]:<span class="lineCov">         23 :                                     sub_transformGroups, vlist, svy, deltaCounter, vpol_vlist);</span>
-<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 6 was taken 23 times"> + </span><span class="branchNoCov" title="Branch 7 was not taken"> - </span>]
-<span class="lineNum">      87 </span>                :<span class="lineCov">         23 :                                 souter.push_back(config, vector_index);</span>
+<span class="lineNum">      86 </span>[<span class="branchCov" title="Branch 0 was taken 35 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>][<span class="branchCov" title="Branch 3 was taken 35 times"> + </span><span class="branchNoCov" title="Branch 4 was not taken"> - </span>]:<span class="lineCov">         35 :                                     sub_transformGroups, vlist, svy, deltaCounter, vpol_vlist);</span>
+<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 6 was taken 35 times"> + </span><span class="branchNoCov" title="Branch 7 was not taken"> - </span>]
+<span class="lineNum">      87 </span>                :<span class="lineCov">         35 :                                 souter.push_back(config, vector_index);</span>
 <span class="lineNum">      88 </span>                :            :                         } else {
-<span class="lineNum">      89 </span>                :<span class="lineCov">          9 :                                 souter.push_back(config, -1);</span>
+<span class="lineNum">      89 </span>                :<span class="lineCov">         45 :                                 souter.push_back(config, -1);</span>
 <span class="lineNum">      90 </span>                :            :                         }
-<span class="lineNum">      91 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 32 times"> + </span>]:<span class="lineCov">         32 :                         if (current_column == 0) calculateETA(startTime, config + 1, ARRSIZE);</span>
+<span class="lineNum">      91 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 80 times"> + </span>]:<span class="lineCov">         80 :                         if (current_column == 0) calculateETA(startTime, config + 1, ARRSIZE);</span>
 <span class="lineNum">      92 </span>                :            :                 }
-<span class="lineNum">      93 </span>                :<span class="lineCov">          4 :                 vlist[0].push_back(souter);</span>
-<span class="lineNum">      94 </span>                :<span class="lineCov">          4 :                 return vlist[0].size() - 1;</span>
+<span class="lineNum">      93 </span>                :<span class="lineCov">          5 :                 vlist[0].push_back(souter);</span>
+<span class="lineNum">      94 </span>                :<span class="lineCov">          5 :                 return vlist[0].size() - 1;</span>
 <span class="lineNum">      95 </span>                :            :         } else {
-<span class="lineNum">      96 </span>        [<span class="branchCov" title="Branch 1 was taken 20 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>]:<span class="lineCov">         20 :                 Storage s = lastColumn(transformGroups, svy, config_tree, deltaCounter);</span>
-<span class="lineNum">      97 </span>                :<span class="lineCov">         24 :                 return search_add_list_exact(vpol_vlist, s);</span>
+<span class="lineNum">      96 </span>        [<span class="branchCov" title="Branch 1 was taken 31 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>]:<span class="lineCov">         31 :                 Storage s = lastColumn(transformGroups, svy, config_tree, deltaCounter);</span>
+<span class="lineNum">      97 </span>                :<span class="lineCov">         36 :                 return search_add_list_exact(vpol_vlist, s);</span>
 <span class="lineNum">      98 </span>                :            :         }
 <span class="lineNum">      99 </span>                :            : }
 <span class="lineNum">     100 </span>                :            : 

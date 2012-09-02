@@ -31,27 +31,27 @@
             <td class="headerValue">stat.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">142</td>
-            <td class="headerCovTableEntry">202</td>
-            <td class="headerCovTableEntryLo">70.3 %</td>
+            <td class="headerCovTableEntry">162</td>
+            <td class="headerCovTableEntry">203</td>
+            <td class="headerCovTableEntryMed">79.8 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
             <td class="headerValue">2012-08-29</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">13</td>
+            <td class="headerCovTableEntry">16</td>
             <td class="headerCovTableEntry">18</td>
-            <td class="headerCovTableEntryLo">72.2 %</td>
+            <td class="headerCovTableEntryMed">88.9 %</td>
           </tr>
           <tr>
             <td></td>
             <td></td>
             <td></td>
             <td class="headerItem">Branches:</td>
-            <td class="headerCovTableEntry">119</td>
-            <td class="headerCovTableEntry">254</td>
-            <td class="headerCovTableEntryLo">46.9 %</td>
+            <td class="headerCovTableEntry">130</td>
+            <td class="headerCovTableEntry">258</td>
+            <td class="headerCovTableEntryLo">50.4 %</td>
           </tr>
           <tr><td><img src="../../../../../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -80,9 +80,9 @@
 <span class="lineNum">       9 </span>                :            : 
 <span class="lineNum">      10 </span>                :<span class="lineCov">          3 : void final_check(Polynomial &amp;p, const int &amp;z) {</span>
 <span class="lineNum">      11 </span>                :<span class="lineCov">          3 :     mpz_class total = 0;</span>
-<span class="lineNum">      12 </span>        [<span class="branchCov" title="Branch 0 was taken 246 times"> + </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span>]:<span class="lineCov">        249 :     for (int i = MAXPOLYSIZE - 1; i &gt;= 0; i--) {</span>
-<span class="lineNum">      13 </span>[<span class="branchCov" title="Branch 0 was taken 246 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>][<span class="branchCov" title="Branch 3 was taken 246 times"> + </span><span class="branchNoCov" title="Branch 4 was not taken"> - </span>]:<span class="lineCov">        246 :         total = total + p[i];</span>
-<span class="lineNum">         </span>[<span class="branchCov" title="Branch 6 was taken 246 times"> + </span><span class="branchNoCov" title="Branch 7 was not taken"> - </span>][<span class="branchCov" title="Branch 9 was taken 246 times"> + </span><span class="branchNoCov" title="Branch 10 was not taken"> - </span>]
+<span class="lineNum">      12 </span>        [<span class="branchCov" title="Branch 0 was taken 327 times"> + </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span>]:<span class="lineCov">        330 :     for (int i = MAXPOLYSIZE - 1; i &gt;= 0; i--) {</span>
+<span class="lineNum">      13 </span>[<span class="branchCov" title="Branch 0 was taken 327 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>][<span class="branchCov" title="Branch 3 was taken 327 times"> + </span><span class="branchNoCov" title="Branch 4 was not taken"> - </span>]:<span class="lineCov">        327 :         total = total + p[i];</span>
+<span class="lineNum">         </span>[<span class="branchCov" title="Branch 6 was taken 327 times"> + </span><span class="branchNoCov" title="Branch 7 was not taken"> - </span>][<span class="branchCov" title="Branch 9 was taken 327 times"> + </span><span class="branchNoCov" title="Branch 10 was not taken"> - </span>]
 <span class="lineNum">      14 </span>                :            :     }
 <span class="lineNum">      15 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          3 :     mpz_class total2;</span>
 <span class="lineNum">      16 </span>        [<span class="branchCov" title="Branch 1 was taken 3 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>]:<span class="lineCov">          3 :     mpz_ui_pow_ui(total2.get_mpz_t(), Q, xSize * ySize * z);</span>
@@ -98,20 +98,20 @@
 <span class="lineNum">      23 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          3 :     }</span>
 <a name="24"><span class="lineNum">      24 </span>                :<span class="lineCov">          3 : }</span></a>
 <span class="lineNum">      25 </span>                :            : 
-<span class="lineNum">      26 </span>                :<span class="lineCov">          1 : void make_vpol(vector&lt;Polynomial&gt; &amp;vpol, vector&lt;int&gt; &amp;ylist) {</span>
-<span class="lineNum">      27 </span>                :<span class="lineCov">          1 :     vpol.clear();</span>
-<span class="lineNum">      28 </span>                :<span class="lineCov">          1 :     Polynomial p;</span>
-<span class="lineNum">      29 </span>        [<span class="branchCov" title="Branch 1 was taken 51 times"> + </span><span class="branchCov" title="Branch 2 was taken 1 time"> + </span>]:<span class="lineCov">         52 :     for (int i = 0; i &lt; ylist.size(); i++) {</span>
-<span class="lineNum">      30 </span>        [<span class="branchCov" title="Branch 1 was taken 51 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>]:<span class="lineCov">         51 :         p.push_back(1, ylist[i]);</span>
-<span class="lineNum">      31 </span>        [<span class="branchCov" title="Branch 0 was taken 51 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         51 :         vpol.push_back(p);</span>
-<span class="lineNum">      32 </span>        [<span class="branchCov" title="Branch 0 was taken 51 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         51 :         p.clear();</span>
-<span class="lineNum">      33 </span>                :<span class="lineCov">          1 :     }</span>
-<a name="34"><span class="lineNum">      34 </span>                :<span class="lineCov">          1 : }</span></a>
+<span class="lineNum">      26 </span>                :<span class="lineCov">         89 : void make_vpol(vector&lt;Polynomial&gt; &amp;vpol, vector&lt;int&gt; &amp;ylist) {</span>
+<span class="lineNum">      27 </span>                :<span class="lineCov">         89 :     vpol.clear();</span>
+<span class="lineNum">      28 </span>                :<span class="lineCov">         89 :     Polynomial p;</span>
+<span class="lineNum">      29 </span>        [<span class="branchCov" title="Branch 1 was taken 261024 times"> + </span><span class="branchCov" title="Branch 2 was taken 89 times"> + </span>]:<span class="lineCov">     261113 :     for (int i = 0; i &lt; ylist.size(); i++) {</span>
+<span class="lineNum">      30 </span>        [<span class="branchCov" title="Branch 1 was taken 261024 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>]:<span class="lineCov">     261024 :         p.push_back(1, ylist[i]);</span>
+<span class="lineNum">      31 </span>        [<span class="branchCov" title="Branch 0 was taken 261024 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">     261024 :         vpol.push_back(p);</span>
+<span class="lineNum">      32 </span>        [<span class="branchCov" title="Branch 0 was taken 261024 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">     261024 :         p.clear();</span>
+<span class="lineNum">      33 </span>                :<span class="lineCov">         89 :     }</span>
+<a name="34"><span class="lineNum">      34 </span>                :<span class="lineCov">         89 : }</span></a>
 <span class="lineNum">      35 </span>                :            : 
 <span class="lineNum">      36 </span>                :<span class="lineCov">          1 : void check_ylist_table(G_TABLE2 &amp;ylistTable) {</span>
 <span class="lineNum">      37 </span>                :<span class="lineCov">          1 :     cout &lt;&lt; &quot;now checking ylist\n&quot;;</span>
-<span class="lineNum">      38 </span>        [<span class="branchCov" title="Branch 1 was taken 51 times"> + </span><span class="branchCov" title="Branch 2 was taken 1 time"> + </span>]:<span class="lineCov">         52 :     for (int i = 0; i &lt; ylistTable.size(); i++)</span>
-<span class="lineNum">      39 </span>        [<span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 51 times"> + </span>]:<span class="lineCov">         51 :         if (ylistTable[i][ySize] != i) {</span>
+<span class="lineNum">      38 </span>        [<span class="branchCov" title="Branch 1 was taken 88 times"> + </span><span class="branchCov" title="Branch 2 was taken 1 time"> + </span>]:<span class="lineCov">         89 :     for (int i = 0; i &lt; ylistTable.size(); i++)</span>
+<span class="lineNum">      39 </span>        [<span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 88 times"> + </span>]:<span class="lineCov">         88 :         if (ylistTable[i][ySize] != i) {</span>
 <span class="lineNum">      40 </span>                :<span class="lineNoCov">          0 :             cout &lt;&lt; &quot;ERROR: check_ylist_table\n&quot;;</span>
 <span class="lineNum">      41 </span>                :<span class="lineNoCov">          0 :             cout &lt;&lt; &quot;cannot use ylist[i][ySize] as polynomial multiplicity\n&quot;;</span>
 <span class="lineNum">      42 </span>[<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>][<span class="branchNoExec" title="Branch 5 was not executed"> # </span><span class="branchNoExec" title="Branch 6 was not executed"> # </span>]:<span class="lineNoCov">          0 :             throw new runtime_error(&quot;ERROR: check_ylist_table&quot;);</span>
@@ -120,19 +120,19 @@
 <span class="lineNum">      44 </span>                :<span class="lineCov">          1 :     cout &lt;&lt; &quot;done\n&quot;;</span>
 <a name="45"><span class="lineNum">      45 </span>                :<span class="lineCov">          1 : }</span></a>
 <span class="lineNum">      46 </span>                :            : 
-<span class="lineNum">      47 </span>                :<span class="lineCov">          2 : void Create_energy_list(vector&lt;Storage&gt; &amp;elist) {</span>
-<span class="lineNum">      48 </span>        [<span class="branchCov" title="Branch 0 was taken 2 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          2 :     Grid y(xSize, 2);</span>
+<span class="lineNum">      47 </span>                :<span class="lineCov">        177 : void Create_energy_list(vector&lt;Storage&gt; &amp;elist) {</span>
+<span class="lineNum">      48 </span>                :<span class="lineCov">        177 :     Grid y(xSize, 2);</span>
 <span class="lineNum">      49 </span>                :            :     int delta;
-<span class="lineNum">      50 </span>        [<span class="branchCov" title="Branch 0 was taken 16 times"> + </span><span class="branchCov" title="Branch 1 was taken 2 times"> + </span>]:<span class="lineCov">         18 :     for (int i = 0; i &lt; ARRSIZE; i++) {</span>
-<span class="lineNum">      51 </span>                :<span class="lineCov">         16 :         Storage s;</span>
-<span class="lineNum">      52 </span>        [<span class="branchCov" title="Branch 0 was taken 128 times"> + </span><span class="branchCov" title="Branch 1 was taken 16 times"> + </span>]:<span class="lineCov">        144 :         for (int j = 0; j &lt; ARRSIZE; j++) {</span>
-<span class="lineNum">      53 </span>        [<span class="branchCov" title="Branch 0 was taken 128 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        128 :             delta = y.calcEnergy_step3();</span>
-<span class="lineNum">      54 </span>                :<span class="lineCov">        128 :             s.push_back(j, delta);</span>
-<span class="lineNum">      55 </span>        [<span class="branchCov" title="Branch 0 was taken 128 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        128 :             y.nextCombination();</span>
+<span class="lineNum">      50 </span>        [<span class="branchCov" title="Branch 0 was taken 2832 times"> + </span><span class="branchCov" title="Branch 1 was taken 177 times"> + </span>]:<span class="lineCov">       3009 :     for (int i = 0; i &lt; ARRSIZE; i++) {</span>
+<span class="lineNum">      51 </span>                :<span class="lineCov">       2832 :         Storage s;</span>
+<span class="lineNum">      52 </span>        [<span class="branchCov" title="Branch 0 was taken 45312 times"> + </span><span class="branchCov" title="Branch 1 was taken 2832 times"> + </span>]:<span class="lineCov">      48144 :         for (int j = 0; j &lt; ARRSIZE; j++) {</span>
+<span class="lineNum">      53 </span>        [<span class="branchCov" title="Branch 0 was taken 45312 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">      45312 :             delta = y.calcEnergy_step3();</span>
+<span class="lineNum">      54 </span>                :<span class="lineCov">      45312 :             s.push_back(j, delta);</span>
+<span class="lineNum">      55 </span>        [<span class="branchCov" title="Branch 0 was taken 45312 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">      45312 :             y.nextCombination();</span>
 <span class="lineNum">      56 </span>                :            :         }
-<span class="lineNum">      57 </span>        [<span class="branchCov" title="Branch 0 was taken 16 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         16 :         elist.push_back(s);</span>
-<span class="lineNum">      58 </span>                :<span class="lineCov">          2 :     }</span>
-<span class="lineNum">      59 </span>                :<span class="lineCov">          2 : }</span>
+<span class="lineNum">      57 </span>        [<span class="branchCov" title="Branch 0 was taken 2832 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">       2832 :         elist.push_back(s);</span>
+<span class="lineNum">      58 </span>                :<span class="lineCov">        177 :     }</span>
+<span class="lineNum">      59 </span>                :<span class="lineCov">        177 : }</span>
 <span class="lineNum">      60 </span>                :            : 
 <span class="lineNum">      61 </span>                :            : /**
 <span class="lineNum">      62 </span>                :            :  * This method creates the first initial line, 
@@ -145,48 +145,48 @@
 <span class="lineNum">      69 </span>                :            :  *
 <a name="70"><span class="lineNum">      70 </span>                :            :  **/</a>
 <span class="lineNum">      71 </span>                :            : 
-<span class="lineNum">      72 </span>                :<span class="lineCov">          2 : void Create_energy_list(Storage &amp;elist) {</span>
-<span class="lineNum">      73 </span>        [<span class="branchCov" title="Branch 0 was taken 2 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          2 :     Grid y(xSize, 1);</span>
+<span class="lineNum">      72 </span>                :<span class="lineCov">        177 : void Create_energy_list(Storage &amp;elist) {</span>
+<span class="lineNum">      73 </span>                :<span class="lineCov">        177 :     Grid y(xSize, 1);</span>
 <span class="lineNum">      74 </span>                :            :     int delta;
-<span class="lineNum">      75 </span>        [<span class="branchCov" title="Branch 0 was taken 16 times"> + </span><span class="branchCov" title="Branch 1 was taken 2 times"> + </span>]:<span class="lineCov">         18 :     for (int j = 0; j &lt; ARRSIZE; j++) {</span>
-<span class="lineNum">      76 </span>        [<span class="branchCov" title="Branch 0 was taken 16 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         16 :         delta = y.calcEnergy_step3_1();</span>
-<span class="lineNum">      77 </span>                :<span class="lineCov">         16 :         elist.push_back(j, delta);</span>
-<span class="lineNum">      78 </span>        [<span class="branchCov" title="Branch 0 was taken 16 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         16 :         y.nextCombination();</span>
-<span class="lineNum">      79 </span>                :<span class="lineCov">          2 :     }</span>
-<a name="80"><span class="lineNum">      80 </span>                :<span class="lineCov">          2 : }</span></a>
+<span class="lineNum">      75 </span>        [<span class="branchCov" title="Branch 0 was taken 2832 times"> + </span><span class="branchCov" title="Branch 1 was taken 177 times"> + </span>]:<span class="lineCov">       3009 :     for (int j = 0; j &lt; ARRSIZE; j++) {</span>
+<span class="lineNum">      76 </span>        [<span class="branchCov" title="Branch 0 was taken 2832 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">       2832 :         delta = y.calcEnergy_step3_1();</span>
+<span class="lineNum">      77 </span>                :<span class="lineCov">       2832 :         elist.push_back(j, delta);</span>
+<span class="lineNum">      78 </span>        [<span class="branchCov" title="Branch 0 was taken 2832 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">       2832 :         y.nextCombination();</span>
+<span class="lineNum">      79 </span>                :<span class="lineCov">        177 :     }</span>
+<a name="80"><span class="lineNum">      80 </span>                :<span class="lineCov">        177 : }</span></a>
 <span class="lineNum">      81 </span>                :            : 
-<span class="lineNum">      82 </span>                :<span class="lineNoCov">          0 : void Create_energy_matrix(vector&lt;Storage&gt;   &amp;GrowthMatrix) {</span>
-<span class="lineNum">      83 </span>                :<span class="lineNoCov">          0 :     Create_energy_list(GrowthMatrix);</span>
-<span class="lineNum">      84 </span>                :<span class="lineNoCov">          0 :     Storage s;</span>
-<span class="lineNum">      85 </span>                :<span class="lineNoCov">          0 :     Create_energy_list(s);</span>
-<span class="lineNum">      86 </span>                :<span class="lineNoCov">          0 :     GrowthMatrix.push_back(s);</span>
-<a name="87"><span class="lineNum">      87 </span>                :<span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">      82 </span>                :<span class="lineCov">          1 : void Create_energy_matrix(vector&lt;Storage&gt;   &amp;GrowthMatrix) {</span>
+<span class="lineNum">      83 </span>                :<span class="lineCov">          1 :     Create_energy_list(GrowthMatrix);</span>
+<span class="lineNum">      84 </span>                :<span class="lineCov">          1 :     Storage s;</span>
+<span class="lineNum">      85 </span>                :<span class="lineCov">          1 :     Create_energy_list(s);</span>
+<span class="lineNum">      86 </span>                :<span class="lineCov">          1 :     GrowthMatrix.push_back(s);</span>
+<a name="87"><span class="lineNum">      87 </span>                :<span class="lineCov">          1 : }</span></a>
 <span class="lineNum">      88 </span>                :            : 
-<span class="lineNum">      89 </span>                :<span class="lineCov">       1229 : void Calculate_subgroup(G_TABLE1 &amp;sub_transformGroups, const int &amp;index,</span>
+<span class="lineNum">      89 </span>                :<span class="lineCov">     757513 : void Calculate_subgroup(G_TABLE1 &amp;sub_transformGroups, const int &amp;index,</span>
 <span class="lineNum">      90 </span>                :            :         const G_TABLE1 &amp;transformGroups) {
-<span class="lineNum">      91 </span>        [<span class="branchCov" title="Branch 1 was taken 768 times"> + </span><span class="branchCov" title="Branch 2 was taken 1229 times"> + </span>]:<span class="lineCov">       1997 :     for (int pg = 0; pg &lt; transformGroups.size(); pg++) {</span>
-<span class="lineNum">      92 </span>                :<span class="lineCov">        768 :         int gn = TRANSFORMGROUP[transformGroups[pg]][index];</span>
-<span class="lineNum">      93 </span>[<span class="branchCov" title="Branch 0 was taken 435 times"> + </span><span class="branchCov" title="Branch 1 was taken 333 times"> + </span>][<span class="branchCov" title="Branch 3 was taken 374 times"> + </span><span class="branchCov" title="Branch 4 was taken 61 times"> + </span>]:<span class="lineCov">        768 :         if (gn == index &amp;&amp; transformGroups[pg] != 0) {</span>
-<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 5 was taken 374 times"> + </span><span class="branchCov" title="Branch 6 was taken 394 times"> + </span>]
-<span class="lineNum">      94 </span>                :<span class="lineCov">        374 :             sub_transformGroups.push_back(TRANSFORMGROUP[transformGroups[pg]].getId());</span>
+<span class="lineNum">      91 </span>        [<span class="branchCov" title="Branch 1 was taken 335623 times"> + </span><span class="branchCov" title="Branch 2 was taken 757513 times"> + </span>]:<span class="lineCov">    1093136 :     for (int pg = 0; pg &lt; transformGroups.size(); pg++) {</span>
+<span class="lineNum">      92 </span>                :<span class="lineCov">     335623 :         int gn = TRANSFORMGROUP[transformGroups[pg]][index];</span>
+<span class="lineNum">      93 </span>[<span class="branchCov" title="Branch 0 was taken 175568 times"> + </span><span class="branchCov" title="Branch 1 was taken 160055 times"> + </span>][<span class="branchCov" title="Branch 3 was taken 175468 times"> + </span><span class="branchCov" title="Branch 4 was taken 100 times"> + </span>]:<span class="lineCov">     335623 :         if (gn == index &amp;&amp; transformGroups[pg] != 0) {</span>
+<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 5 was taken 175468 times"> + </span><span class="branchCov" title="Branch 6 was taken 160155 times"> + </span>]
+<span class="lineNum">      94 </span>                :<span class="lineCov">     175468 :             sub_transformGroups.push_back(TRANSFORMGROUP[transformGroups[pg]].getId());</span>
 <span class="lineNum">      95 </span>                :            :         }
 <span class="lineNum">      96 </span>                :            :     }
-<span class="lineNum">      97 </span>                :<span class="lineCov">       1229 : }</span>
+<span class="lineNum">      97 </span>                :<span class="lineCov">     757513 : }</span>
 <span class="lineNum">      98 </span>                :            : 
 <span class="lineNum">      99 </span>                :            : /**
 <span class="lineNum">     100 </span>                :            :  *This method find horizontal symmetrical equivalent configurations.
 <span class="lineNum">     101 </span>                :            :  *@returns -1 if there is no symmertrical equivalent or that configuration has not been found yet
 <a name="102"><span class="lineNum">     102 </span>                :            :  * Eg for c = 0, and c' = 31, it will return -1 for c and 0 for c'.</a>
 <span class="lineNum">     103 </span>                :            :  */
-<span class="lineNum">     104 </span>                :<span class="lineCov">        841 : int find_symmetrical_equivalent(const int &amp;index, const G_TABLE1 &amp;transformGroups,</span>
+<span class="lineNum">     104 </span>                :<span class="lineCov">     688189 : int find_symmetrical_equivalent(const int &amp;index, const G_TABLE1 &amp;transformGroups,</span>
 <span class="lineNum">     105 </span>                :            :         const Storage &amp;outer) {
-<span class="lineNum">     106 </span>        [<span class="branchCov" title="Branch 1 was taken 419 times"> + </span><span class="branchCov" title="Branch 2 was taken 734 times"> + </span>]:<span class="lineCov">       1153 :     for (int transformGroup_index = 0; transformGroup_index &lt; transformGroups.size(); transformGroup_index++) {</span>
-<span class="lineNum">     107 </span>                :<span class="lineCov">        419 :         int symmetrical_equivalent = TRANSFORMGROUP[transformGroups[transformGroup_index]][index];</span>
-<span class="lineNum">     108 </span>        [<span class="branchCov" title="Branch 1 was taken 107 times"> + </span><span class="branchCov" title="Branch 2 was taken 312 times"> + </span>]:<span class="lineCov">        419 :         if (outer[symmetrical_equivalent] != -1) {</span>
-<span class="lineNum">     109 </span>                :<span class="lineCov">        107 :             return symmetrical_equivalent;</span>
+<span class="lineNum">     106 </span>        [<span class="branchCov" title="Branch 1 was taken 169816 times"> + </span><span class="branchCov" title="Branch 2 was taken 645208 times"> + </span>]:<span class="lineCov">     815024 :     for (int transformGroup_index = 0; transformGroup_index &lt; transformGroups.size(); transformGroup_index++) {</span>
+<span class="lineNum">     107 </span>                :<span class="lineCov">     169816 :         int symmetrical_equivalent = TRANSFORMGROUP[transformGroups[transformGroup_index]][index];</span>
+<span class="lineNum">     108 </span>        [<span class="branchCov" title="Branch 1 was taken 42981 times"> + </span><span class="branchCov" title="Branch 2 was taken 126835 times"> + </span>]:<span class="lineCov">     169816 :         if (outer[symmetrical_equivalent] != -1) {</span>
+<span class="lineNum">     109 </span>                :<span class="lineCov">      42981 :             return symmetrical_equivalent;</span>
 <span class="lineNum">     110 </span>                :            :         }
 <span class="lineNum">     111 </span>                :            :     }
-<span class="lineNum">     112 </span>                :<span class="lineCov">        841 :     return -1;</span>
+<span class="lineNum">     112 </span>                :<span class="lineCov">     688189 :     return -1;</span>
 <span class="lineNum">     113 </span>                :            : }
 <span class="lineNum">     114 </span>                :            : 
 <span class="lineNum">     115 </span>                :            : /**
@@ -195,17 +195,17 @@
 <span class="lineNum">     118 </span>                :            :  *@param also transformGroup is converts c' to c is set.
 <a name="119"><span class="lineNum">     119 </span>                :            :  * Eg for c = 0, and c' = 31, it will return -1 for c and 0 for c'.</a>
 <span class="lineNum">     120 </span>                :            :  */
-<span class="lineNum">     121 </span>                :<span class="lineCov">         62 : int inverse_find_symmetrical_equivalent(const int &amp;config, const G_TABLE1 &amp;transformGroups,</span>
+<span class="lineNum">     121 </span>                :<span class="lineCov">      32880 : int inverse_find_symmetrical_equivalent(const int &amp;config, const G_TABLE1 &amp;transformGroups,</span>
 <span class="lineNum">     122 </span>                :            :         const Storage &amp;outer, int &amp;transformGroupOperation) {
-<span class="lineNum">     123 </span>        [<span class="branchCov" title="Branch 1 was taken 98 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>]:<span class="lineCov">         98 :     for (int transformGroup_index = 0; transformGroup_index &lt; transformGroups.size(); transformGroup_index++) {</span>
-<span class="lineNum">     124 </span>                :<span class="lineCov">         98 :         int symmetrical_equivalent = TRANSFORMGROUP[transformGroups[transformGroup_index]][config];</span>
-<span class="lineNum">     125 </span>        [<span class="branchCov" title="Branch 1 was taken 62 times"> + </span><span class="branchCov" title="Branch 2 was taken 36 times"> + </span>]:<span class="lineCov">         98 :         if (outer[symmetrical_equivalent] != -1) {</span>
+<span class="lineNum">     123 </span>        [<span class="branchCov" title="Branch 1 was taken 37656 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>]:<span class="lineCov">      37656 :     for (int transformGroup_index = 0; transformGroup_index &lt; transformGroups.size(); transformGroup_index++) {</span>
+<span class="lineNum">     124 </span>                :<span class="lineCov">      37656 :         int symmetrical_equivalent = TRANSFORMGROUP[transformGroups[transformGroup_index]][config];</span>
+<span class="lineNum">     125 </span>        [<span class="branchCov" title="Branch 1 was taken 32880 times"> + </span><span class="branchCov" title="Branch 2 was taken 4776 times"> + </span>]:<span class="lineCov">      37656 :         if (outer[symmetrical_equivalent] != -1) {</span>
 <span class="lineNum">     126 </span>                :            :             // Found it, config is equivalent to symmetrical_eqivalent
-<span class="lineNum">     127 </span>                :<span class="lineCov">         62 :             transformGroupOperation = TRANSFORMGROUP[transformGroup_index].getId();</span>
-<span class="lineNum">     128 </span>                :<span class="lineCov">         62 :             return symmetrical_equivalent;</span>
+<span class="lineNum">     127 </span>                :<span class="lineCov">      32880 :             transformGroupOperation = TRANSFORMGROUP[transformGroup_index].getId();</span>
+<span class="lineNum">     128 </span>                :<span class="lineCov">      32880 :             return symmetrical_equivalent;</span>
 <span class="lineNum">     129 </span>                :            :         }
 <span class="lineNum">     130 </span>                :            :     }
-<span class="lineNum">     131 </span>                :<span class="lineCov">         62 :     return -1;</span>
+<span class="lineNum">     131 </span>                :<span class="lineCov">      32880 :     return -1;</span>
 <span class="lineNum">     132 </span>                :            : }
 <span class="lineNum">     133 </span>                :            : 
 <span class="lineNum">     134 </span>                :            : /**
@@ -213,30 +213,30 @@
 <span class="lineNum">     136 </span>                :            :  * c = (s1,...sy). Where the yth node will be a reference to its corresponding polynomial.
 <a name="137"><span class="lineNum">     137 </span>                :            :  *</a>
 <span class="lineNum">     138 </span>                :            :  */
-<span class="lineNum">     139 </span>                :<span class="lineCov">         24 : int create_horizontal_configuration_tree(const int current_column, vector&lt;Storage&gt;   &amp;config_tree,</span>
+<span class="lineNum">     139 </span>                :<span class="lineCov">      18226 : int create_horizontal_configuration_tree(const int current_column, vector&lt;Storage&gt;   &amp;config_tree,</span>
 <span class="lineNum">     140 </span>                :            :         G_TABLE1 transformGroups) {
 <span class="lineNum">     141 </span>                :            : 
-<span class="lineNum">     142 </span>        [<span class="branchCov" title="Branch 0 was taken 4 times"> + </span><span class="branchCov" title="Branch 1 was taken 20 times"> + </span>]:<span class="lineCov">         24 :     if (current_column &lt; ySize - 1) {</span>
-<span class="lineNum">     143 </span>                :<span class="lineCov">          4 :         Storage souter(true);</span>
-<span class="lineNum">     144 </span>        [<span class="branchCov" title="Branch 0 was taken 32 times"> + </span><span class="branchCov" title="Branch 1 was taken 4 times"> + </span>]:<span class="lineCov">         36 :         for (int config = 0; config &lt; ARRSIZE; config++) {</span>
-<span class="lineNum">     145 </span>                :<span class="lineCov">         32 :             int sym_equivalent_config = find_symmetrical_equivalent(config, transformGroups, souter);</span>
-<span class="lineNum">     146 </span>        [<span class="branchCov" title="Branch 0 was taken 23 times"> + </span><span class="branchCov" title="Branch 1 was taken 9 times"> + </span>]:<span class="lineCov">         32 :             if (sym_equivalent_config == -1) {</span>
-<span class="lineNum">     147 </span>                :<span class="lineCov">         23 :                 G_TABLE1 sub_transformGroups;</span>
-<span class="lineNum">     148 </span>        [<span class="branchCov" title="Branch 0 was taken 23 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         23 :                 Calculate_subgroup(sub_transformGroups, config, transformGroups);</span>
+<span class="lineNum">     142 </span>        [<span class="branchCov" title="Branch 0 was taken 1247 times"> + </span><span class="branchCov" title="Branch 1 was taken 16979 times"> + </span>]:<span class="lineCov">      18226 :     if (current_column &lt; ySize - 1) {</span>
+<span class="lineNum">     143 </span>                :<span class="lineCov">       1247 :         Storage souter(true);</span>
+<span class="lineNum">     144 </span>        [<span class="branchCov" title="Branch 0 was taken 19952 times"> + </span><span class="branchCov" title="Branch 1 was taken 1247 times"> + </span>]:<span class="lineCov">      21199 :         for (int config = 0; config &lt; ARRSIZE; config++) {</span>
+<span class="lineNum">     145 </span>                :<span class="lineCov">      19952 :             int sym_equivalent_config = find_symmetrical_equivalent(config, transformGroups, souter);</span>
+<span class="lineNum">     146 </span>        [<span class="branchCov" title="Branch 0 was taken 18137 times"> + </span><span class="branchCov" title="Branch 1 was taken 1815 times"> + </span>]:<span class="lineCov">      19952 :             if (sym_equivalent_config == -1) {</span>
+<span class="lineNum">     147 </span>                :<span class="lineCov">      18137 :                 G_TABLE1 sub_transformGroups;</span>
+<span class="lineNum">     148 </span>        [<span class="branchCov" title="Branch 0 was taken 18137 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">      18137 :                 Calculate_subgroup(sub_transformGroups, config, transformGroups);</span>
 <span class="lineNum">     149 </span>                :            :                 int vector_index = create_horizontal_configuration_tree(
-<span class="lineNum">     150 </span>[<span class="branchCov" title="Branch 0 was taken 23 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>][<span class="branchCov" title="Branch 3 was taken 23 times"> + </span><span class="branchNoCov" title="Branch 4 was not taken"> - </span>]:<span class="lineCov">         23 :                         current_column + 1, config_tree, sub_transformGroups);</span>
-<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 6 was taken 23 times"> + </span><span class="branchNoCov" title="Branch 7 was not taken"> - </span>]
-<span class="lineNum">     151 </span>                :<span class="lineCov">         23 :                 souter.push_back(config, vector_index);</span>
+<span class="lineNum">     150 </span>[<span class="branchCov" title="Branch 0 was taken 18137 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>][<span class="branchCov" title="Branch 3 was taken 18137 times"> + </span><span class="branchNoCov" title="Branch 4 was not taken"> - </span>]:<span class="lineCov">      18137 :                         current_column + 1, config_tree, sub_transformGroups);</span>
+<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 6 was taken 18137 times"> + </span><span class="branchNoCov" title="Branch 7 was not taken"> - </span>]
+<span class="lineNum">     151 </span>                :<span class="lineCov">      18137 :                 souter.push_back(config, vector_index);</span>
 <span class="lineNum">     152 </span>                :            :             } else {
-<span class="lineNum">     153 </span>                :<span class="lineCov">          9 :                 souter.push_back(config, -1);</span>
+<span class="lineNum">     153 </span>                :<span class="lineCov">       1815 :                 souter.push_back(config, -1);</span>
 <span class="lineNum">     154 </span>                :            :             }
 <span class="lineNum">     155 </span>                :            :         }
-<span class="lineNum">     156 </span>                :<span class="lineCov">          4 :         config_tree.push_back(souter);</span>
-<span class="lineNum">     157 </span>                :<span class="lineCov">          4 :         return config_tree.size() - 1;</span>
+<span class="lineNum">     156 </span>                :<span class="lineCov">       1247 :         config_tree.push_back(souter);</span>
+<span class="lineNum">     157 </span>                :<span class="lineCov">       1247 :         return config_tree.size() - 1;</span>
 <span class="lineNum">     158 </span>                :            :     } else {
-<span class="lineNum">     159 </span>                :<span class="lineCov">         20 :         Storage s(true);</span>
-<span class="lineNum">     160 </span>                :<span class="lineCov">         20 :         config_tree.push_back(s);</span>
-<span class="lineNum">     161 </span>                :<span class="lineCov">         24 :         return config_tree.size() - 1;</span>
+<span class="lineNum">     159 </span>                :<span class="lineCov">      16979 :         Storage s(true);</span>
+<span class="lineNum">     160 </span>                :<span class="lineCov">      16979 :         config_tree.push_back(s);</span>
+<span class="lineNum">     161 </span>                :<span class="lineCov">      18226 :         return config_tree.size() - 1;</span>
 <span class="lineNum">     162 </span>                :            :     }
 <a name="163"><span class="lineNum">     163 </span>                :            : }</a>
 <span class="lineNum">     164 </span>                :            : 
@@ -271,7 +271,7 @@
 <span class="lineNum">     192 </span>                :            :  *This method sums up the vlist
 <a name="193"><span class="lineNum">     193 </span>                :            :  *</a>
 <span class="lineNum">     194 </span>                :            :  */
-<span class="lineNum">     195 </span>                :<span class="lineCov">         24 : int make_refpol(</span>
+<span class="lineNum">     195 </span>                :<span class="lineCov">         36 : int make_refpol(</span>
 <span class="lineNum">     196 </span>                :            :         const int current_column,
 <span class="lineNum">     197 </span>                :            :         G_TABLE1 transformGroups,
 <span class="lineNum">     198 </span>                :            :         vector&lt;refPolynomial&gt; &amp;vrefpol,
@@ -281,14 +281,14 @@
 <span class="lineNum">     202 </span>                :            :         ) {
 <span class="lineNum">     203 </span>                :            : 
 <span class="lineNum">     204 </span>                :            : 
-<span class="lineNum">     205 </span>                :<span class="lineCov">         24 :     vector&lt;refPolynomial&gt; vrefpolnew;</span>
-<span class="lineNum">     206 </span>        [<span class="branchCov" title="Branch 0 was taken 24 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         24 :     refPolynomial refpol;</span>
-<span class="lineNum">     207 </span>        [<span class="branchCov" title="Branch 0 was taken 4 times"> + </span><span class="branchCov" title="Branch 1 was taken 20 times"> + </span>]:<span class="lineCov">         24 :     if (current_column &lt; ySize - 1) {</span>
-<span class="lineNum">     208 </span>        [<span class="branchCov" title="Branch 0 was taken 4 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          4 :         Storage souter(true);</span>
-<span class="lineNum">     209 </span>        [<span class="branchCov" title="Branch 0 was taken 32 times"> + </span><span class="branchCov" title="Branch 1 was taken 4 times"> + </span>]:<span class="lineCov">         36 :         for (int config = 0; config &lt; ARRSIZE; config++) {</span>
-<span class="lineNum">     210 </span>        [<span class="branchCov" title="Branch 2 was taken 23 times"> + </span><span class="branchCov" title="Branch 3 was taken 9 times"> + </span>]:<span class="lineCov">         32 :             if (vlist[vlist_index][config] != -1) {</span>
-<span class="lineNum">     211 </span>        [<span class="branchCov" title="Branch 0 was taken 23 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         23 :                 G_TABLE1 sub_transformGroups;</span>
-<span class="lineNum">     212 </span>        [<span class="branchCov" title="Branch 0 was taken 23 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         23 :                 Calculate_subgroup(sub_transformGroups, config, transformGroups);</span>
+<span class="lineNum">     205 </span>                :<span class="lineCov">         36 :     vector&lt;refPolynomial&gt; vrefpolnew;</span>
+<span class="lineNum">     206 </span>        [<span class="branchCov" title="Branch 0 was taken 36 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         36 :     refPolynomial refpol;</span>
+<span class="lineNum">     207 </span>        [<span class="branchCov" title="Branch 0 was taken 5 times"> + </span><span class="branchCov" title="Branch 1 was taken 31 times"> + </span>]:<span class="lineCov">         36 :     if (current_column &lt; ySize - 1) {</span>
+<span class="lineNum">     208 </span>        [<span class="branchCov" title="Branch 0 was taken 5 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          5 :         Storage souter(true);</span>
+<span class="lineNum">     209 </span>        [<span class="branchCov" title="Branch 0 was taken 80 times"> + </span><span class="branchCov" title="Branch 1 was taken 5 times"> + </span>]:<span class="lineCov">         85 :         for (int config = 0; config &lt; ARRSIZE; config++) {</span>
+<span class="lineNum">     210 </span>[<span class="branchCov" title="Branch 1 was taken 80 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>][<span class="branchCov" title="Branch 4 was taken 35 times"> + </span><span class="branchCov" title="Branch 5 was taken 45 times"> + </span>]:<span class="lineCov">         80 :             if (vlist[vlist_index][config] != -1) {</span>
+<span class="lineNum">     211 </span>        [<span class="branchCov" title="Branch 0 was taken 35 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         35 :                 G_TABLE1 sub_transformGroups;</span>
+<span class="lineNum">     212 </span>        [<span class="branchCov" title="Branch 0 was taken 35 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         35 :                 Calculate_subgroup(sub_transformGroups, config, transformGroups);</span>
 <span class="lineNum">     213 </span>                :            : 
 <span class="lineNum">     214 </span>                :            :                 int vector_index = make_refpol(
 <span class="lineNum">     215 </span>                :            :                         current_column + 1,
@@ -296,113 +296,113 @@
 <span class="lineNum">     217 </span>                :            :                         vrefpolnew,
 <span class="lineNum">     218 </span>                :            :                         vlist,
 <span class="lineNum">     219 </span>                :            :                         vpol_vlist,
-<span class="lineNum">     220 </span>                :<span class="lineCov">         23 :                         vlist[vlist_index][config]</span>
-<span class="lineNum">     221 </span>[<span class="branchCov" title="Branch 1 was taken 23 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>][<span class="branchCov" title="Branch 4 was taken 23 times"> + </span><span class="branchNoCov" title="Branch 5 was not taken"> - </span>]:<span class="lineCov">         23 :                         );</span>
-<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 7 was taken 23 times"> + </span><span class="branchNoCov" title="Branch 8 was not taken"> - </span>]
-<span class="lineNum">     222 </span>                :<span class="lineCov">         23 :                 souter.push_back(config, vector_index);</span>
-<span class="lineNum">     223 </span>[<span class="branchCov" title="Branch 0 was taken 23 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>][<span class="branchCov" title="Branch 3 was taken 23 times"> + </span><span class="branchNoCov" title="Branch 4 was not taken"> - </span>]:<span class="lineCov">         23 :                 refpol.push_back(vector_index, 1);</span>
+<span class="lineNum">     220 </span>                :<span class="lineCov">         35 :                         vlist[vlist_index][config]</span>
+<span class="lineNum">     221 </span>[<span class="branchCov" title="Branch 0 was taken 35 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>][<span class="branchCov" title="Branch 3 was taken 35 times"> + </span><span class="branchNoCov" title="Branch 4 was not taken"> - </span>]:<span class="lineCov">         35 :                         );</span>
+<span class="lineNum">         </span>[<span class="branchCov" title="Branch 6 was taken 35 times"> + </span><span class="branchNoCov" title="Branch 7 was not taken"> - </span>][<span class="branchCov" title="Branch 9 was taken 35 times"> + </span><span class="branchNoCov" title="Branch 10 was not taken"> - </span>]
+<span class="lineNum">     222 </span>                :<span class="lineCov">         35 :                 souter.push_back(config, vector_index);</span>
+<span class="lineNum">     223 </span>[<span class="branchCov" title="Branch 0 was taken 35 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>][<span class="branchCov" title="Branch 3 was taken 35 times"> + </span><span class="branchNoCov" title="Branch 4 was not taken"> - </span>]:<span class="lineCov">         35 :                 refpol.push_back(vector_index, 1);</span>
 <span class="lineNum">     224 </span>                :            : 
 <span class="lineNum">     225 </span>                :            :             } else {
-<span class="lineNum">     226 </span>        [<span class="branchCov" title="Branch 1 was taken 9 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>]:<span class="lineCov">          9 :                 int sym_equivalent_config = find_symmetrical_equivalent(config, transformGroups, vlist[vlist_index]);</span>
-<span class="lineNum">     227 </span>        [<span class="branchCov" title="Branch 1 was taken 9 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>]:<span class="lineCov">          9 :                 refpol.push_back(souter[sym_equivalent_config], 1);</span>
+<span class="lineNum">     226 </span>        [<span class="branchCov" title="Branch 1 was taken 45 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>]:<span class="lineCov">         45 :                 int sym_equivalent_config = find_symmetrical_equivalent(config, transformGroups, vlist[vlist_index]);</span>
+<span class="lineNum">     227 </span>[<span class="branchCov" title="Branch 0 was taken 45 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>][<span class="branchCov" title="Branch 3 was taken 45 times"> + </span><span class="branchNoCov" title="Branch 4 was not taken"> - </span>]:<span class="lineCov">         45 :                 refpol.push_back(souter[sym_equivalent_config], 1);</span>
 <span class="lineNum">     228 </span>                :            :             }
 <span class="lineNum">     229 </span>                :            :         }
 <span class="lineNum">     230 </span>                :            :     } else {
-<span class="lineNum">     231 </span>        [<span class="branchCov" title="Branch 0 was taken 160 times"> + </span><span class="branchCov" title="Branch 1 was taken 20 times"> + </span>]:<span class="lineCov">        180 :         for (int config = 0; config &lt; ARRSIZE; config++)</span>
-<span class="lineNum">     232 </span>        [<span class="branchCov" title="Branch 2 was taken 160 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">        160 :             refpol.push_back(vpol_vlist[vlist_index][config], 1);</span>
-<span class="lineNum">     233 </span>        [<span class="branchCov" title="Branch 0 was taken 20 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         20 :         vrefpol.push_back(refpol);</span>
-<span class="lineNum">     234 </span>        [<span class="branchCov" title="Branch 0 was taken 20 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         20 :         refpol.clear();</span>
+<span class="lineNum">     231 </span>        [<span class="branchCov" title="Branch 0 was taken 496 times"> + </span><span class="branchCov" title="Branch 1 was taken 31 times"> + </span>]:<span class="lineCov">        527 :         for (int config = 0; config &lt; ARRSIZE; config++)</span>
+<span class="lineNum">     232 </span>[<span class="branchCov" title="Branch 1 was taken 496 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>][<span class="branchCov" title="Branch 4 was taken 496 times"> + </span><span class="branchNoCov" title="Branch 5 was not taken"> - </span>]:<span class="lineCov">        496 :             refpol.push_back(vpol_vlist[vlist_index][config], 1);</span>
+<span class="lineNum">     233 </span>        [<span class="branchCov" title="Branch 0 was taken 31 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         31 :         vrefpol.push_back(refpol);</span>
+<span class="lineNum">     234 </span>        [<span class="branchCov" title="Branch 0 was taken 31 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         31 :         refpol.clear();</span>
 <span class="lineNum">     235 </span>                :            :     }
-<span class="lineNum">     236 </span>        [<span class="branchCov" title="Branch 0 was taken 4 times"> + </span><span class="branchCov" title="Branch 1 was taken 20 times"> + </span>]:<span class="lineCov">         24 :     if (current_column &lt; ySize - 1) {</span>
-<span class="lineNum">     237 </span>        [<span class="branchCov" title="Branch 0 was taken 4 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          4 :         refPolynomial refpolnew;</span>
-<span class="lineNum">     238 </span>        [<span class="branchCov" title="Branch 0 was taken 4 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          4 :         refpolnew.sum(refpol, vrefpolnew);</span>
-<span class="lineNum">     239 </span>[<span class="branchCov" title="Branch 0 was taken 4 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>][<span class="branchCov" title="Branch 3 was taken 4 times"> + </span><span class="branchNoCov" title="Branch 4 was not taken"> - </span>]:<span class="lineCov">          4 :         vrefpol.push_back(refpolnew);</span>
+<span class="lineNum">     236 </span>        [<span class="branchCov" title="Branch 0 was taken 5 times"> + </span><span class="branchCov" title="Branch 1 was taken 31 times"> + </span>]:<span class="lineCov">         36 :     if (current_column &lt; ySize - 1) {</span>
+<span class="lineNum">     237 </span>        [<span class="branchCov" title="Branch 0 was taken 5 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          5 :         refPolynomial refpolnew;</span>
+<span class="lineNum">     238 </span>        [<span class="branchCov" title="Branch 0 was taken 5 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          5 :         refpolnew.sum(refpol, vrefpolnew);</span>
+<span class="lineNum">     239 </span>[<span class="branchCov" title="Branch 0 was taken 5 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>][<span class="branchCov" title="Branch 3 was taken 5 times"> + </span><span class="branchNoCov" title="Branch 4 was not taken"> - </span>]:<span class="lineCov">          5 :         vrefpol.push_back(refpolnew);</span>
 <span class="lineNum">     240 </span>                :            :     }
-<span class="lineNum">     241 </span>        [<span class="branchCov" title="Branch 1 was taken 24 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>]:<span class="lineCov">         24 :     return vrefpol.size() - 1;</span>
+<span class="lineNum">     241 </span>        [<span class="branchCov" title="Branch 1 was taken 36 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>]:<span class="lineCov">         36 :     return vrefpol.size() - 1;</span>
 <a name="242"><span class="lineNum">     242 </span>                :            : }</a>
 <span class="lineNum">     243 </span>                :            : 
-<span class="lineNum">     244 </span>                :<span class="lineNoCov">          0 : void clearLists(vector&lt;vector&lt;Storage&gt; &gt;  &amp;vvlist) {</span>
-<span class="lineNum">     245 </span>        [<span class="branchNoExec" title="Branch 4 was not executed"> # </span><span class="branchNoExec" title="Branch 5 was not executed"> # </span>]:<span class="lineNoCov">          0 :     for (vector&lt;vector&lt;Storage&gt; &gt; ::iterator i = vvlist.begin(); i != vvlist.end(); ++i)</span>
-<span class="lineNum">     246 </span>                :<span class="lineNoCov">          0 :         i-&gt;clear();</span>
-<a name="247"><span class="lineNum">     247 </span>                :<span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">     244 </span>                :<span class="lineCov">        176 : void clearLists(vector&lt;vector&lt;Storage&gt; &gt;  &amp;vvlist) {</span>
+<span class="lineNum">     245 </span>        [<span class="branchCov" title="Branch 4 was taken 704 times"> + </span><span class="branchCov" title="Branch 5 was taken 176 times"> + </span>]:<span class="lineCov">        880 :     for (vector&lt;vector&lt;Storage&gt; &gt; ::iterator i = vvlist.begin(); i != vvlist.end(); ++i)</span>
+<span class="lineNum">     246 </span>                :<span class="lineCov">        704 :         i-&gt;clear();</span>
+<a name="247"><span class="lineNum">     247 </span>                :<span class="lineCov">        176 : }</span></a>
 <span class="lineNum">     248 </span>                :            : 
 <span class="lineNum">     249 </span>                :<span class="lineNoCov">          0 : void clearLists(vector&lt;vector&lt;Polynomial&gt; &gt; &amp;vvlist) {</span>
 <span class="lineNum">     250 </span>        [<span class="branchNoExec" title="Branch 4 was not executed"> # </span><span class="branchNoExec" title="Branch 5 was not executed"> # </span>]:<span class="lineNoCov">          0 :     for (vector&lt;vector&lt;Polynomial&gt; &gt;::iterator i = vvlist.begin(); i != vvlist.end(); ++i)</span>
 <span class="lineNum">     251 </span>                :<span class="lineNoCov">          0 :         i-&gt;clear();</span>
 <a name="252"><span class="lineNum">     252 </span>                :<span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">     253 </span>                :            : 
-<span class="lineNum">     254 </span>                :<span class="lineNoCov">          0 : int find_ylist_reference(const G_TABLE2 &amp;ylist, const G_TABLE1 &amp;ylist_bc3) {</span>
-<span class="lineNum">     255 </span>        [<span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span>]:<span class="lineNoCov">          0 :     for (int i = 0; i &lt; ylist.size(); i++) {</span>
-<span class="lineNum">     256 </span>                :<span class="lineNoCov">          0 :         bool equal = true;</span>
-<span class="lineNum">     257 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         for (int j = 0; j &lt; ySize; j++)</span>
-<span class="lineNum">     258 </span>        [<span class="branchNoExec" title="Branch 3 was not executed"> # </span><span class="branchNoExec" title="Branch 4 was not executed"> # </span>]:<span class="lineNoCov">          0 :             if (ylist[i][j] != ylist_bc3[j]) {</span>
-<span class="lineNum">     259 </span>                :<span class="lineNoCov">          0 :                 equal = false;</span>
-<span class="lineNum">     260 </span>                :<span class="lineNoCov">          0 :                 break;</span>
+<span class="lineNum">     254 </span>                :<span class="lineCov">         88 : int find_ylist_reference(const G_TABLE2 &amp;ylist, const G_TABLE1 &amp;ylist_bc3) {</span>
+<span class="lineNum">     255 </span>        [<span class="branchCov" title="Branch 1 was taken 18544 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>]:<span class="lineCov">      18544 :     for (int i = 0; i &lt; ylist.size(); i++) {</span>
+<span class="lineNum">     256 </span>                :<span class="lineCov">      18544 :         bool equal = true;</span>
+<span class="lineNum">     257 </span>        [<span class="branchCov" title="Branch 0 was taken 23439 times"> + </span><span class="branchCov" title="Branch 1 was taken 88 times"> + </span>]:<span class="lineCov">      23527 :         for (int j = 0; j &lt; ySize; j++)</span>
+<span class="lineNum">     258 </span>        [<span class="branchCov" title="Branch 3 was taken 18456 times"> + </span><span class="branchCov" title="Branch 4 was taken 4983 times"> + </span>]:<span class="lineCov">      23439 :             if (ylist[i][j] != ylist_bc3[j]) {</span>
+<span class="lineNum">     259 </span>                :<span class="lineCov">      18456 :                 equal = false;</span>
+<span class="lineNum">     260 </span>                :<span class="lineCov">      18456 :                 break;</span>
 <span class="lineNum">     261 </span>                :            :             }
-<span class="lineNum">     262 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (equal) {</span>
-<span class="lineNum">     263 </span>                :<span class="lineNoCov">          0 :             return ylist[i][ySize];</span>
+<span class="lineNum">     262 </span>        [<span class="branchCov" title="Branch 0 was taken 88 times"> + </span><span class="branchCov" title="Branch 1 was taken 18456 times"> + </span>]:<span class="lineCov">      18544 :         if (equal) {</span>
+<span class="lineNum">     263 </span>                :<span class="lineCov">         88 :             return ylist[i][ySize];</span>
 <span class="lineNum">     264 </span>                :            :         }
 <span class="lineNum">     265 </span>                :            :     }
 <span class="lineNum">     266 </span>[<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>][<span class="branchNoExec" title="Branch 5 was not executed"> # </span><span class="branchNoExec" title="Branch 6 was not executed"> # </span>]:<span class="lineNoCov">          0 :     throw new runtime_error(&quot;Error:z_pol_ref\n&quot;);</span>
 <span class="lineNum">         </span>        [<span class="branchNoExec" title="Branch 8 was not executed"> # </span><span class="branchNoExec" title="Branch 9 was not executed"> # </span>]
 <a name="267"><span class="lineNum">     267 </span>                :            : }</a>
 <span class="lineNum">     268 </span>                :            : 
-<span class="lineNum">     269 </span>                :<span class="lineCov">        102 : int calculate_outer_hamiltonian(const vector&lt;Storage&gt;   &amp;GrowthMatrix, const G_TABLE1 &amp;current_config) {</span>
-<span class="lineNum">     270 </span>                :<span class="lineCov">        102 :     int Hamiltonian = 0;</span>
-<span class="lineNum">     271 </span>        [<span class="branchCov" title="Branch 0 was taken 306 times"> + </span><span class="branchCov" title="Branch 1 was taken 102 times"> + </span>]:<span class="lineCov">        408 :     for (int i = 0; i &lt; ySize; i++) {</span>
-<span class="lineNum">     272 </span>                :<span class="lineCov">        306 :         Hamiltonian += GrowthMatrix[ARRSIZE][current_config[i]]; // this is the line</span>
+<span class="lineNum">     269 </span>                :<span class="lineCov">     261024 : int calculate_outer_hamiltonian(const vector&lt;Storage&gt;   &amp;GrowthMatrix, const G_TABLE1 &amp;current_config) {</span>
+<span class="lineNum">     270 </span>                :<span class="lineCov">     261024 :     int Hamiltonian = 0;</span>
+<span class="lineNum">     271 </span>        [<span class="branchCov" title="Branch 0 was taken 783072 times"> + </span><span class="branchCov" title="Branch 1 was taken 261024 times"> + </span>]:<span class="lineCov">    1044096 :     for (int i = 0; i &lt; ySize; i++) {</span>
+<span class="lineNum">     272 </span>                :<span class="lineCov">     783072 :         Hamiltonian += GrowthMatrix[ARRSIZE][current_config[i]]; // this is the line</span>
 <span class="lineNum">     273 </span>                :            :     }
-<span class="lineNum">     274 </span>        [<span class="branchCov" title="Branch 0 was taken 204 times"> + </span><span class="branchCov" title="Branch 1 was taken 102 times"> + </span>]:<span class="lineCov">        306 :     for (int i = 1; i &lt; ySize; i++) {</span>
-<span class="lineNum">     275 </span>                :<span class="lineCov">        204 :         Hamiltonian += GrowthMatrix[current_config[i]][current_config[i - 1]];</span>
+<span class="lineNum">     274 </span>        [<span class="branchCov" title="Branch 0 was taken 522048 times"> + </span><span class="branchCov" title="Branch 1 was taken 261024 times"> + </span>]:<span class="lineCov">     783072 :     for (int i = 1; i &lt; ySize; i++) {</span>
+<span class="lineNum">     275 </span>                :<span class="lineCov">     522048 :         Hamiltonian += GrowthMatrix[current_config[i]][current_config[i - 1]];</span>
 <span class="lineNum">     276 </span>                :            :     }
 <span class="lineNum">     277 </span>                :            :     if (BConds1)
-<span class="lineNum">     278 </span>                :            :         Hamiltonian += GrowthMatrix[current_config[0]][current_config[ySize - 1]];
-<span class="lineNum">     279 </span>                :<span class="lineCov">        102 :     return Hamiltonian;</span>
+<span class="lineNum">     278 </span>                :<span class="lineCov">     261024 :         Hamiltonian += GrowthMatrix[current_config[0]][current_config[ySize - 1]];</span>
+<span class="lineNum">     279 </span>                :<span class="lineCov">     261024 :     return Hamiltonian;</span>
 <a name="280"><span class="lineNum">     280 </span>                :            : }</a>
 <span class="lineNum">     281 </span>                :            : 
-<span class="lineNum">     282 </span>                :<span class="lineCov">        606 : void addEnergy4pol(const Storage &amp;s, const Storage &amp;e,</span>
+<span class="lineNum">     282 </span>                :<span class="lineCov">     944982 : void addEnergy4pol(const Storage &amp;s, const Storage &amp;e,</span>
 <span class="lineNum">     283 </span>                :            :         refPolynomial &amp;refpol, const int &amp;maxpower) {
 <span class="lineNum">     284 </span>                :            :     int expo;
-<span class="lineNum">     285 </span>                :<span class="lineCov">        606 :     refpol.clear();</span>
-<span class="lineNum">     286 </span>        [<span class="branchCov" title="Branch 0 was taken 4848 times"> + </span><span class="branchCov" title="Branch 1 was taken 606 times"> + </span>]:<span class="lineCov">       5454 :     for (int i = 0; i &lt; ARRSIZE; i++) {</span>
-<span class="lineNum">     287 </span>                :<span class="lineCov">       4848 :         expo = s[i] * maxpower + e[i];</span>
-<span class="lineNum">     288 </span>                :<span class="lineCov">       4848 :         refpol.push_back(expo, 1);</span>
+<span class="lineNum">     285 </span>                :<span class="lineCov">     944982 :     refpol.clear();</span>
+<span class="lineNum">     286 </span>        [<span class="branchCov" title="Branch 0 was taken 15119712 times"> + </span><span class="branchCov" title="Branch 1 was taken 944982 times"> + </span>]:<span class="lineCov">   16064694 :     for (int i = 0; i &lt; ARRSIZE; i++) {</span>
+<span class="lineNum">     287 </span>                :<span class="lineCov">   15119712 :         expo = s[i] * maxpower + e[i];</span>
+<span class="lineNum">     288 </span>                :<span class="lineCov">   15119712 :         refpol.push_back(expo, 1);</span>
 <span class="lineNum">     289 </span>                :            :     }
-<span class="lineNum">     290 </span>                :<span class="lineCov">        606 : }</span>
+<span class="lineNum">     290 </span>                :<span class="lineCov">     944982 : }</span>
 <a name="291"><span class="lineNum">     291 </span>                :            : int SMALLEST_TRANSFERMATRIX = 0;</a>
 <span class="lineNum">     292 </span>                :            : 
-<span class="lineNum">     293 </span>                :<span class="lineCov">         30 : void calculate_inner_vpol(const int &amp;current_column,</span>
+<span class="lineNum">     293 </span>                :<span class="lineCov">      23584 : void calculate_inner_vpol(const int &amp;current_column,</span>
 <span class="lineNum">     294 </span>                :            :         vector&lt;vector&lt;Polynomial&gt; &gt; &amp;vpol,
 <span class="lineNum">     295 </span>                :            :         vector&lt;vector&lt;refPolynomial&gt; &gt;  &amp;vrefpol,
 <span class="lineNum">     296 </span>                :            :         Polynomial &amp;p
 <span class="lineNum">     297 </span>                :            :         ) {
-<span class="lineNum">     298 </span>        [<span class="branchCov" title="Branch 4 was taken 4 times"> + </span><span class="branchCov" title="Branch 5 was taken 26 times"> + </span>]:<span class="lineCov">         30 :     if (vpol[current_column + 2].size() &lt; vrefpol[current_column].size()) {</span>
-<span class="lineNum">     299 </span>                :<span class="lineCov">          4 :         p.clear();</span>
-<span class="lineNum">     300 </span>        [<span class="branchCov" title="Branch 4 was taken 72 times"> + </span><span class="branchCov" title="Branch 5 was taken 4 times"> + </span>]:<span class="lineCov">         76 :         while (vpol[current_column + 2].size() &lt; vrefpol[current_column].size()) {</span>
-<span class="lineNum">     301 </span>                :<span class="lineCov">         72 :             vpol[current_column + 2].push_back(p);</span>
+<span class="lineNum">     298 </span>        [<span class="branchCov" title="Branch 4 was taken 6 times"> + </span><span class="branchCov" title="Branch 5 was taken 23578 times"> + </span>]:<span class="lineCov">      23584 :     if (vpol[current_column + 2].size() &lt; vrefpol[current_column].size()) {</span>
+<span class="lineNum">     299 </span>                :<span class="lineCov">          6 :         p.clear();</span>
+<span class="lineNum">     300 </span>        [<span class="branchCov" title="Branch 4 was taken 272 times"> + </span><span class="branchCov" title="Branch 5 was taken 6 times"> + </span>]:<span class="lineCov">        278 :         while (vpol[current_column + 2].size() &lt; vrefpol[current_column].size()) {</span>
+<span class="lineNum">     301 </span>                :<span class="lineCov">        272 :             vpol[current_column + 2].push_back(p);</span>
 <span class="lineNum">     302 </span>                :            :         }
 <span class="lineNum">     303 </span>                :            :     }
-<span class="lineNum">     304 </span>[<span class="branchCov" title="Branch 1 was taken 30 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>][<span class="branchCov" title="Branch 4 was taken 30 times"> + </span><span class="branchNoCov" title="Branch 5 was not taken"> - </span>]:<span class="lineCov">         30 :     vector&lt;vector&lt;refPolynomial &gt; &gt; vrefpolnew(ySize + 1);</span>
-<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 7 was taken 30 times"> + </span><span class="branchNoCov" title="Branch 8 was not taken"> - </span>]
-<span class="lineNum">     305 </span>        [<span class="branchCov" title="Branch 0 was taken 30 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         30 :     refPolynomial refpol;</span>
-<span class="lineNum">     306 </span>                :<span class="lineCov">         30 :     int mxpow = 1;</span>
-<span class="lineNum">     307 </span>                :<span class="lineCov">         30 :     int cc = 0;</span>
-<span class="lineNum">     308 </span>                :<span class="lineCov">         30 :     int starter = 0;</span>
-<span class="lineNum">     309 </span>        [<span class="branchCov" title="Branch 0 was taken 6 times"> + </span><span class="branchCov" title="Branch 1 was taken 24 times"> + </span>]:<span class="lineCov">         30 :     if (SMALLEST_TRANSFERMATRIX &lt; current_column)</span>
-<span class="lineNum">     310 </span>                :<span class="lineCov">          6 :         cc = SMALLEST_TRANSFERMATRIX;</span>
+<span class="lineNum">     304 </span>[<span class="branchCov" title="Branch 1 was taken 23584 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>][<span class="branchCov" title="Branch 4 was taken 23584 times"> + </span><span class="branchNoCov" title="Branch 5 was not taken"> - </span>]:<span class="lineCov">      23584 :     vector&lt;vector&lt;refPolynomial &gt; &gt; vrefpolnew(ySize + 1);</span>
+<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 7 was taken 23584 times"> + </span><span class="branchNoCov" title="Branch 8 was not taken"> - </span>]
+<span class="lineNum">     305 </span>        [<span class="branchCov" title="Branch 0 was taken 23584 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">      23584 :     refPolynomial refpol;</span>
+<span class="lineNum">     306 </span>                :<span class="lineCov">      23584 :     int mxpow = 1;</span>
+<span class="lineNum">     307 </span>                :<span class="lineCov">      23584 :     int cc = 0;</span>
+<span class="lineNum">     308 </span>                :<span class="lineCov">      23584 :     int starter = 0;</span>
+<span class="lineNum">     309 </span>        [<span class="branchCov" title="Branch 0 was taken 799 times"> + </span><span class="branchCov" title="Branch 1 was taken 22785 times"> + </span>]:<span class="lineCov">      23584 :     if (SMALLEST_TRANSFERMATRIX &lt; current_column)</span>
+<span class="lineNum">     310 </span>                :<span class="lineCov">        799 :         cc = SMALLEST_TRANSFERMATRIX;</span>
 <span class="lineNum">     311 </span>                :            : lookagain2:
-<span class="lineNum">     312 </span>[<span class="branchCov" title="Branch 0 was taken 24 times"> + </span><span class="branchCov" title="Branch 1 was taken 30 times"> + </span>][<span class="branchCov" title="Branch 4 was taken 24 times"> + </span><span class="branchNoCov" title="Branch 5 was not taken"> - </span>]:<span class="lineCov">         54 :     while (cc &lt; current_column &amp;&amp; vrefpol[cc].size() == 0)</span>
-<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 6 was taken 24 times"> + </span><span class="branchCov" title="Branch 7 was taken 30 times"> + </span>]
-<span class="lineNum">     313 </span>                :<span class="lineCov">         24 :         cc++;</span>
-<span class="lineNum">     314 </span>                :<span class="lineCov">         30 :     int cc1 = cc + 1;</span>
-<span class="lineNum">     315 </span>[<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 30 times"> + </span>][<span class="branchNoExec" title="Branch 4 was not executed"> # </span><span class="branchNoExec" title="Branch 5 was not executed"> # </span>]:<span class="lineCov">         30 :     while (cc1 &lt; current_column &amp;&amp; vrefpol[cc1].size() == 0) {</span>
-<span class="lineNum">         </span>        [<span class="branchNoCov" title="Branch 6 was not taken"> - </span><span class="branchCov" title="Branch 7 was taken 30 times"> + </span>]
+<span class="lineNum">     312 </span>[<span class="branchCov" title="Branch 0 was taken 22088 times"> + </span><span class="branchCov" title="Branch 1 was taken 23584 times"> + </span>][<span class="branchCov" title="Branch 4 was taken 22088 times"> + </span><span class="branchNoCov" title="Branch 5 was not taken"> - </span>]:<span class="lineCov">      45672 :     while (cc &lt; current_column &amp;&amp; vrefpol[cc].size() == 0)</span>
+<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 6 was taken 22088 times"> + </span><span class="branchCov" title="Branch 7 was taken 23584 times"> + </span>]
+<span class="lineNum">     313 </span>                :<span class="lineCov">      22088 :         cc++;</span>
+<span class="lineNum">     314 </span>                :<span class="lineCov">      23584 :     int cc1 = cc + 1;</span>
+<span class="lineNum">     315 </span>[<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 23584 times"> + </span>][<span class="branchNoExec" title="Branch 4 was not executed"> # </span><span class="branchNoExec" title="Branch 5 was not executed"> # </span>]:<span class="lineCov">      23584 :     while (cc1 &lt; current_column &amp;&amp; vrefpol[cc1].size() == 0) {</span>
+<span class="lineNum">         </span>        [<span class="branchNoCov" title="Branch 6 was not taken"> - </span><span class="branchCov" title="Branch 7 was taken 23584 times"> + </span>]
 <span class="lineNum">     316 </span>                :<span class="lineNoCov">          0 :         cc = cc1;</span>
 <span class="lineNum">     317 </span>                :<span class="lineNoCov">          0 :         goto lookagain2;</span>
 <span class="lineNum">     318 </span>                :            :     }
-<span class="lineNum">     319 </span>                :<span class="lineCov">         30 :     bool SWAP = true;</span>
-<span class="lineNum">     320 </span>[<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 30 times"> + </span>][<span class="branchNoExec" title="Branch 4 was not executed"> # </span><span class="branchNoExec" title="Branch 5 was not executed"> # </span>]:<span class="lineCov">         30 :     if (cc &lt; current_column &amp;&amp; vrefpol[cc].size() &gt; 0) {</span>
-<span class="lineNum">         </span>        [<span class="branchNoCov" title="Branch 6 was not taken"> - </span><span class="branchCov" title="Branch 7 was taken 30 times"> + </span>]
+<span class="lineNum">     319 </span>                :<span class="lineCov">      23584 :     bool SWAP = true;</span>
+<span class="lineNum">     320 </span>[<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 23584 times"> + </span>][<span class="branchNoExec" title="Branch 4 was not executed"> # </span><span class="branchNoExec" title="Branch 5 was not executed"> # </span>]:<span class="lineCov">      23584 :     if (cc &lt; current_column &amp;&amp; vrefpol[cc].size() &gt; 0) {</span>
+<span class="lineNum">         </span>        [<span class="branchNoCov" title="Branch 6 was not taken"> - </span><span class="branchCov" title="Branch 7 was taken 23584 times"> + </span>]
 <span class="lineNum">     321 </span>        [<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :         vrefpolnew[cc].swap(vrefpol[cc]);</span>
 <span class="lineNum">     322 </span>                :<span class="lineNoCov">          0 :         starter = cc;</span>
 <span class="lineNum">     323 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         while (cc &lt; current_column) {</span>
@@ -418,16 +418,16 @@
 <span class="lineNum">     333 </span>                :<span class="lineNoCov">          0 :             cc++;</span>
 <span class="lineNum">     334 </span>                :            :         }
 <span class="lineNum">     335 </span>                :            :     } else {
-<span class="lineNum">     336 </span>        [<span class="branchCov" title="Branch 2 was taken 30 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">         30 :         vrefpolnew[current_column].swap(vrefpol[current_column]);</span>
-<span class="lineNum">     337 </span>                :<span class="lineCov">         30 :         starter = current_column;</span>
+<span class="lineNum">     336 </span>        [<span class="branchCov" title="Branch 2 was taken 23584 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">      23584 :         vrefpolnew[current_column].swap(vrefpol[current_column]);</span>
+<span class="lineNum">     337 </span>                :<span class="lineCov">      23584 :         starter = current_column;</span>
 <span class="lineNum">     338 </span>                :            :     }
 <span class="lineNum">     339 </span>                :            : 
-<span class="lineNum">     340 </span>        [<span class="branchCov" title="Branch 0 was taken 30 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         30 :     p.clear();</span>
-<span class="lineNum">     341 </span>        [<span class="branchCov" title="Branch 2 was taken 460 times"> + </span><span class="branchCov" title="Branch 3 was taken 30 times"> + </span>]:<span class="lineCov">        490 :     for (int i = 0; i &lt; vrefpolnew[current_column].size(); i++) {</span>
-<span class="lineNum">     342 </span>        [<span class="branchCov" title="Branch 2 was taken 460 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">        460 :         vpol[current_column + 2][i].clear();</span>
-<span class="lineNum">     343 </span>        [<span class="branchCov" title="Branch 5 was taken 460 times"> + </span><span class="branchNoCov" title="Branch 6 was not taken"> - </span>]:<span class="lineCov">        460 :         vrefpolnew[current_column][i].sum(vpol[current_column + 2][i], vpol[starter + 1], MAXPOWER * mxpow, p);</span>
-<span class="lineNum">     344 </span>        [<span class="branchCov" title="Branch 0 was taken 30 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         30 :     }</span>
-<span class="lineNum">     345 </span>                :<span class="lineCov">         30 : }</span>
+<span class="lineNum">     340 </span>        [<span class="branchCov" title="Branch 0 was taken 23584 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">      23584 :     p.clear();</span>
+<span class="lineNum">     341 </span>        [<span class="branchCov" title="Branch 2 was taken 677142 times"> + </span><span class="branchCov" title="Branch 3 was taken 23584 times"> + </span>]:<span class="lineCov">     700726 :     for (int i = 0; i &lt; vrefpolnew[current_column].size(); i++) {</span>
+<span class="lineNum">     342 </span>        [<span class="branchCov" title="Branch 2 was taken 677142 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">     677142 :         vpol[current_column + 2][i].clear();</span>
+<span class="lineNum">     343 </span>        [<span class="branchCov" title="Branch 5 was taken 677142 times"> + </span><span class="branchNoCov" title="Branch 6 was not taken"> - </span>]:<span class="lineCov">     677142 :         vrefpolnew[current_column][i].sum(vpol[current_column + 2][i], vpol[starter + 1], MAXPOWER * mxpow, p);</span>
+<span class="lineNum">     344 </span>        [<span class="branchCov" title="Branch 0 was taken 23584 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">      23584 :     }</span>
+<span class="lineNum">     345 </span>                :<span class="lineCov">      23584 : }</span>
 <span class="lineNum">     346 </span>                :            : #endif
 </pre>
       </td>
