@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2012-08-29</td>
+            <td class="headerValue">2012-09-02</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">3</td>
@@ -79,14 +79,14 @@
 <span class="lineNum">       8 </span>                :            : 
 <span class="lineNum">       9 </span>                :<span class="lineCov">      23630 : void convertToTime(double etc) {</span>
 <span class="lineNum">      10 </span>                :            :     int dd, hh, mm, ss;
-<span class="lineNum">      11 </span>        [<span class="branchCov" title="Branch 0 was taken 23440 times"> + </span><span class="branchCov" title="Branch 1 was taken 190 times"> + </span>]:<span class="lineCov">      23630 :     if (etc &lt; 60) {</span>
-<span class="lineNum">      12 </span>                :<span class="lineCov">      23440 :         std::cout &lt;&lt; int(etc) &lt;&lt; &quot; secs&quot;;</span>
+<span class="lineNum">      11 </span>        [<span class="branchCov" title="Branch 0 was taken 23449 times"> + </span><span class="branchCov" title="Branch 1 was taken 181 times"> + </span>]:<span class="lineCov">      23630 :     if (etc &lt; 60) {</span>
+<span class="lineNum">      12 </span>                :<span class="lineCov">      23449 :         std::cout &lt;&lt; int(etc) &lt;&lt; &quot; secs&quot;;</span>
 <span class="lineNum">      13 </span>                :            :     } else {
-<span class="lineNum">      14 </span>                :<span class="lineCov">        190 :         ss = int(etc) % 60;</span>
-<span class="lineNum">      15 </span>                :<span class="lineCov">        190 :         mm = int(etc / 60);</span>
-<span class="lineNum">      16 </span>                :<span class="lineCov">        190 :         etc = etc / 60;</span>
-<span class="lineNum">      17 </span>        [<span class="branchCov" title="Branch 0 was taken 190 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        190 :         if (etc &lt; 60) {</span>
-<span class="lineNum">      18 </span>                :<span class="lineCov">        190 :             std::cout &lt;&lt; mm &lt;&lt; &quot; mins &quot; &lt;&lt; ss &lt;&lt; &quot; secs&quot;;</span>
+<span class="lineNum">      14 </span>                :<span class="lineCov">        181 :         ss = int(etc) % 60;</span>
+<span class="lineNum">      15 </span>                :<span class="lineCov">        181 :         mm = int(etc / 60);</span>
+<span class="lineNum">      16 </span>                :<span class="lineCov">        181 :         etc = etc / 60;</span>
+<span class="lineNum">      17 </span>        [<span class="branchCov" title="Branch 0 was taken 181 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        181 :         if (etc &lt; 60) {</span>
+<span class="lineNum">      18 </span>                :<span class="lineCov">        181 :             std::cout &lt;&lt; mm &lt;&lt; &quot; mins &quot; &lt;&lt; ss &lt;&lt; &quot; secs&quot;;</span>
 <span class="lineNum">      19 </span>                :            :         } else {
 <span class="lineNum">      20 </span>                :<span class="lineNoCov">          0 :             hh = int(mm / 60);</span>
 <span class="lineNum">      21 </span>                :<span class="lineNoCov">          0 :             mm = mm % 60;</span>

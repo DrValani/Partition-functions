@@ -8,6 +8,7 @@
 #include "latticeSize.cc"
 #include "Globals.cc"
 #include "Polynomial.cc"
+#include "Source.h"
 using namespace std;
 // {{{ Storage class
 
@@ -17,56 +18,6 @@ using namespace std;
 /**
  *   For storing vlists the size is 2^xsize
  */
-class Storage {
-public:
-
-	Storage() :
-			group_id(-1) {
-	}
-
-	Storage(bool _clear) :
-			group_id(-1) {
-		if (_clear) clear();
-	}  // Create storage with -1 entries
-	void push_back(const int index, int pow);
-
-	int getPow(const int i) const {
-		return list[i];
-	}
-
-	void setPow(const int index, const int i) {
-		list[index] = i;
-	}
-	void clear();
-
-	bool equals(const Storage &s) const;  // compare everything
-
-	int operator[](const int i) const {
-    	if(i > ARRSIZE){
-    		cout << i << endl;
-    		throw new runtime_error("trying to retrive an array out of bound" + i);
-    	}
-    	return list[i];
-	}
-
-	int getId() const {
-		return group_id;
-	}
-
-	void setId(int id) {
-		group_id = id;
-	}
-
-	template<class T>
-	T applyGroup(const T &s1) const;
-
-	void createGroup(const Storage &s1, const Storage &s2);
-
-	int searchGroup(vector<Storage> &allg1) const;
-private:
-	int list[ARRSIZE];
-	int group_id;
-};
 
 void Storage::createGroup(const Storage &s1, const Storage &s2) {
 	for (int i = 0; i < ARRSIZE; i++) {
@@ -81,18 +32,6 @@ void Storage::createGroup(const Storage &s1, const Storage &s2) {
 	}
 }
 
-int Storage::searchGroup(vector<Storage> &allg1) const {
-
-	unsigned int i = 0;
-	while (i < allg1.size()) {
-		if (allg1[i].equals(*this)) {
-			return i;
-		}
-		i++;
-	}
-	allg1.push_back(*this);
-	return allg1.size() - 1;
-}
 
 template<class T>
 T Storage::applyGroup(const T &s1) const {
@@ -118,6 +57,19 @@ void Storage::clear() {
 
 void Storage::push_back(const int index, int pow) {
 	this->list[index] = pow;
+}
+
+int Storage::searchGroup(vector<Storage> &allg1) const {
+
+	unsigned int i = 0;
+	while (i < allg1.size()) {
+		if (allg1[i].equals(*this)) {
+			return i;
+		}
+		i++;
+	}
+	allg1.push_back(*this);
+	return allg1.size() - 1;
 }
 
 // }}}

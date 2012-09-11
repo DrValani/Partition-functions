@@ -67,6 +67,9 @@ public:
 
 private:
 	map<int, int> s;
+
+	void buildvectorRefs(vector<int>& counter,
+			vector<vector<int> >& vref) const;
 };
 
 
@@ -86,8 +89,14 @@ void refPolynomial::sum(refPolynomial &p, vector<refPolynomial> &s2list) {
 
 void refPolynomial::sum(Polynomial &p, const vector<Polynomial> &vPol,
     const int &maxpower, Polynomial &p1) const {
-	vector<int> counter;
-	vector < vector<int> > vref;
+
+	  int Hamiltonian = 0;
+	  sum(p, vPol, maxpower, Hamiltonian, p1);
+}
+
+void refPolynomial::buildvectorRefs(vector<int>& counter,
+		vector<vector<int> >& vref) const {
+
 	vector<int> temp(1, 0);
 	map<int, int>::const_iterator st = s.begin(), en = s.end();
 	while (st != en) {
@@ -104,16 +113,6 @@ void refPolynomial::sum(Polynomial &p, const vector<Polynomial> &vPol,
 			vref.push_back(temp);
 		}
 		++st;
-	}
-	//Polynomial p1;
-	for (vector<int>::size_type i = 0; i < counter.size(); i++) {
-		p1.clear();
-		for (vector<int>::size_type k = 0; k < vref[i].size(); k++) {
-			int place = vref[i][k] / maxpower;
-			int power = vref[i][k] % maxpower;
-			p1.plusPower(vPol[place], power);
-		}
-		p.multiPlus(p1, counter[i]);
 	}
 }
 
@@ -121,24 +120,8 @@ void refPolynomial::sum(Polynomial &p, const vector<Polynomial> &vPol,
     const int &maxpower, const int &Hamiltonian, Polynomial &p1) const {
 	vector<int> counter;
 	vector < vector<int> > vref;
-	vector<int> temp(1, 0);
-	map<int, int>::const_iterator st = s.begin(), en = s.end();
-	while (st != en) {
-		bool found = false;
-		for (vector<int>::size_type j = 0; j < counter.size() && !found; j++) {
-			if ((*st).second == counter[j]) {
-				found = true;
-				vref[j].push_back((*st).first);
-			}
-		}
-		if (!found) {
-			counter.push_back((*st).second);
-			temp[0] = (*st).first;
-			vref.push_back(temp);
-		}
-		++st;
-	}
-//    Polynomial p1;
+	buildvectorRefs(counter, vref);
+
 	for (vector<int>::size_type i = 0; i < counter.size(); i++) {
 		p1.clear();
 		for (vector<int>::size_type k = 0; k < vref[i].size(); k++) {
@@ -153,23 +136,8 @@ void refPolynomial::sum(Polynomial &p, const vector<Polynomial> &vPol,
 void refPolynomial::sum(Polynomial &p, const vector<Polynomial> &vPol) const {
 	vector<int> counter;
 	vector < vector<int> > vref;
-	vector<int> temp(1, 0);
-	map<int, int>::const_iterator st = s.begin(), en = s.end();
-	while (st != en) {
-		bool found = false;
-		for (vector<int>::size_type j = 0; j < counter.size() && !found; j++) {
-			if ((*st).second == counter[j]) {
-				found = true;
-				vref[j].push_back((*st).first);
-			}
-		}
-		if (!found) {
-			counter.push_back((*st).second);
-			temp[0] = (*st).first;
-			vref.push_back(temp);
-		}
-		++st;
-	}
+	buildvectorRefs(counter, vref);
+
 	Polynomial p1;
 	for (vector<int>::size_type i = 0; i < counter.size(); i++) {
 		p1.clear();
