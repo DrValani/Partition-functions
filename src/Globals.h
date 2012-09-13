@@ -23,9 +23,9 @@ typedef vector<G_TABLE1> G_TABLE2;
 typedef vector<G_TABLE2> G_TABLE3;
 extern G_TABLE2 GROUPTABLE;
 
-#ifndef MAXPOLYSIZE
-#define MAXPOLYSIZE (3 * xSize * ySize * zSize) + 1// Max power of lattice
-#endif
+//#ifndef MAXPOLYSIZE
+//#define MAXPOLYSIZE (3 * xSize * ySize * zSize) + 1// Max power of lattice
+//#endif
 
 extern const int MAX_VPOL_SIZE = 80000;
 extern string VPOL_FILENAME;

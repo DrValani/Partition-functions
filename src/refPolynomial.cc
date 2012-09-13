@@ -138,7 +138,9 @@ void refPolynomial::sum(Polynomial &p, const vector<Polynomial> &vPol) const {
 	vector < vector<int> > vref;
 	buildvectorRefs(counter, vref);
 
-	Polynomial p1;
+	int MAXPOLYSIZE =(3 * xSize * ySize * zSize) + 1;
+	Polynomial p1(MAXPOLYSIZE);
+
 	for (vector<int>::size_type i = 0; i < counter.size(); i++) {
 		p1.clear();
 		for (vector<int>::size_type k = 0; k < vref[i].size(); k++)

@@ -9,13 +9,14 @@ using namespace std;
 
 void final_check(Polynomial &p, const int &z) {
     mpz_class total = 0;
+    int MAXPOLYSIZE = (3 * xSize * ySize * zSize) + 1;
     for (int i = MAXPOLYSIZE - 1; i >= 0; i--) {
         total = total + p[i];
     }
+
     mpz_class total2;
     mpz_ui_pow_ui(total2.get_mpz_t(), Q, xSize * ySize * z);
     total = total - total2;
-    //mpz_class total = total - pow((double) Q, xSize * ySize * z);
     if (total != 0) {
         cout << "total is: " << total << endl;
         cout << "The total does not match the total number of combos\n QBAR = " << ARRSIZE << "\n";
@@ -25,7 +26,8 @@ void final_check(Polynomial &p, const int &z) {
 
 void make_vpol(vector<Polynomial> &vpol, vector<int> &ylist) {
     vpol.clear();
-    Polynomial p;
+	int MAXPOLYSIZE =(3 * xSize * ySize * zSize) + 1;
+	Polynomial p(MAXPOLYSIZE);
     for (int i = 0; i < ylist.size(); i++) {
         p.push_back(1, ylist[i]);
         vpol.push_back(p);

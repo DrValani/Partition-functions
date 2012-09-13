@@ -3,10 +3,6 @@
 #ifndef Polynomial_CC
 #define Polynomial_CC
 
-#ifndef MAXPOLYSIZE
-#define MAXPOLYSIZE (3 * xSize * ySize * zSize) + 1// Max power of lattice
-#endif
-
 #include "Polynomial.h"
 using namespace std;
 
@@ -14,6 +10,17 @@ using namespace std;
  * This class stores the polynomials using mpz ints. The size of each 
  * polynomial is the max power of the lattice.
  */
+
+Polynomial::Polynomial(const int polynomialSize) : 	MAXPOLYSIZE(polynomialSize),degree(0){
+	 summands = new mpz_class[polynomialSize]; summands[0] = 0;
+}
+Polynomial::Polynomial(const Polynomial &p):
+	MAXPOLYSIZE (p.MAXPOLYSIZE), degree(p.degree){
+	summands = new mpz_class[MAXPOLYSIZE];
+	for(int i = 0; i <= degree; i++){
+		summands[i] = p.summands[i];
+	}
+}
 /**
  * This is the same as this = this + (p * ct)
  * Multiply a given polynomial by an int then add it.

@@ -348,8 +348,8 @@ void buildAdd(G_TABLE2 &ylist, G_TABLE1 &transformGroup, vector<vector<Storage> 
 	std::cout << "Now running build add " << std::endl;
 
 	vector<vector<refPolynomial> >  vrefpol(ySize + 1);
-
-	Polynomial p;
+	int MAXPOLYSIZE =(3 * xSize * ySize * zSize) + 1;
+	Polynomial p(MAXPOLYSIZE);
 	p.clear();
 	total.sum(p, vpol[1]);
 	std::cout << "Printing p\n";
@@ -399,14 +399,16 @@ void buildAdd(G_TABLE2 &ylist_bc3, G_TABLE1 &transformGroup_bc3,
     vector<vector<Storage> >  &vlist, vector<vector<Polynomial> > &vpol, vector<vector<Storage> >  & vpol_vlist) {
 
 	vector<vector<refPolynomial> >  vrefpol(ySize + 1);
-	Polynomial p;
+	int MAXPOLYSIZE =(3 * xSize * ySize * zSize) + 1;
+	Polynomial p(MAXPOLYSIZE);
 	std::cout << "Now running build add " << std::endl;
 	vector<Storage>   GrowthMatrix;
 	Create_energy_matrix(GrowthMatrix);
 	G_TABLE2 ylist;
 	int totalCalculations = zSize * ylist_bc3.size();
 	int calculated = 0;
-	vector<Polynomial> vpol_final(zSize);
+
+	vector<Polynomial> vpol_final(zSize, Polynomial(MAXPOLYSIZE));
 	for (int i = 0; i < zSize; i++)
 		vpol_final[i].clear();
 	for (int bc3_config = 0; bc3_config < ylist_bc3.size(); bc3_config++) {
@@ -417,7 +419,6 @@ void buildAdd(G_TABLE2 &ylist_bc3, G_TABLE1 &transformGroup_bc3,
 			    transformGroup);
 			transformGroup = subTransformGroup;
 		}
-		//clearLists(vpol);
 		clearLists(vpol_vlist);
 		clearLists(vlist);
 		ylist.clear();

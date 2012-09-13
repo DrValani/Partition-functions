@@ -25,9 +25,6 @@ typedef vector<G_TABLE1> G_TABLE2;
 typedef vector<G_TABLE2> G_TABLE3;
 G_TABLE2 GROUPTABLE;
 
-#ifndef MAXPOLYSIZE
-#define MAXPOLYSIZE (3 * xSize * ySize * zSize) + 1// Max power of lattice
-#endif
 string VPOL_FILENAME;
 
 ostream & operator<<(ostream & out, const vector<pair<int, int> > &s) {

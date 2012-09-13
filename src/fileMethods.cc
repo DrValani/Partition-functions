@@ -159,7 +159,9 @@ void file_to_vpol(vector<Polynomial> &vpol, string filename) {
 
 void file_to_vpol(vector<Polynomial> &vpol, const G_TABLE2 &ylist, string filename) {
     if (vpol.size() < ylist.size()) {
-        Polynomial p;
+    	int MAXPOLYSIZE =(3 * xSize * ySize * zSize) + 1;
+    	Polynomial p(MAXPOLYSIZE);
+
         while (vpol.size() < ylist.size()) {
             vpol.push_back(p);
         }

@@ -13,15 +13,15 @@
 #include <vector>
 #include <sstream>
 #include <fstream>
-#include "latticeSize.cc"
+
 using namespace std;
+
 
 class Polynomial {
 public:
-	Polynomial() :
-			degree(0) {
-			summands[0] = 0;
-	}
+	Polynomial(const int polynomialSize);
+	Polynomial(const Polynomial &p);
+	~Polynomial(){delete[] summands;}
 	Polynomial operator=(const Polynomial &p);
 	Polynomial operator+(const Polynomial &p) const;
 	Polynomial operator-(const Polynomial &p);
@@ -34,20 +34,15 @@ public:
 	void push_back(const T &coeff, const int &expo);
 	template<class T>
 	void push_back(const T *coeff, const int &expo);
-	mpz_class operator[](int i) const {
-		return summands[i];
-	}
-	int getDegree() const {
-		return degree;
-	}
+	mpz_class operator[](int i) const {return summands[i];}
+	int getDegree() const {return degree;}
 	void plusPower(const Polynomial &p, const int pow);
-	bool isZero() {
-		return ((degree == 0) && (summands[0] == 0));
-	}
+	bool isZero() {return ((degree == 0) && (summands[0] == 0));}
 	void multiPlus(const Polynomial &p, const int &ct);
 private:
+	const int MAXPOLYSIZE;
 	const bool isInBounds(const int &expo){return expo < MAXPOLYSIZE;}
-	mpz_class summands[MAXPOLYSIZE];
+	mpz_class * summands;
 	int degree;
 };
 
