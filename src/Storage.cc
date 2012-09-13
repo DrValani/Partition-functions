@@ -8,7 +8,7 @@
 #include "latticeSize.cc"
 #include "Globals.cc"
 #include "Polynomial.cc"
-#include "Source.h"
+//#include "Source.h"
 using namespace std;
 // {{{ Storage class
 
@@ -18,6 +18,62 @@ using namespace std;
 /**
  *   For storing vlists the size is 2^xsize
  */
+class Storage {
+public:
+
+	Storage() :
+			group_id(-1) {
+	}
+	Storage(int a);  //:group_id(-1),group_id2(-1);
+
+	Storage(bool _clear) :
+			group_id(-1) {
+		if (_clear) clear();
+	}  // Create storage with -1 entries
+	void push_back(const int index, int pow);
+
+	int getPow(const int i) const {
+		return list[i];
+	}
+
+	void setPow(const int index, const int i) {
+		list[index] = i;
+	}
+	void print() const;
+	void clear();
+
+	bool operator==(const Storage &s) const;
+	bool operator<(const Storage &s) const;
+	bool equals(const Storage &s) const;  // compare everything
+
+	int operator[](const int i) const {
+		return list[i];
+	}
+	Storage order_it() const;
+	Storage order_it_asending() const;
+	void reverse(Storage temp);
+
+	int getId() const {
+		return group_id;
+	}
+
+	void setId(int id) {
+		group_id = id;
+	}
+
+	void sum(const vector<Polynomial> &vpol, Polynomial &p) const;
+	template<class T>
+	T applyGroup(const T &s1) const;
+	bool check_structure() const;
+	void operator+(const int &x);
+
+	void createGroup(const Storage &s1, const Storage &s2);
+
+	int searchGroup(vector<Storage> &allg1) const;
+private:
+	int list[ARRSIZE];
+	int group_id;
+};
 
 void Storage::createGroup(const Storage &s1, const Storage &s2) {
 	for (int i = 0; i < ARRSIZE; i++) {

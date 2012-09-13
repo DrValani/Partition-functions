@@ -15,10 +15,10 @@ OUTFILE=main.out
 
 
 all: $(OBJ_FILES)
-	$(CXX) $(LDFLAGS) $(OBJ_FILES) -o $(OUTFILE) $(LDLIBS) 
+	$(CXX) $(LDFLAGS) Debug/$(OBJ_FILES) -o Debug/$(OUTFILE) $(LDLIBS) 
 
 $(OBJ_FILES) : 
-	$(CXX) $(LDFLAGS) -c $(FILES) -o $@
+	$(CXX) $(LDFLAGS) -c src/$(FILES) -o Debug/$@
 
 clean:
-	$(RM) $(OBJ_FILES) $(OUTFILE)
+	$(RM) Debug/$(OBJ_FILES) Debug/$(OUTFILE)
