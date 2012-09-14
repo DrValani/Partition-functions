@@ -5,20 +5,26 @@ CPPFLAGS=-g
 LDFLAGS=-g -fprofile-arcs -ftest-coverage
 LDLIBS=-lgmpxx -lgmp
 
-SRC_DIR=lib
-FILES=Energy.cc
-
+SRC_DIR=src
+FILES=Polynomial.cc Energy.cc
+SRC_FILES=$(addprefix $(FILES)/,$(FILES)
+OBJ_DIR=Debug
 OBJ_FILES=$(subst .cc,.o,$(FILES))
+OBJ_OUT_FILES=$(addprefix $(OBJ_DIR)/,$(OBJ_FILES))
 
-OUTFILE=main.out
+OUTFILE=$(OBJ_DIR)/main.out
 
 
 
 all: $(OBJ_FILES)
-	$(CXX) $(LDFLAGS) Debug/$(OBJ_FILES) -o Debug/$(OUTFILE) $(LDLIBS) 
+	$(CXX) $(LDFLAGS) $(OBJ_OUT_FILES) -o $(OUTFILE) $(LDLIBS) 
 
-$(OBJ_FILES) : 
-	$(CXX) $(LDFLAGS) -c src/$(FILES) -o Debug/$@
+Polynomial.o : 
+	$(CXX) $(LDFLAGS) -c src/Polynomial.cc -o Debug/$@
+
+Energy.o : 
+	$(CXX) $(LDFLAGS) -c src/Energy.cc -o Debug/$@
+
 
 clean:
-	$(RM) Debug/$(OBJ_FILES) Debug/$(OUTFILE)
+	$(RM) $(OBJ_OUT_FILES) $(OUTFILE)

@@ -4,7 +4,7 @@
 #include <iostream>
 #include "latticeSize.cc"
 #include "Globals.cc"
-#include "Polynomial.cc"
+#include "Polynomial.h"
 #include "Storage.cc"
 #include "commonMethods.cc"
 #include "fileMethods.cc"

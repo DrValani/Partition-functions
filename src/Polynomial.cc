@@ -122,14 +122,6 @@ Polynomial Polynomial::operator=(const Polynomial &p) {
 	return *this;
 }
 
-ostream & operator<<(ostream & out, const Polynomial &p) {
-	for (int i = 0; i <= p.getDegree(); i++) {
-		out << p[i];
-		out << endl;
-	}
-	return out;
-}
-
 ostream & operator,(ostream & out, const Polynomial &p) {
 	int i = p.getDegree();
 	out << "z(x) = ";

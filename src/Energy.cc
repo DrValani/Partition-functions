@@ -18,7 +18,7 @@ int search_list(T &elist, S &s);
 
 // }}}
 #include "Grid.cc"
-#include "Polynomial.cc"
+#include "Polynomial.h"
 #include "refPolynomial.cc"
 #include "Storage.cc"
 #include "Storage_y.cc"

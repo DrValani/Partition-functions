@@ -3,7 +3,7 @@
 #include <vector>
 #include "Grid.cc"
 #include "Storage.cc"
-#include "Polynomial.cc"
+#include "Polynomial.h"
 #include "refPolynomial.cc"
 using namespace std;
 

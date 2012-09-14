@@ -6,9 +6,17 @@
 #include <fstream>
 #include "latticeSize.cc"
 #include "Globals.cc"
-#include "Polynomial.cc"
+#include "Polynomial.h"
 using namespace std;
 
+
+ostream & operator<<(ostream & out, const Polynomial &p) {
+	for (int i = 0; i <= p.getDegree(); i++) {
+		out << p[i];
+		out << endl;
+	}
+	return out;
+}
 
 
 string concat(string string1, string string2) {

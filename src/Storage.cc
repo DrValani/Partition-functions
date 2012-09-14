@@ -7,7 +7,7 @@
 #include <fstream>
 #include "latticeSize.cc"
 #include "Globals.cc"
-#include "Polynomial.cc"
+#include "Polynomial.h"
 //#include "Source.h"
 using namespace std;
 // {{{ Storage class

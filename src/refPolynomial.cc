@@ -3,7 +3,7 @@
 #include <map>
 #include <vector>
 #include <algorithm>
-#include "Polynomial.cc"
+#include "Polynomial.h"
 #include "Storage.cc"
 using namespace std;
 // {{{ refPolynomial Class
